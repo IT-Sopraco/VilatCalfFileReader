@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VSM.RUMA.CORE.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DatabaseType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MySQL</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_Licentie_licentieagrobaseService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://licentie2.agrobase.eu/licentieagrobase2.php</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_LicentieAMS_licentieagrobaseService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://licentie.agrobase.eu/licentieagrobase2.php</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_LicentieWDR_licentieagrobaseService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://licentie2.agrobase.eu/licentieagrobase2.php</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

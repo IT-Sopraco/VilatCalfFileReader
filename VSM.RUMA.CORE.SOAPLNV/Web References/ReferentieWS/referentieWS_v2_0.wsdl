@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:referentieWS="http://www.ienr.org/schemas/services/referentieWS_v2_0" xmlns:referentie="http://www.ienr.org/schemas/types/referentie_v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/referentieWS_v2_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/referentieWS_v2_0">
+      <xsd:import namespace="http://sql.java" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import schemaLocation="https://dbrbms.agro.nl/bms_v2_0/referentie_v2_0.xsd" namespace="http://www.ienr.org/schemas/types/referentie_v2_0" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="raadplegenDiersoortenRequest">
+    <wsdl:part name="request" type="referentie:diersoortenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenDiersoortenResponse">
+    <wsdl:part name="raadplegenDiersoortenReturn" type="referentie:diersoortenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenLandenRequest">
+    <wsdl:part name="request" type="referentie:landenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenLandenResponse">
+    <wsdl:part name="raadplegenLandenReturn" type="referentie:landenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenEULandenRequest">
+    <wsdl:part name="request" type="referentie:EUlandenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenEULandenResponse">
+    <wsdl:part name="raadplegenEULandenReturn" type="referentie:EUlandenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenHaarkleurenRequest">
+    <wsdl:part name="request" type="referentie:haarkleurenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenDestructorsRequest">
+    <wsdl:part name="request" type="referentie:destructorsRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenDestructorsResponse">
+    <wsdl:part name="raadplegenDestructorsReturn" type="referentie:destructorsResponseType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenHaarkleurenResponse">
+    <wsdl:part name="raadplegenHaarkleurenReturn" type="referentie:haarkleurenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenDomeinenRequest">
+    <wsdl:part name="request" type="referentie:domeinenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenDomeinenResponse">
+    <wsdl:part name="raadplegenDomeinenReturn" type="referentie:domeinenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenVlagsoortenRequest">
+    <wsdl:part name="request" type="referentie:vlagsoortenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenVlagsoortenResponse">
+    <wsdl:part name="raadplegenVlagsoortenReturn" type="referentie:vlagsoortenResponseType" />
+  </wsdl:message>
+  <wsdl:portType name="ReferentieService">
+    <wsdl:operation name="raadplegenDiersoorten" parameterOrder="request">
+      <wsdl:input name="raadplegenDiersoortenRequest" message="referentieWS:raadplegenDiersoortenRequest" />
+      <wsdl:output name="raadplegenDiersoortenResponse" message="referentieWS:raadplegenDiersoortenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenLanden" parameterOrder="request">
+      <wsdl:input name="raadplegenLandenRequest" message="referentieWS:raadplegenLandenRequest" />
+      <wsdl:output name="raadplegenLandenResponse" message="referentieWS:raadplegenLandenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenEULanden" parameterOrder="request">
+      <wsdl:input name="raadplegenEULandenRequest" message="referentieWS:raadplegenEULandenRequest" />
+      <wsdl:output name="raadplegenEULandenResponse" message="referentieWS:raadplegenEULandenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenHaarkleuren" parameterOrder="request">
+      <wsdl:input name="raadplegenHaarkleurenRequest" message="referentieWS:raadplegenHaarkleurenRequest" />
+      <wsdl:output name="raadplegenHaarkleurenResponse" message="referentieWS:raadplegenHaarkleurenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenDomeinen" parameterOrder="request">
+      <wsdl:input name="raadplegenDomeinenRequest" message="referentieWS:raadplegenDomeinenRequest" />
+      <wsdl:output name="raadplegenDomeinenResponse" message="referentieWS:raadplegenDomeinenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenDestructors" parameterOrder="request">
+      <wsdl:input name="raadplegenDestructorsRequest" message="referentieWS:raadplegenDestructorsRequest" />
+      <wsdl:output name="raadplegenDestructorsResponse" message="referentieWS:raadplegenDestructorsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenVlagsoorten" parameterOrder="request">
+      <wsdl:input name="raadplegenVlagsoortenRequest" message="referentieWS:raadplegenVlagsoortenRequest" />
+      <wsdl:output name="raadplegenVlagsoortenResponse" message="referentieWS:raadplegenVlagsoortenResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReferentieWSSoapBinding" type="referentieWS:ReferentieService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="raadplegenDiersoorten">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenDiersoortenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenDiersoortenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenLanden">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenLandenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenLandenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenEULanden">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenEULandenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenEULandenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenHaarkleuren">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenHaarkleurenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenHaarkleurenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenDomeinen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenDomeinenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenDomeinenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenDestructors">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenDestructorsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenDestructorsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenVlagsoorten">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="raadplegenVlagsoortenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="raadplegenVlagsoortenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReferentieServiceService">
+    <wsdl:port name="ReferentieWS" binding="referentieWS:ReferentieWSSoapBinding">
+      <wsdlsoap:address location="https://dbrbms.agro.nl/bms_v2_0/services/ReferentieWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

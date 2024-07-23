@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/LiablePartyOverviewExportRequestSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/LiablePartyOverviewExportRequestSchema" id="schema122" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LiablePartyOverviewExportRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LiableParty">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="PATP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RLM_RGS_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VEOR_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ORD_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_FRM" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_TO" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="ResultIndex" type="xs:int" />
+    <xs:attribute name="OnBehalfRole" type="xs:string" />
+    <xs:attribute name="OnBehalfEntity" type="xs:string" />
+    <xs:attribute name="UserLanguage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

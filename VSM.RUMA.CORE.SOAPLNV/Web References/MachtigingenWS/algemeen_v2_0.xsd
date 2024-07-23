@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:alg="http://www.ienr.org/schemas/types/algemeen_v2_0" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ienr.org/schemas/types/algemeen_v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="aantalMerkenType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="nameChar">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^&lt;&gt;%]*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="nameCharOut">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^&lt;&gt;]*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="actieType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="adresType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="70" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="adrestypeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="berichttypeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="bestelnrType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="codeFabrikantType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="codeLeverancierType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="codeMerktypeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="8" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="codeOorsprongType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="codeSoortMerkType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="codeVormOormerkType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="controlegetalType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="datumType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="^(31-(0[13578]|1[02])-|(29|30)-(0[13-9]|1[0-2])-|(0[1-9]|1\d|2[0-8])-(0[1-9]|1[0-2])-)([1-9]\d{3}|0\d{2}[1-9])|^(29-02-)((\d{2})(0[48]|[2468][048]|[13579][26])|(0[48]|[2468][048]|[13579][26])00)" />
+      <xsd:length value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="datumTijdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{2}\-\d{2}\-\d{4} \d{2}:\d{2}:\d{2}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HHMITijd">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{2}:\d{2}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="datumTijdEEJJMMDDUUMMType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{12}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="destructorNaamType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="70" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="dierIdType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="16" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="dierOorspronkelijkIdType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="16" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="diersoortType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="diersoortCharOptioneelType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:maxLength value="2" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="diersoortOptioneelType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="diersoortNaamType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="domeinType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="domeinCodeType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="240" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="domeinOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="240" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="elektronischIdType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="emailAdresType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="129" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EUlandcodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="foutcodeType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="foutmeldingType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="1000" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="geslachtCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="geslachtOmsType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="25" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="haarkleurCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="haarkleurOmsType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="25" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="hoeveelheidType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="huisnummerType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="huisnummerToevoegingType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="4" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="indVrijBesteldType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProAanvraagnummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdFrequentieCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdMediumCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdOrderVolgnummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdOrderAantalVermeldingenType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="8" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdStatusCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="infoProdWijzeVerzendingCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="jaNeeIndicatorType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="kentekenType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="landcodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="landcodeNaamType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="levensnummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="maatregelCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="machtigingType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="meldingeenheidType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="meldingeenheidCharType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="meldingnummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="meldingStatusCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="meldingStatusOmsType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="300" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="meldingStatusToelichtingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="300" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="merkVersienummerType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="merkAantalLosType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="merkAantalPerColloType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="mutatieSoortType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="naamLeverancierType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="70" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="omschrijvingMerktypeType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderStatusCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderStatusOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="overeenkomstCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="5" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="overeenkomstOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="200" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="25" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterWaardeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterTypeGegevenType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterVerplichtIndicatorType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterMuteerbaarIndicatorType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterDefaultWaardeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="parameterVolgordenummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postbusnummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postcodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postcodeBuitenlandsType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postcodePlaatscodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="4" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postcodeLettercodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="premieStatusCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="prijsType">
+    <xsd:restriction base="xsd:double">
+      <xsd:maxInclusive value="999999.99" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="rechtsvormCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="4" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="rechtsvormOmsType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="redenBlokkadeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="redenEinde">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="redenRuimingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="30" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="redenWijzigingCodeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="redenWijzigingOmsType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="regel1OormerkType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienaamType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="70" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienaamSamengesteldType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="70" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienaamToevoegingType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienaamVoorlettersType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="30" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienaamVoorvoegselsType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+      <xsd:pattern value="\d*" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatienummerVervoerderType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="requestIdType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="soortFoutIndicatorType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="straatnaamType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="24" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="telefoonType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tijdType">
+    <xsd:restriction base="xsd:time" />
+  </xsd:simpleType>
+  <xsd:simpleType name="typeBestellingType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="verwerkingsresultaatType">
+    <xsd:sequence>
+      <xsd:element name="foutcode" nillable="true" type="alg:foutcodeType" />
+      <xsd:element name="foutmelding" nillable="true" type="alg:foutmeldingType" />
+      <xsd:element name="soortFoutIndicator" nillable="true" type="alg:soortFoutIndicatorType" />
+      <xsd:element name="succesIndicator" nillable="true" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="vlagsoortType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="30" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="vlagsoortCodeType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="volgnummerType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="volgordenummerType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="werknummerType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="6" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="woonplaatsType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="vlagsoortOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="maatregelOmschrijvingType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="200" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="indDierMeType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="aantalVlaggenType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="numVijfType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="numZesType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="numZevenType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="9999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="aantalMeldingenType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="aantalDierenType">
+    <xsd:restriction base="xsd:int">
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="bedrijfsvestigingType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productiedoelType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="transportnummerType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="0" fixed="true" />
+      <xsd:maxInclusive value="9999999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="transportnummerCharType">
+    <xsd:restriction base="alg:nameCharOut">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="dierCategorieType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="alleenHerstelbaarIndicatorType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="99" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="herstelMogelijkhedenIndicatorType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="groepsgegevensType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="1000" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="nummerGezondheidscertificaatType">
+    <xsd:restriction base="alg:nameChar">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/PartyOverviewExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/PartyOverviewExportSchema" id="schema100" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="PartyOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LNGE_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_PAST_CDE" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

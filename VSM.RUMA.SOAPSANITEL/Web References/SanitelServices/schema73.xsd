@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview/Response" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview/Response" id="schema73" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportSchema" />
+  <xs:element name="ExportAnimalOverviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportSchema" minOccurs="0" maxOccurs="1" ref="q1:AnimalOverviewExport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

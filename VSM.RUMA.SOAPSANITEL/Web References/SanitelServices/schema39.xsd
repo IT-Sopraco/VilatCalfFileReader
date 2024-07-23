@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification/Response" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification/Response" id="schema39" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Sanitel.EAI/SanitelRepository/InteractionResult" />
+  <xs:element name="ImportRetaggingNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://Sanitel.EAI/SanitelRepository/InteractionResult" minOccurs="0" maxOccurs="1" ref="q1:InteractionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

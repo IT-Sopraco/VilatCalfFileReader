@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportSchema" id="schema74" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AnimalOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Animal">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MACT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MRK_CDG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MRK_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CDE_MHR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CDE_MHR_GTC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BLST_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TUBR_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANRC_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANRT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ASRV_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GNDR_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="HRTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BTH_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DTH_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRUN_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_GRP_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_SGP_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE_BTH" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE_END" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE_IMO" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE_EPO" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DNA_ANA_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VGN_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PPT_VRS_NBR" type="xs:int" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PPPR_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VRV_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ABFY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ABSP_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ADSP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANCP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NRS_MHR_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANPR_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AMQL_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VRV_IDN_CRD_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANVS_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANVN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VRV_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BTH_WGH" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LST_UPD_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BLO_STA_CMN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="IMO_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EPO_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PUR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORI_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CRF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DNA_ANA_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DNA_SMP_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DNAQ_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANPP_PNT_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FRT_DLV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LST_DLV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FRT_MLK_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FRT_NUR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TUST_CDE" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

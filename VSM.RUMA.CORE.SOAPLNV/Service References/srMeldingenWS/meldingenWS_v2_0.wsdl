@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:meldingWS="http://www.ienr.org/schemas/services/meldingenWS_v2_0" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:melding="http://www.ienr.org/schemas/types/meldingen_v2_0" targetNamespace="http://www.ienr.org/schemas/services/meldingenWS_v2_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/meldingenWS_v2_0">
+      <xsd:import namespace="http://sql.java" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import schemaLocation="meldingen_v2_0.xsd" namespace="http://www.ienr.org/schemas/types/meldingen_v2_0" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="raadplegenMeldingstypenRequest">
+    <wsdl:part name="request" element="melding:raadplegenMeldingstypenRequest" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenMeldingstypenResponse">
+    <wsdl:part name="raadplegenMeldingstypenResponse" element="melding:raadplegenMeldingstypenResponse" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenMeldingenAlgRequest">
+    <wsdl:part name="request" element="melding:raadplegenMeldingAlgRequest" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenMeldingenAlgResponse">
+    <wsdl:part name="raadplegenMeldingAlgResponse" element="melding:raadplegenMeldingAlgResponse" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenMeldingDetailRequest">
+    <wsdl:part name="request" element="melding:raadplegenMeldingDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenMeldingDetailResponse">
+    <wsdl:part name="raadplegenMeldingDetailResponse" element="melding:raadplegenMeldingDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenVlaggenRequest">
+    <wsdl:part name="request" element="melding:raadplegenVlaggenRequest" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenVlaggenResponse">
+    <wsdl:part name="raadplegenVlaggenResponse" element="melding:raadplegenVlaggenResponse" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenOntbrekendeMeldingenRequest">
+    <wsdl:part name="request" element="melding:raadplegenOntbrekendeMeldingenRequest" />
+  </wsdl:message>
+  <wsdl:message name="raadplegenOntbrekendeMeldingenResponse">
+    <wsdl:part name="raadplegenOntbrekendeMeldingenResponse" element="melding:raadplegenOntbrekendeMeldingenResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenAanvoerMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenAanvoerMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenAanvoerMeldingResponse">
+    <wsdl:part name="vastleggenAanvoerMeldingResponse" element="melding:vastleggenAanvoerMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenAfvoerMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenAfvoerMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenAfvoerMeldingResponse">
+    <wsdl:part name="vastleggenAfvoerMeldingResponse" element="melding:vastleggenAfvoerMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenImportMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenImportMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenImportMeldingResponse">
+    <wsdl:part name="vastleggenImportMeldingResponse" element="melding:vastleggenImportMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenGeboorteMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenGeboorteMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenGeboorteMeldingResponse">
+    <wsdl:part name="vastleggenGeboorteMeldingResponse" element="melding:vastleggenGeboorteMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenDoodMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenDoodMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenDoodMeldingResponse">
+    <wsdl:part name="vastleggenDoodMeldingResponse" element="melding:vastleggenDoodMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenDoodGeborenDierMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenDoodGeborenDierMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenDoodGeborenDierMeldingResponse">
+    <wsdl:part name="vastleggenDoodGeborenDierMeldingResponse" element="melding:vastleggenDoodGeborenDierMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenExportMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenExportMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenExportMeldingResponse">
+    <wsdl:part name="vastleggenExportMeldingResponse" element="melding:vastleggenExportMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenMerkblokkadeMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenMerkblokkadeMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenMerkblokkadeMeldingResponse">
+    <wsdl:part name="vastleggenMerkblokkadeMeldingResponse" element="melding:vastleggenMerkblokkadeMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenNoodslachtMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenNoodslachtMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenNoodslachtMeldingResponse">
+    <wsdl:part name="vastleggenNoodslachtMeldingResponse" element="melding:vastleggenNoodslachtMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenSlachtMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenSlachtMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenSlachtMeldingResponse">
+    <wsdl:part name="vastleggenSlachtMeldingResponse" element="melding:vastleggenSlachtMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenCombiImportSlachtMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenCombiImportSlachtMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenCombiImportSlachtMeldingResponse">
+    <wsdl:part name="vastleggenCombiImportSlachtMeldingResponse" element="melding:vastleggenCombiImportSlachtMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenCombiImportExportMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenCombiImportExportMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenCombiImportExportMeldingResponse">
+    <wsdl:part name="vastleggenCombiImportExportMeldingResponse" element="melding:vastleggenCombiImportExportMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenOverdrachtMerkenRequest">
+    <wsdl:part name="request" element="melding:vastleggenOverdrachtMerkenRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenOverdrachtMerkenResponse">
+    <wsdl:part name="vastleggenOverdrachtMerkenResponse" element="melding:vastleggenOverdrachtMerkenResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenTijdelijkMerkRequest">
+    <wsdl:part name="request" element="melding:vastleggenTijdelijkMerkRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenTijdelijkMerkResponse">
+    <wsdl:part name="vastleggenTijdelijkMerkResponse" element="melding:vastleggenTijdelijkMerkResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenVervangendMerkRequest">
+    <wsdl:part name="request" element="melding:vastleggenVervangendMerkRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenVervangendMerkResponse">
+    <wsdl:part name="vastleggenVervangendMerkResponse" element="melding:vastleggenVervangendMerkResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenDiervlagMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenDiervlagMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenDiervlagMeldingResponse">
+    <wsdl:part name="vastleggenDiervlagMeldingResponse" element="melding:vastleggenDiervlagMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="intrekkenMeldingRequest">
+    <wsdl:part name="request" element="melding:intrekkenMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="intrekkenMeldingResponse">
+    <wsdl:part name="intrekkenMeldingResponse" element="melding:intrekkenMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenVermissingsMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenVermissingsMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenVermissingsMeldingResponse">
+    <wsdl:part name="vastleggenVermissingsMeldingResponse" element="melding:vastleggenVermissingsMeldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenGevondenMeldingRequest">
+    <wsdl:part name="request" element="melding:vastleggenGevondenMeldingRequest" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenGevondenMeldingResponse">
+    <wsdl:part name="vastleggenGevondenMeldingResponse" element="melding:vastleggenGevondenMeldingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MeldingenService">
+    <wsdl:operation name="raadplegenMeldingstypen" parameterOrder="request">
+      <wsdl:input name="raadplegenMeldingstypenRequest" message="meldingWS:raadplegenMeldingstypenRequest" />
+      <wsdl:output name="raadplegenMeldingstypenResponse" message="meldingWS:raadplegenMeldingstypenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenMeldingenAlg" parameterOrder="request">
+      <wsdl:input name="raadplegenMeldingenAlgRequest" message="meldingWS:raadplegenMeldingenAlgRequest" />
+      <wsdl:output name="raadplegenMeldingenAlgResponse" message="meldingWS:raadplegenMeldingenAlgResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenMeldingDetail" parameterOrder="request">
+      <wsdl:input name="raadplegenMeldingDetailRequest" message="meldingWS:raadplegenMeldingDetailRequest" />
+      <wsdl:output name="raadplegenMeldingDetailResponse" message="meldingWS:raadplegenMeldingDetailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenVlaggen" parameterOrder="request">
+      <wsdl:input name="raadplegenVlaggenRequest" message="meldingWS:raadplegenVlaggenRequest" />
+      <wsdl:output name="raadplegenVlaggenResponse" message="meldingWS:raadplegenVlaggenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenOntbrekendeMeldingen" parameterOrder="request">
+      <wsdl:input name="raadplegenOntbrekendeMeldingenRequest" message="meldingWS:raadplegenOntbrekendeMeldingenRequest" />
+      <wsdl:output name="raadplegenOntbrekendeMeldingenResponse" message="meldingWS:raadplegenOntbrekendeMeldingenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenAanvoerMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenAanvoerMeldingRequest" message="meldingWS:vastleggenAanvoerMeldingRequest" />
+      <wsdl:output name="vastleggenAanvoerMeldingResponse" message="meldingWS:vastleggenAanvoerMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenAfvoerMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenAfvoerMeldingRequest" message="meldingWS:vastleggenAfvoerMeldingRequest" />
+      <wsdl:output name="vastleggenAfvoerMeldingResponse" message="meldingWS:vastleggenAfvoerMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenImportMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenImportMeldingRequest" message="meldingWS:vastleggenImportMeldingRequest" />
+      <wsdl:output name="vastleggenImportMeldingResponse" message="meldingWS:vastleggenImportMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenGeboorteMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenGeboorteMeldingRequest" message="meldingWS:vastleggenGeboorteMeldingRequest" />
+      <wsdl:output name="vastleggenGeboorteMeldingResponse" message="meldingWS:vastleggenGeboorteMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenDoodMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenDoodMeldingRequest" message="meldingWS:vastleggenDoodMeldingRequest" />
+      <wsdl:output name="vastleggenDoodMeldingResponse" message="meldingWS:vastleggenDoodMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenDoodGeborenDierMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenDoodGeborenDierMeldingRequest" message="meldingWS:vastleggenDoodGeborenDierMeldingRequest" />
+      <wsdl:output name="vastleggenDoodGeborenDierMeldingResponse" message="meldingWS:vastleggenDoodGeborenDierMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenExportMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenExportMeldingRequest" message="meldingWS:vastleggenExportMeldingRequest" />
+      <wsdl:output name="vastleggenExportMeldingResponse" message="meldingWS:vastleggenExportMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenMerkblokkadeMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenMerkblokkadeMeldingRequest" message="meldingWS:vastleggenMerkblokkadeMeldingRequest" />
+      <wsdl:output name="vastleggenMerkblokkadeMeldingResponse" message="meldingWS:vastleggenMerkblokkadeMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenNoodslachtMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenNoodslachtMeldingRequest" message="meldingWS:vastleggenNoodslachtMeldingRequest" />
+      <wsdl:output name="vastleggenNoodslachtMeldingResponse" message="meldingWS:vastleggenNoodslachtMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenSlachtMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenSlachtMeldingRequest" message="meldingWS:vastleggenSlachtMeldingRequest" />
+      <wsdl:output name="vastleggenSlachtMeldingResponse" message="meldingWS:vastleggenSlachtMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenCombiImportSlachtMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenCombiImportSlachtMeldingRequest" message="meldingWS:vastleggenCombiImportSlachtMeldingRequest" />
+      <wsdl:output name="vastleggenCombiImportSlachtMeldingResponse" message="meldingWS:vastleggenCombiImportSlachtMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenCombiImportExportMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenCombiImportExportMeldingRequest" message="meldingWS:vastleggenCombiImportExportMeldingRequest" />
+      <wsdl:output name="vastleggenCombiImportExportMeldingResponse" message="meldingWS:vastleggenCombiImportExportMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenOverdrachtMerken" parameterOrder="request">
+      <wsdl:input name="vastleggenOverdrachtMerkenRequest" message="meldingWS:vastleggenOverdrachtMerkenRequest" />
+      <wsdl:output name="vastleggenOverdrachtMerkenResponse" message="meldingWS:vastleggenOverdrachtMerkenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenTijdelijkMerk" parameterOrder="request">
+      <wsdl:input name="vastleggenTijdelijkMerkRequest" message="meldingWS:vastleggenTijdelijkMerkRequest" />
+      <wsdl:output name="vastleggenTijdelijkMerkResponse" message="meldingWS:vastleggenTijdelijkMerkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenVervangendMerk" parameterOrder="request">
+      <wsdl:input name="vastleggenVervangendMerkRequest" message="meldingWS:vastleggenVervangendMerkRequest" />
+      <wsdl:output name="vastleggenVervangendMerkResponse" message="meldingWS:vastleggenVervangendMerkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenDiervlagMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenDiervlagMeldingRequest" message="meldingWS:vastleggenDiervlagMeldingRequest" />
+      <wsdl:output name="vastleggenDiervlagMeldingResponse" message="meldingWS:vastleggenDiervlagMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="intrekkenMelding" parameterOrder="request">
+      <wsdl:input name="intrekkenMeldingRequest" message="meldingWS:intrekkenMeldingRequest" />
+      <wsdl:output name="intrekkenMeldingResponse" message="meldingWS:intrekkenMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenVermissingsMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenVermissingsMeldingRequest" message="meldingWS:vastleggenVermissingsMeldingRequest" />
+      <wsdl:output name="vastleggenVermissingsMeldingResponse" message="meldingWS:vastleggenVermissingsMeldingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenGevondenMelding" parameterOrder="request">
+      <wsdl:input name="vastleggenGevondenMeldingRequest" message="meldingWS:vastleggenGevondenMeldingRequest" />
+      <wsdl:output name="vastleggenGevondenMeldingResponse" message="meldingWS:vastleggenGevondenMeldingResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MeldingenWSSoapBinding" type="meldingWS:MeldingenService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="raadplegenMeldingstypen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenMeldingenAlg">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenMeldingDetail">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenVlaggen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="raadplegenOntbrekendeMeldingen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenAanvoerMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenAfvoerMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenImportMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenGeboorteMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenDoodMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenDoodGeborenDierMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenExportMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenMerkblokkadeMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenNoodslachtMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenSlachtMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenCombiImportSlachtMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenCombiImportExportMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenOverdrachtMerken">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenTijdelijkMerk">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenVervangendMerk">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenDiervlagMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intrekkenMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenVermissingsMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vastleggenGevondenMelding">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MeldingenServiceService">
+    <wsdl:port name="MeldingenWS" binding="meldingWS:MeldingenWSSoapBinding">
+      <wsdlsoap:address location="http://HOST/bms_v2_0/services/MeldingenWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportRequestSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportRequestSchema" id="schema72" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AnimalOverviewExportRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Animal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PRUN_REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_FRM" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_TO" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TRGR_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CDE_MHR" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="ResultIndex" type="xs:int" />
+    <xs:attribute name="OnBehalfRole" type="xs:string" />
+    <xs:attribute name="OnBehalfEntity" type="xs:string" />
+    <xs:attribute name="UserLanguage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

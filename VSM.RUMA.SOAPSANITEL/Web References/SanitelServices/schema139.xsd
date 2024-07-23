@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile/Response" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile/Response" id="schema139" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileExport" />
+  <xs:element name="ExportSlaughterFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileExport" minOccurs="0" maxOccurs="1" ref="q1:SlaughterFileExport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

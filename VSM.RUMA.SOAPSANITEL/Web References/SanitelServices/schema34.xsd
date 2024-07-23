@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/TreatmentNotificationImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/TreatmentNotificationImportSchema" id="schema34" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TreatmentNotificationImport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentNotification">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+            <xs:element minOccurs="1" maxOccurs="1" name="OCR_DTE_END" type="xs:dateTime" />
+            <xs:element minOccurs="1" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DOC_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CMN" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="NPTP_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Facility">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="NFTP_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="FALO_REF_NBR" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="TreatmentDetail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TMLV_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="MEDC_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="IDN" type="xs:string" />
+                  <xs:element minOccurs="1" maxOccurs="1" name="ANM_CNT" type="xs:int" />
+                  <xs:element minOccurs="1" maxOccurs="1" name="QTY" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="UNIT_CDE_QTY" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TITP_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TMTP_CDE" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="OnBehalfRole" type="xs:string" />
+    <xs:attribute name="OnBehalfEntity" type="xs:string" />
+    <xs:attribute name="UserLanguage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

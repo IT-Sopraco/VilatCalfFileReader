@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/FoodChainNotificationImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/FoodChainNotificationImportSchema" id="schema65" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FoodChainNotificationImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="FoodChainNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DOC_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANM_CNT" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORIG_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ADPR_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VRV_IDN_CRD_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CMN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NPTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Facility">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NFTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Animal">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PPT_VRS_NBR" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="DTH_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DIS_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DTH_CMT" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DIS_CMT" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ISP_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SLG_RSN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CAG_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LOT_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CRF_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DTH_RTE" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Inspection">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RSLT" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DTE" type="xs:dateTime" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Treatment">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NFTT_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="MEDC_ID" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TMT_DTE_FRM" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TMT_DTE_TO" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="WAI_PER" type="xs:integer" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANM_AGE" type="xs:integer" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RAW_MAT_SUR_NAM" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANM_DIS" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="FOD_SUR_NAM" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="SEU_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANM_CNT_SLG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NRV_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NRV_CMT" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSK_SNU_FLG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CMPC_CTRY_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="INFL_TMT_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTIB_TMT_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTI_TMT_FLG" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

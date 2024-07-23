@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:licentieagrobase" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="licentieagrobase" targetNamespace="urn:licentieagrobase" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:licentieagrobase">
+      <xsd:complexType name="ubnnummers">
+        <xsd:all>
+          <xsd:element name="ubn" type="xsd:string" />
+          <xsd:element name="datum" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfubnnummers">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ubnnummers[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfPostbusnummers">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="geefMysqlLogin_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefMysqlLogin_Response">
+    <wsdl:part name="mysqlgebruikersnaam" type="xsd:string" />
+    <wsdl:part name="mysqlwachtwoord" type="xsd:string" />
+    <wsdl:part name="mysqlhost" type="xsd:string" />
+    <wsdl:part name="mysqldatabase" type="xsd:string" />
+    <wsdl:part name="mysqlslavegebruikersnaam" type="xsd:string" />
+    <wsdl:part name="mysqlslavewachtwoord" type="xsd:string" />
+    <wsdl:part name="mysqlslavehost" type="xsd:string" />
+    <wsdl:part name="mysqlslavedatabase" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefThrId_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefThrId_Response">
+    <wsdl:part name="ThrId" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="geefMysqlLogin_Dier_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+    <wsdl:part name="programid" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="geefUBNNummers_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefUBNNummers_Response">
+    <wsdl:part name="ubnarray" type="tns:ArrayOfubnnummers" />
+  </wsdl:message>
+  <wsdl:message name="geefPostbusnummerVanUBN_Request">
+    <wsdl:part name="ubn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefPostbusnummerVanUBN_Response">
+    <wsdl:part name="postbus" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefPostbusnummersVanUBN_Request">
+    <wsdl:part name="ubn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefPostbusnummersVanUBN_Response">
+    <wsdl:part name="postbusarray" type="tns:ArrayOfPostbusnummers" />
+  </wsdl:message>
+  <wsdl:message name="geefBRSnummer_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefBRSnummer_Response">
+    <wsdl:part name="brs" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefRelatieInfo_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefRelatieInfo_Response">
+    <wsdl:part name="kvknummer" type="xsd:string" />
+    <wsdl:part name="socialsecuritynumber" type="xsd:string" />
+    <wsdl:part name="brsnumber" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefNedapLogin_Request">
+    <wsdl:part name="gebruikersnaam" type="xsd:string" />
+    <wsdl:part name="sleutel" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="geefNedapLogin_Response">
+    <wsdl:part name="wachtwoord" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="licentieagrobasePort">
+    <wsdl:operation name="geefMysqlLogin">
+      <wsdl:input message="tns:geefMysqlLogin_Request" />
+      <wsdl:output message="tns:geefMysqlLogin_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefThrId">
+      <wsdl:input message="tns:geefThrId_Request" />
+      <wsdl:output message="tns:geefThrId_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefMysqlLogin_Dier">
+      <wsdl:input message="tns:geefMysqlLogin_Dier_Request" />
+      <wsdl:output message="tns:geefMysqlLogin_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefUBNNummers">
+      <wsdl:input message="tns:geefUBNNummers_Request" />
+      <wsdl:output message="tns:geefUBNNummers_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefPostbusnummerVanUBN">
+      <wsdl:input message="tns:geefPostbusnummerVanUBN_Request" />
+      <wsdl:output message="tns:geefPostbusnummerVanUBN_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefPostbusnummersVanUBN">
+      <wsdl:input message="tns:geefPostbusnummersVanUBN_Request" />
+      <wsdl:output message="tns:geefPostbusnummersVanUBN_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefBRSnummer">
+      <wsdl:input message="tns:geefBRSnummer_Request" />
+      <wsdl:output message="tns:geefBRSnummer_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefRelatieInfo">
+      <wsdl:input message="tns:geefRelatieInfo_Request" />
+      <wsdl:output message="tns:geefRelatieInfo_Response" />
+    </wsdl:operation>
+    <wsdl:operation name="geefNedapLogin">
+      <wsdl:input message="tns:geefNedapLogin_Request" />
+      <wsdl:output message="tns:geefNedapLogin_Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="licentieagrobaseBinding" type="tns:licentieagrobasePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="geefMysqlLogin">
+      <soap:operation soapAction="tns:geefMysqlLogin" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefThrId">
+      <soap:operation soapAction="tns:geefThrId" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefMysqlLogin_Dier">
+      <soap:operation soapAction="tns:geefMysqlLogin_Dier" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefUBNNummers">
+      <soap:operation soapAction="tns:geefUBNNummers" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefPostbusnummerVanUBN">
+      <soap:operation soapAction="tns:geefPostbusnummerVanUBN" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefPostbusnummersVanUBN">
+      <soap:operation soapAction="tns:geefPostbusnummersVanUBN" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefBRSnummer">
+      <soap:operation soapAction="tns:geefBRSnummer" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefRelatieInfo">
+      <soap:operation soapAction="tns:geefRelatieInfo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geefNedapLogin">
+      <soap:operation soapAction="tns:geefNedapLogin" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="licentieagrobaseService">
+    <wsdl:port name="licentieagrobasePort" binding="tns:licentieagrobaseBinding">
+      <soap:address location="https://licentie.agrobase.eu/licentieagrobase2.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

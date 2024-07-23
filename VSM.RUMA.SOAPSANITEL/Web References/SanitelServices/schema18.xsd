@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/InventoryNotificationImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/InventoryNotificationImportSchema" id="schema18" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="InventoryNotificationImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="InventoryNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DOC_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE_ALT" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CMN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NPTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Marking">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="MACT_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDG" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="CNT" type="xs:decimal" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{686BE153-0DBB-4CBC-88D7-D89BD3D449C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSM.RUMA.CORE</RootNamespace>
+    <AssemblyName>VSM.RUMA.CORE</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <!--<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\VSM.RUMA.ASP.RUMAONLINE\</SolutionDir>-->
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BUILD|AnyCPU'">
+    <OutputPath>..\..\..\build\Agrobase\latest\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BUILD|x86'">
+    <OutputPath>bin\x86\BUILD\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.61.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\filereader\packages\HtmlAgilityPack.1.11.61\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.17.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\filereader\packages\log4net.2.0.17\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="VSM.RUMA.CORE.EDINRS">
+      <HintPath>lib\VSM.RUMA.CORE.EDINRS.dll</HintPath>
+    </Reference>
+    <Reference Include="VSM.RUMA.CORE.SOAPCDD">
+      <HintPath>lib\VSM.RUMA.CORE.SOAPCDD.dll</HintPath>
+    </Reference>
+    <Reference Include="VSM.RUMA.CRVSOAP">
+      <HintPath>lib\VSM.RUMA.CRVSOAP.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bufferreader.cs" />
+    <Compile Include="Checker.cs" />
+    <Compile Include="configHelper.cs" />
+    <Compile Include="CsvFunctions.cs" />
+    <Compile Include="dog_handler.cs" />
+    <Compile Include="HIClient.cs" />
+    <Compile Include="Lijsten.cs" />
+    <Compile Include="MineraalUtils.cs" />
+    <Compile Include="MutationUpdater.cs" />
+    <Compile Include="VersionInfo.cs" />
+    <Compile Include="Win32AB2EDINRS.cs" />
+    <Compile Include="Win32AB2File.cs" />
+    <Compile Include="Win32ab2xml.cs" />
+    <Compile Include="Win32Abfokwaarden.cs" />
+    <Compile Include="Win32ABLWBSK.cs" />
+    <Compile Include="Win32AB_Stocklijst_Sopraco.cs" />
+    <Compile Include="Win32Adis2Xml.cs" />
+    <Compile Include="Win32AFLAM.cs" />
+    <Compile Include="Win32Afstamlijst.cs" />
+    <Compile Include="Win32Afvoerlijst.cs" />
+    <Compile Include="Win32AGROLABLISTS.cs" />
+    <Compile Include="Win32Anilist.cs" />
+    <Compile Include="Win32Attentie.cs" />
+    <Compile Include="Win32Behandelplannen.cs" />
+    <Compile Include="Win32Beyers.cs" />
+    <Compile Include="Win32Dekpe.cs" />
+    <Compile Include="Win32DhzKIAB.cs" />
+    <Compile Include="Win32DROOGZET.cs" />
+    <Compile Include="Win32EDIDAP_AB.cs" />
+    <Compile Include="Win32EdiEmm.cs" />
+    <Compile Include="Win32EDINRS.cs" />
+    <Compile Include="Win32EDINRSEldaMelkcontrol.cs" />
+    <Compile Include="Win32EdinrsResponders.cs" />
+    <Compile Include="Win32EDIZUIVEL_AB.cs" />
+    <Compile Include="Win32Fokwaard.cs" />
+    <Compile Include="Win32geitenid.cs" />
+    <Compile Include="Win32GEMPROD.cs" />
+    <Compile Include="Win32GroepPrestatie.cs" />
+    <Compile Include="Win32GROUPGRZ.cs" />
+    <Compile Include="Win32GROUPSCR.cs" />
+    <Compile Include="Win32Hok.cs" />
+    <Compile Include="Win32INSKAART.cs" />
+    <Compile Include="Win32Jvwglyst.cs" />
+    <Compile Include="Win32kengetalGeiten.cs" />
+    <Compile Include="Win32KengetallenlijstNSFO.cs" />
+    <Compile Include="Win32Leeftijd.cs" />
+    <Compile Include="Win32LEVPROD.cs" />
+    <Compile Include="Win32LOCATIE.cs" />
+    <Compile Include="Win32lstdzhmon.cs" />
+    <Compile Include="Win32LSTKOPBH.cs" />
+    <Compile Include="Win32Lst_Brucella_Monitoring.cs" />
+    <Compile Include="win32Lst_Kengetallen.cs" />
+    <Compile Include="Win32Medicijnkaart.cs" />
+    <Compile Include="Win32Melkafrekening.cs" />
+    <Compile Include="Win32Milkcont.cs" />
+    <Compile Include="Win32RantsoenAB.cs" />
+    <Compile Include="Win32RestList.cs" />
+    <Compile Include="Win32Rovecom.cs" />
+    <Compile Include="Win32SOAPREPROALG.cs" />
+    <Compile Include="Win32KKAART.cs" />
+    <Compile Include="Win32Lst_Bloedonderzoeken.cs" />
+    <Compile Include="RawSoap.cs" />
+    <Compile Include="VBHMeldingen.cs" />
+    <Compile Include="Win32Lst_Gezondheidsverklaring.cs" />
+    <Compile Include="Win32Lst_LabelPrinter.cs" />
+    <Compile Include="Win32Melkprod.cs" />
+    <Compile Include="Win32SELFATH.cs" />
+    <Compile Include="Win32SOAPZUIVALG.cs" />
+    <Compile Include="Win32SPONSLSG.cs" />
+    <Compile Include="Win32Stamboom.cs" />
+    <Compile Include="Win32STATUSLS.cs" />
+    <Compile Include="Win32Veesaldo.cs" />
+    <Compile Include="Voersupply.cs" />
+    <Compile Include="Win32Lst_Barcode.cs" />
+    <Compile Include="ExchangeVeehandel.cs" />
+    <Compile Include="Win32AANAFVOE.cs" />
+    <Compile Include="Win32AANWEOOI.cs" />
+    <Compile Include="Win32LSTFOKEXT.cs" />
+    <Compile Include="Movement_Functions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PredikaatBerekenen.cs" />
+    <Compile Include="Win32lstattentielijst.cs" />
+    <Compile Include="Event_functions.cs" />
+    <Compile Include="Mail.cs" />
+    <Compile Include="COMwrapper.cs" />
+    <Compile Include="FarmUserRightsToken.cs" />
+    <Compile Include="FTP.cs" />
+    <Compile Include="IDelphiEvents.cs" />
+    <Compile Include="Facade.cs" />
+    <Compile Include="IPluginStarter.cs" />
+    <Compile Include="PluginLoader.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RUMAIenRMeldingen.cs" />
+    <Compile Include="SendReceive.cs" />
+    <Compile Include="SoapIRException.cs" />
+    <Compile Include="unDatacomReader.cs" />
+    <Compile Include="unRechten.cs" />
+    <Compile Include="UserRightsToken.cs" />
+    <Compile Include="Web References\Licentie\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Win32BEDREGIS.cs" />
+    <Compile Include="Win32CALFLIST.cs" />
+    <Compile Include="Win32Deklijst.cs" />
+    <Compile Include="Win32FEEDSTCK.cs" />
+    <Compile Include="Win32Geblyst.cs" />
+    <Compile Include="Win32GEITKRT.cs" />
+    <Compile Include="Win32lstabgebgew.cs" />
+    <Compile Include="Win32lstPredikaat.cs" />
+    <Compile Include="Win32LSTTRANSPORT.cs" />
+    <Compile Include="Win32lstvkialg.cs" />
+    <Compile Include="Win32Medicijn.cs" />
+    <Compile Include="Win32Ooikaart.cs" />
+    <Compile Include="Win32SANITRACEALG.cs" />
+    <Compile Include="Win32Scanlist.cs" />
+    <Compile Include="Win32schapext.cs" />
+    <Compile Include="Win32SELNLING.cs" />
+    <Compile Include="Win32SOAPIMPNRS.cs" />
+    <Compile Include="Win32SOAPIRALG.cs" />
+    <Compile Include="Win32instinfoxml.cs" />
+    <Compile Include="win32lstabbedreg.cs" />
+    <Compile Include="win32LSTRDBMPR.cs" />
+    <Compile Include="Win32SoapLNValg.cs" />
+    <Compile Include="Win32SOAPLNV_AB.cs" />
+    <Compile Include="Win32SOAPVBHALG.cs" />
+    <Compile Include="Win32SOAPVKIALG.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32stallijst.cs" />
+    <Compile Include="Win32stolist.cs" />
+    <Compile Include="Win32Uitval.cs" />
+    <Compile Include="Win32VADERMOE.cs" />
+    <Compile Include="Win32VERVOERD.cs" />
+    <Compile Include="Win32verwerkVVBmonster.cs" />
+    <Compile Include="Win32Vetwerk.cs" />
+    <Compile Include="Win32VKIlijst.cs" />
+    <Compile Include="Win32VZPLISTS.cs" />
+    <Compile Include="Win32Weeglyst.cs" />
+    <Compile Include="Win32Weeklyst.cs" />
+    <Compile Include="Win32DRACHTPE.cs" />
+    <Compile Include="Win32Zieklyst.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ExchangeVeehandel.xsd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Licentie\licentieagrobase.wsdl" />
+    <None Include="Web References\Licentie\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Licentie\ubnnummers1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://licentie2.agrobase.eu/licentieagrobase2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Licentie\</RelPath>
+      <UpdateFromURL>https://licentie2.agrobase.eu/licentieagrobase2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VSM_RUMA_CORE_LicentieAMS_licentieagrobaseService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="win32LSTRDBMPR.resx">
+      <DependentUpon>win32LSTRDBMPR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Changelog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSM.RUMA.CORE.COMMONS\VSM.RUMA.CORE.COMMONS.csproj">
+      <Project>{a9cb2c97-4502-41e2-8a15-39872f2525e9}</Project>
+      <Name>VSM.RUMA.CORE.COMMONS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSM.RUMA.CORE.DB.MYSQL\VSM.RUMA.CORE.DB.MYSQL.csproj">
+      <Project>{3eea06c8-1ea7-498a-a222-cd7dbe754fc6}</Project>
+      <Name>VSM.RUMA.CORE.DB.MYSQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSM.RUMA.CORE.DB\VSM.RUMA.CORE.DB.csproj">
+      <Project>{9b640554-c7a9-49d6-ba41-746f749fd81e}</Project>
+      <Name>VSM.RUMA.CORE.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSM.RUMA.CORE.SOAPLNV\VSM.RUMA.CORE.SOAPLNV.csproj">
+      <Project>{36e86efb-32dd-4a9d-a7fd-e76b03ae61c2}</Project>
+      <Name>VSM.RUMA.CORE.SOAPLNV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSM.RUMA.SOAPSANITEL\VSM.RUMA.SOAPSANITEL.csproj">
+      <Project>{f0e38993-ef44-413b-92f3-17ab094dcc8e}</Project>
+      <Name>VSM.RUMA.SOAPSANITEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

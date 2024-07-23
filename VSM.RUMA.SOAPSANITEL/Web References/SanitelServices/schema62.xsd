@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImportSchema" id="schema62" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SlaughterDetailInfoImport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughterFile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR_FILE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughterDetailInfo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="1" name="WGH_KG" type="xs:long" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="SLKD_CDE" type="xs:string" />
+                  <xs:element minOccurs="1" maxOccurs="1" name="SLG_DTE" type="xs:dateTime" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="CLA" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="MKT_NBR" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PRC" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR_LOT" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="LMR" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="OnBehalfRole" type="xs:string" />
+    <xs:attribute name="OnBehalfEntity" type="xs:string" />
+    <xs:attribute name="UserLanguage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/WaterManureAllocationExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/WaterManureAllocationExportSchema" id="schema136" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="WaterManureAllocationExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="WaterManureAllocation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="YER" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="FRM_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="TO_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SUKD_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M01_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M02_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M03_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M04_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M05_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M06_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M07_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M08_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M09_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M10_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M11_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="M12_MLP_QTY" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VLM_ASG_NER" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="WaterManureAnimalAllocation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANML_CDE" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="FRM_DTE" type="xs:dateTime" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="TO_DTE" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="VATP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AATP_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

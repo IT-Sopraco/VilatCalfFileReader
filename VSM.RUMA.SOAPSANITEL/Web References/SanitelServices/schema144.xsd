@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughteringFacilitiesOverviewExport" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughteringFacilitiesOverviewExport" id="schema144" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SlaughteringFacilitiesOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Facility">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_REF_NBR" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="StatusCode" type="xs:string" />
+      <xs:attribute name="StatusMessage" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

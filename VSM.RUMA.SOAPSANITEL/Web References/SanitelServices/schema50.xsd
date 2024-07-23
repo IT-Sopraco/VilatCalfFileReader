@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/MarkingSeriesImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MarkingSeriesImportSchema" id="schema50" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="MarkingSeriesImport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarkingSeries">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="MACT_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ALC_DTE" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SEQ_BEG" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SEQ_END" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CNT" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ORIM_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MSAL_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CMN" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="OnBehalfRole" type="xs:string" />
+    <xs:attribute name="OnBehalfEntity" type="xs:string" />
+    <xs:attribute name="UserLanguage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

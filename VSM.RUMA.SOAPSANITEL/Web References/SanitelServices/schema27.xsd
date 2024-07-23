@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitNotificationImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitNotificationImportSchema" id="schema27" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProductionUnitNotificationImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductionUnitNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductionUnit">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRUN_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_NAM" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_STR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_ZIP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_CTY" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_PATY_CDE" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="PRUN_IDX" type="xs:long" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="ANIMALPRODUCTIONUNIT">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANML_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANML_PRUN_REF_NBR" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileExport" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileExport" id="schema140" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SlaughterFileExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughterFile">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="SLGT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="DEC_DTE" nillable="true" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="SLG_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORIG_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SLST_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANWF_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SLPT_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RLM_RGS_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TRS_REG_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughterLot">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="FCL_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANM_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="CNT" type="xs:decimal" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="WGH_KG" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="WGHC_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANCO_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SLKD_CDE" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="SLG_DTE" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="BTH_DTE" type="xs:date" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AGEC_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANM_REF_NBR_MHR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="GNDR_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="HRTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="BLST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIQU_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SLCA_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ISR_FLG" type="xs:boolean" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="PRC" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CLA" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="MKT_NBR" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="SLGH_WGH" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Risk">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="RICA_CDE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RITP_CDE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RIST_CDE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RIQR_CDE" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="DTE_FRM" type="xs:dateTime" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="DTE_LST_UPD" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughterDetailInfo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR_LOT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="WGH_KG" type="xs:decimal" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SLKD_CDE" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="SLG_DTE" type="xs:dateTime" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="MKT_NBR" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="PRC" type="xs:decimal" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CLAS_CDE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CLA" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="LMR" type="xs:decimal" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="TCH_STA" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Document">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ID" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DOCT_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Validation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="VACA_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="VATP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="MSG" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="FoodChainNotification">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NOTF_ID" type="xs:int" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NOST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE_SRC" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE_RSP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANML_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANM_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORIG_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

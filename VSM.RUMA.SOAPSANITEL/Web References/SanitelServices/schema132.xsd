@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/RetaggingNotificationOverviewExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RetaggingNotificationOverviewExportSchema" id="schema132" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RetaggingNotificationOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="RetaggingNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTF_ID" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOST_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANML_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORIM_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OITP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OILB_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MRK_VRS_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TWO_MRK_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY-DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_DLV" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_FAC" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANML_MACT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANML_MRK_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANML_MRK_CDG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CNT" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

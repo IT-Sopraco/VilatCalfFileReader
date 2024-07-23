@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/InteractionResult" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/InteractionResult" id="schema4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="InteractionResult" type="tns:InteractionResult" />
+  <xs:complexType name="InteractionResult">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusCode" type="tns:Status" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Summary" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Reference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfMessageEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Warning" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfMessageEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageEntry" nillable="true" type="tns:MessageEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessageEntry">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Pattern" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ArgumentsCSV" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Reference" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

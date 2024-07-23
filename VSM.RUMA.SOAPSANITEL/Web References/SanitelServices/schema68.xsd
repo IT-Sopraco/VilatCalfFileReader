@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalMovementNotificationOverviewExportRequestSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalMovementNotificationOverviewExportRequestSchema" id="schema68" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AnimalMovementNotificationOverviewExportRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Movement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="NOTF_ID" type="xs:long" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NOST_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DTE_FRM" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DTE_TO" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DOC_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="LIC_PLT" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE_TRS" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANML_REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_FRM" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_TO" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="ReturnCode" type="xs:string" />
+    <xs:attribute name="ReturnMessage" type="xs:string" />
+    <xs:attribute name="OnBehalfRole" type="xs:string" />
+    <xs:attribute name="OnBehalfEntity" type="xs:string" />
+    <xs:attribute name="UserLanguage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

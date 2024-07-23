@@ -1,0 +1,22 @@
+﻿* Bij ophalen anicategories op UbnId niet controleren of farmId > 0 is nieuwe records op ubnId hebben vaak farmId 0
+
+== next version ==
+== 1.2208.0.1 ==
+* nieuwe versie wordt gebruikt voor reproductie
+
+== 1.2104.0.1 ==
+* MUTALOG met Report 2 (geblokkeerd) vallen niet meer onder gemeld en repro/rvo zal deze nu kunnen verwijderen.
+* Mee kunnen geven (optional changedby/source id bij aanmaken report Information)
+
+== 1.2102.0.2 ==
+* Bij ophalen anicats op ubn moet het bedrijf bestaan (BEDRIJF record voor administratie).
+
+== 1.2102.0.1 ==
+* anpassingen om geboorte movements aan te maken (Instelbaar)
+* instelling forceren rvo check naar gefaalde repro 
+
+== 1.2010.0.1 ==
+* Bij ophalen unreported events, events die door de source ingelezen zijn in agrobase niet terug geven om te melden.
+
+== 1.2006.0.1 ==
+* Aanpassingen voor TaskSend_Crv_Dhz_Meldingen 1.2006.0.1

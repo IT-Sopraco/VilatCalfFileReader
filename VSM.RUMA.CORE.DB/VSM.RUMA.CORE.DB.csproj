@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B640554-C7A9-49D6-BA41-746F749FD81E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSM.RUMA.CORE.DB</RootNamespace>
+    <AssemblyName>VSM.RUMA.CORE.DB</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BUILD|AnyCPU'">
+    <OutputPath>..\..\..\build\Agrobase\latest\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\SopracoFileReader\packages\MySql.Data.9.0.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VSM.RUMA.CORE.COMMONS\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AFSavetoDB.cs" />
+    <Compile Include="AniCatKey.cs" />
+    <Compile Include="DataTypes\ABILITY_AUTOMATE.cs" />
+    <Compile Include="DataTypes\ADMIN.cs" />
+    <Compile Include="DataTypes\ADMINISTRATIE.cs" />
+    <Compile Include="DataTypes\ADMINISTRATIEBEDRIJF.cs" />
+    <Compile Include="DataTypes\ADMINUBN.cs" />
+    <Compile Include="DataTypes\AGRO_LABELS.cs" />
+    <Compile Include="DataTypes\ANALYSE.cs" />
+    <Compile Include="DataTypes\ANIMAL.cs" />
+    <Compile Include="DataTypes\ANIMALCATEGORY.cs" />
+    <Compile Include="AnimalKey.cs" />
+    <Compile Include="DataTypes\ANIMALPASSWORD.cs" />
+    <Compile Include="DataTypes\ANIMALPREDIKAAT.cs" />
+    <Compile Include="DataTypes\ANIMAL_AFWIJKING.cs" />
+    <Compile Include="DataTypes\ANIMAL_DISCUSSION.cs" />
+    <Compile Include="DataTypes\ANIMAL_PRODUCTION.cs" />
+    <Compile Include="DataTypes\ANIMAL_PROPERTY.cs" />
+    <Compile Include="DataTypes\ANIMAL_SHARE_INFO.cs" />
+    <Compile Include="DataTypes\ANIMEDI.cs" />
+    <Compile Include="DataTypes\ARTIKEL.cs" />
+    <Compile Include="DataTypes\ARTIKELUBN.cs" />
+    <Compile Include="DataTypes\ARTIKEL_BEDRIJF_CONFIG.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_DIERSOORT.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_DOSERING.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_INFO.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_LIST.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_REGNR.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_TOEDIENING.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_WACHTTIJD.cs" />
+    <Compile Include="DataTypes\ARTIKEL_MEDIC_WERKZAMESTOF.cs" />
+    <Compile Include="DataTypes\ARTIKEL_STOCK.cs" />
+    <Compile Include="DataTypes\ARTIKEL_VOER.cs" />
+    <Compile Include="DataTypes\ATTCUST.cs" />
+    <Compile Include="DataTypes\ATTINST.cs" />
+    <Compile Include="DataTypes\AUTHORIZATION.cs" />
+    <Compile Include="DataTypes\AUTH_GROUPS.cs" />
+    <Compile Include="DataTypes\AUTH_GROUPS_FARM.cs" />
+    <Compile Include="DataTypes\AUTH_GROUPS_RIGHTS.cs" />
+    <Compile Include="DataTypes\BALANS.cs" />
+    <Compile Include="DataTypes\BANK_BOEKING.cs" />
+    <Compile Include="DataTypes\BANK_BOEKING_REGEL.cs" />
+    <Compile Include="DataTypes\BANK_TRANSACTIE.cs" />
+    <Compile Include="DataTypes\BCURVDAY.cs" />
+    <Compile Include="DataTypes\BCURVNM.cs" />
+    <Compile Include="DataTypes\BEDRIJF.cs" />
+    <Compile Include="DataTypes\BEDRIJF_ZIEKTE.cs" />
+    <Compile Include="DataTypes\BEDRIJVEN_SELECTIE.cs" />
+    <Compile Include="DataTypes\BEDRIJVEN_SELECTIE_DETAIL.cs" />
+    <Compile Include="DataTypes\BEDRPROD.cs" />
+    <Compile Include="DataTypes\BIRTH.cs" />
+    <Compile Include="DataTypes\BLOOD.cs" />
+    <Compile Include="DataTypes\BLOOD_RESEARCH.cs" />
+    <Compile Include="DataTypes\BLOOD_RESEARCH_DETAIL.cs" />
+    <Compile Include="DataTypes\BREED.cs" />
+    <Compile Include="DataTypes\BREEDVAL.cs" />
+    <Compile Include="DataTypes\BTWPERC.cs" />
+    <Compile Include="DataTypes\BULLUBN.cs" />
+    <Compile Include="DataTypes\BUYING.cs" />
+    <Compile Include="DataTypes\CCURVDAY.cs" />
+    <Compile Include="DataTypes\CCURVNM.cs" />
+    <Compile Include="DataTypes\CHIP_BOX.cs" />
+    <Compile Include="DataTypes\CHIP_STOCK.cs" />
+    <Compile Include="DataTypes\COMPLAINTS.cs" />
+    <Compile Include="DataTypes\COMPLAINTS_CONFIG.cs" />
+    <Compile Include="DataTypes\CONFIG.cs" />
+    <Compile Include="DataTypes\COUNTRY.cs" />
+    <Compile Include="DataTypes\CRV_MELDING.cs" />
+    <Compile Include="DataTypes\DAGBOEK.cs" />
+    <Compile Include="DataTypes\DataObject.cs" />
+    <Compile Include="DataTypes\DHZ.cs" />
+    <Compile Include="DataTypes\DHZERROR.cs" />
+    <Compile Include="DataTypes\DHZLOG.cs" />
+    <Compile Include="DataTypes\DHZMOVZ.cs" />
+    <Compile Include="DataTypes\DIER_ZIEKTE.cs" />
+    <Compile Include="DataTypes\DISEASE.cs" />
+    <Compile Include="DataTypes\DRYOFF.cs" />
+    <Compile Include="DataTypes\DRYOFFDAYS.cs" />
+    <Compile Include="DataTypes\EMMMILK.cs" />
+    <Compile Include="DataTypes\EVENT.cs" />
+    <Compile Include="DataTypes\EXTERIEUR.cs" />
+    <Compile Include="DataTypes\EXTERIEUR_WAARDEN.cs" />
+    <Compile Include="DataTypes\FABRPOST.cs" />
+    <Compile Include="DataTypes\FACTUUR.cs" />
+    <Compile Include="DataTypes\FARMCONFIG.cs" />
+    <Compile Include="DataTypes\FEEDBUY.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_DAYS.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_DAYS_DETAIL.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_MILK.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_MILK_MILKINFO.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_MILK_MILKINFO_DETAIL.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_UPDOWN.cs" />
+    <Compile Include="DataTypes\FEEDCURVE_UPDOWN_DETAIL.cs" />
+    <Compile Include="DataTypes\FEEDDATA.cs" />
+    <Compile Include="DataTypes\FEEDSTC3.cs" />
+    <Compile Include="DataTypes\FEED_ADVICE.cs" />
+    <Compile Include="DataTypes\FEED_ADVICE_DETAIL.cs" />
+    <Compile Include="DataTypes\FEED_ADVICE_ROVECOM.cs" />
+    <Compile Include="DataTypes\FEED_IN_FEEDCOMPUTER.cs" />
+    <Compile Include="DataTypes\FEED_RATIONGROUP_KIND.cs" />
+    <Compile Include="DataTypes\FEED_RATION_SETTINGS.cs" />
+    <Compile Include="DataTypes\FEED_REST.cs" />
+    <Compile Include="DataTypes\FEED_REST_DETAIL.cs" />
+    <Compile Include="DataTypes\FEED_ROVECOM.cs" />
+    <Compile Include="DataTypes\FEED_STEP.cs" />
+    <Compile Include="DataTypes\FILELOG.cs" />
+    <Compile Include="DataTypes\FILELOG_DETAIL.cs" />
+    <Compile Include="DataTypes\FILELOG_IDFIELD.cs" />
+    <Compile Include="DataTypes\FILELOG_READER.cs" />
+    <Compile Include="DataTypes\FILELOG_SUBDETAIL.cs" />
+    <Compile Include="DataTypes\FILE_IMPORT.cs" />
+    <Compile Include="DataTypes\FILE_IMPORT_TYPE.cs" />
+    <Compile Include="DataTypes\FOKWAARDEN.cs" />
+    <Compile Include="DataTypes\FOKWAARDEN_WAARDEN.cs" />
+    <Compile Include="DataTypes\FSTOCK.cs" />
+    <Compile Include="DataTypes\FTPACTIO.cs" />
+    <Compile Include="DataTypes\FTPINFO.cs" />
+    <Compile Include="DataTypes\FTPLIST.cs" />
+    <Compile Include="DataTypes\FTPLOG.cs" />
+    <Compile Include="DataTypes\FTPSCRIP.cs" />
+    <Compile Include="DataTypes\FTPUSER.cs" />
+    <Compile Include="DataTypes\gdauth.cs" />
+    <Compile Include="DataTypes\GEMACHTIGD.cs" />
+    <Compile Include="DataTypes\GENERAL_UNIQUE_IDS.cs" />
+    <Compile Include="DataTypes\GESTATIO.cs" />
+    <Compile Include="DataTypes\GEWASSEN.cs" />
+    <Compile Include="DataTypes\GROOTBOE.cs" />
+    <Compile Include="DataTypes\GROOTBOEK.cs" />
+    <Compile Include="DataTypes\GROUPCONFIG.cs" />
+    <Compile Include="DataTypes\GROUPID.cs" />
+    <Compile Include="DataTypes\GROUPS.cs" />
+    <Compile Include="DataTypes\GRZTOGTH.cs" />
+    <Compile Include="DataTypes\HFDGROEP.cs" />
+    <Compile Include="DataTypes\INHEAT.cs" />
+    <Compile Include="DataTypes\INSEMIN.cs" />
+    <Compile Include="DataTypes\IRreportresult.cs" />
+    <Compile Include="DataTypes\KEURING_LIJST.cs" />
+    <Compile Include="DataTypes\KEURING_LIJST_DIER.cs" />
+    <Compile Include="DataTypes\KEURING_TYPE.cs" />
+    <Compile Include="DataTypes\KEURING_TYPE_VELDEN.cs" />
+    <Compile Include="DataTypes\KUILONDZ.cs" />
+    <Compile Include="DataTypes\LABELS.cs" />
+    <Compile Include="DataTypes\LABMINAS.cs" />
+    <Compile Include="DataTypes\LABPSKEN.cs" />
+    <Compile Include="DataTypes\LEVNRMUT.cs" />
+    <Compile Include="DataTypes\lifenr.cs" />
+    <Compile Include="DataTypes\LISCATEG.cs" />
+    <Compile Include="DataTypes\LNVAUTH.cs" />
+    <Compile Include="DataTypes\LORA_GRAZINGREPORT.cs" />
+    <Compile Include="DataTypes\LOSS.cs" />
+    <Compile Include="DataTypes\MAANTDRN.cs" />
+    <Compile Include="DataTypes\MAFWSTLS.cs" />
+    <Compile Include="DataTypes\MANINORM.cs" />
+    <Compile Include="DataTypes\MBEGIN.cs" />
+    <Compile Include="DataTypes\MBSEXCR.cs" />
+    <Compile Include="DataTypes\MEDICINE.cs" />
+    <Compile Include="DataTypes\MEDICINEUBN.cs" />
+    <Compile Include="DataTypes\MEDLEVLOG.cs" />
+    <Compile Include="DataTypes\MEDLEVLOG_DETAIL.cs" />
+    <Compile Include="DataTypes\MEDPLAND.cs" />
+    <Compile Include="DataTypes\MEDPLANM.cs" />
+    <Compile Include="DataTypes\MEDSTOCK.cs" />
+    <Compile Include="DataTypes\MEIEREN.cs" />
+    <Compile Include="DataTypes\MEMORIAA.cs" />
+    <Compile Include="DataTypes\MESSAGES.cs" />
+    <Compile Include="DataTypes\MESTNR.cs" />
+    <Compile Include="DataTypes\MESTTANK.cs" />
+    <Compile Include="DataTypes\MESTUBN.cs" />
+    <Compile Include="DataTypes\MGRGEBRK.cs" />
+    <Compile Include="DataTypes\MILKINVO.cs" />
+    <Compile Include="DataTypes\MILKPST2.cs" />
+    <Compile Include="DataTypes\MILKQUAL.cs" />
+    <Compile Include="DataTypes\MILKQUOT.cs" />
+    <Compile Include="DataTypes\MILKSAMP.cs" />
+    <Compile Include="DataTypes\MILKSUPL.cs" />
+    <Compile Include="DataTypes\MKOEMLK.cs" />
+    <Compile Include="DataTypes\MMESTGG.cs" />
+    <Compile Include="DataTypes\MMNDTEL.cs" />
+    <Compile Include="DataTypes\MMUTAT.cs" />
+    <Compile Include="DataTypes\MOVEMENT.cs" />
+    <Compile Include="DataTypes\MOVEOUT.cs" />
+    <Compile Include="DataTypes\MRUWVOER.cs" />
+    <Compile Include="DataTypes\MSTLDRGG.cs" />
+    <Compile Include="DataTypes\MSTLDRPR.cs" />
+    <Compile Include="DataTypes\MUTALOG.cs" />
+    <Compile Include="DataTypes\MUTALOG__ADMIN.cs" />
+    <Compile Include="DataTypes\MUTATION.cs" />
+    <Compile Include="DataTypes\MUTATION__ADMIN.cs" />
+    <Compile Include="DataTypes\MUTA_VOER.cs" />
+    <Compile Include="DataTypes\MUTA_VOER_LOG.cs" />
+    <Compile Include="DataTypes\MWCOEFF.cs" />
+    <Compile Include="DataTypes\ONDERZ.cs" />
+    <Compile Include="DataTypes\ORDERREGEL.cs" />
+    <Compile Include="DataTypes\ORDERS.cs" />
+    <Compile Include="DataTypes\PERCEEL.cs" />
+    <Compile Include="DataTypes\PLACE.cs" />
+    <Compile Include="DataTypes\PROCESCOMPUTERLOG.cs" />
+    <Compile Include="DataTypes\PROCESCOMPUTERLOG_DETAIL.cs" />
+    <Compile Include="DataTypes\PROGRAMCONFIG.cs" />
+    <Compile Include="DataTypes\PROGRAM_LICENSE.cs" />
+    <Compile Include="DataTypes\PROGRAM_MEMBER.cs" />
+    <Compile Include="DataTypes\PSC_PCLINK.cs" />
+    <Compile Include="DataTypes\PSC_PROCESCOMPUTER.cs" />
+    <Compile Include="DataTypes\PSC_PROCESCOMPUTER_VALUE.cs" />
+    <Compile Include="DataTypes\PSC_RATIONADVICE.cs" />
+    <Compile Include="DataTypes\PSC_SETTINGS.cs" />
+    <Compile Include="DataTypes\PSINST.cs" />
+    <Compile Include="DataTypes\PSINST2.cs" />
+    <Compile Include="DataTypes\PSKEN.cs" />
+    <Compile Include="DataTypes\PSKENTV.cs" />
+    <Compile Include="DataTypes\PSKTVUSR.cs" />
+    <Compile Include="DataTypes\REMARK.cs" />
+    <Compile Include="DataTypes\REMMINAS.cs" />
+    <Compile Include="DataTypes\REPORT_INFORMATION.cs" />
+    <Compile Include="DataTypes\REPORT_LOGGING.cs" />
+    <Compile Include="DataTypes\RIGHTS_LISTS.cs" />
+    <Compile Include="DataTypes\RIGHT_LABELS.cs" />
+    <Compile Include="DataTypes\RIGHT_MODULE.cs" />
+    <Compile Include="DataTypes\RUMALOG.cs" />
+    <Compile Include="DataTypes\SALE.cs" />
+    <Compile Include="DataTypes\SAVED_VALUES.cs" />
+    <Compile Include="DataTypes\SAVED_VALUES_DETAIL.cs" />
+    <Compile Include="DataTypes\SCCURVE.cs" />
+    <Compile Include="DataTypes\SCCURVED.cs" />
+    <Compile Include="DataTypes\SCORE.cs" />
+    <Compile Include="DataTypes\SECONRAC.cs" />
+    <Compile Include="DataTypes\SOAPLOG.cs" />
+    <Compile Include="DataTypes\STATUS.cs" />
+    <Compile Include="DataTypes\STORAGE.cs" />
+    <Compile Include="DataTypes\SUPPLUBN.cs" />
+    <Compile Include="DataTypes\SUPPLY1.cs" />
+    <Compile Include="DataTypes\SUPPLY1_DETAILS.cs" />
+    <Compile Include="DataTypes\SUPPLY1_GROUP.cs" />
+    <Compile Include="DataTypes\SUPPLY1_MEDIC.cs" />
+    <Compile Include="DataTypes\SUPPLY1_VOER.cs" />
+    <Compile Include="DataTypes\SUPPLY1_VOER_VERDELING.cs" />
+    <Compile Include="DataTypes\TAKEEMBR.cs" />
+    <Compile Include="DataTypes\THIRD.cs" />
+    <Compile Include="DataTypes\THIRDKIN.cs" />
+    <Compile Include="DataTypes\THIRDTHIRD.cs" />
+    <Compile Include="DataTypes\THIRDUBN.cs" />
+    <Compile Include="DataTypes\THIRD_LOGIN.cs" />
+    <Compile Include="DataTypes\THIRD_LOGIN_TYPE.cs" />
+    <Compile Include="DataTypes\THIRD_NOTES.cs" />
+    <Compile Include="DataTypes\THIRD_PROPERTY.cs" />
+    <Compile Include="DataTypes\TILES.cs" />
+    <Compile Include="DataTypes\TILES_DETAIL.cs" />
+    <Compile Include="DataTypes\TILES_SETTINGS.cs" />
+    <Compile Include="DataTypes\TILES_SETTINGS_DETAIL.cs" />
+    <Compile Include="DataTypes\TRANSMIT.cs" />
+    <Compile Include="DataTypes\TRANSMSTOCK.cs" />
+    <Compile Include="DataTypes\TRANSPLA.cs" />
+    <Compile Include="DataTypes\TRANSPRT.cs" />
+    <Compile Include="DataTypes\TREATMEN.cs" />
+    <Compile Include="DataTypes\UBN.cs" />
+    <Compile Include="DataTypes\UBN_PROPERTY.cs" />
+    <Compile Include="DataTypes\UBN_QUAL.cs" />
+    <Compile Include="DataTypes\USECRVDT.cs" />
+    <Compile Include="DataTypes\USECRVNM.cs" />
+    <Compile Include="DataTypes\VERIFIED_ANIMAL_CALL.cs" />
+    <Compile Include="DataTypes\VERIFIED_ANIMAL_SANITEL.cs" />
+    <Compile Include="DataTypes\VERIFIED_MOVEMENT.cs" />
+    <Compile Include="DataTypes\VERIFIED_ANIMAL.cs" />
+    <Compile Include="DataTypes\VERIFIED_MOVEMENT_SANITEL.cs" />
+    <Compile Include="DataTypes\VKIDIER.cs" />
+    <Compile Include="DataTypes\VKIDIERMED.cs" />
+    <Compile Include="DataTypes\VKIINFO.cs" />
+    <Compile Include="DataTypes\VOEDERS.cs" />
+    <Compile Include="DataTypes\WEAN.cs" />
+    <Compile Include="DataTypes\WEIGHT.cs" />
+    <Compile Include="DataTypes\WERKLIJST_HET_DEENS_SYSTEEM.cs" />
+    <Compile Include="DataTypes\WERKNEMER.cs" />
+    <Compile Include="DataTypes\WGCURVE.cs" />
+    <Compile Include="DataTypes\WGCURVED.cs" />
+    <Compile Include="DataTypes\WGCURVEFARM.cs" />
+    <Compile Include="DBCommons.cs" />
+    <Compile Include="DBConnectionToken.cs" />
+    <Compile Include="DBWriteCommons.cs" />
+    <Compile Include="FileExport.cs" />
+    <Compile Include="IDatabase.cs" />
+    <Compile Include="IunLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="unConst.cs" />
+    <Compile Include="UpdateStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\..\VSM.RUMA.CORE\packages\MSBuild.Extension.Pack.1.8.0\build\net40\MSBuild.Extension.Pack.targets" Condition="Exists('..\..\VSM.RUMA.CORE\packages\MSBuild.Extension.Pack.1.8.0\build\net40\MSBuild.Extension.Pack.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <!--<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>-->
+    </PropertyGroup>
+    <Error Condition="!Exists('..\SopracoFileReader\packages\MSBuild.Extension.Pack.1.9.1\build\net40\MSBuild.Extension.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\SopracoFileReader\packages\MSBuild.Extension.Pack.1.9.1\build\net40\MSBuild.Extension.Pack.targets'))" />
+    <!--<Error Condition="!Exists('..\..\VSM.RUMA.CORE\packages\MSBuild.Extension.Pack.1.8.0\build\net40\MSBuild.Extension.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\VSM.RUMA.CORE\packages\MSBuild.Extension.Pack.1.8.0\build\net40\MSBuild.Extension.Pack.targets'))" />-->
+  </Target>
+  <Import Project="..\SopracoFileReader\packages\MSBuild.Extension.Pack.1.9.1\build\net40\MSBuild.Extension.Pack.targets" Condition="Exists('..\SopracoFileReader\packages\MSBuild.Extension.Pack.1.9.1\build\net40\MSBuild.Extension.Pack.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

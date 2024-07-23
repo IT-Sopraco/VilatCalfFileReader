@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WIJZIGINGSHISTORIE
+VERSIE	WIJZIGINGEN
+1_0     Creatie
+1_1     Verwijzing naar vernieuwde xsd
+2_0     ProGReS schapen&geiten Release 1
+-->
+<wsdl:definitions 
+   targetNamespace="http://www.ienr.org/schemas/services/merkenWS_v2_0"
+   xmlns:merkWS="http://www.ienr.org/schemas/services/merkenWS_v2_0"
+   xmlns:merk="http://www.ienr.org/schemas/types/merken_v2_0"
+   xmlns:apachesoap="http://xml.apache.org/xml-soap"
+   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+ <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/merkenWS_v2_0">
+   <import namespace="http://sql.java"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <import namespace="http://www.ienr.org/schemas/types/merken_v2_0" schemaLocation="https://dbrbms.agro.nl/bms_v2_0/merken_v2_0.xsd"/>
+ </schema>
+ </wsdl:types>
+
+   <wsdl:message name="controleerLevensnummerRequest">
+
+      <wsdl:part name="request" type="merk:controleerLevensnummerRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="controleerLevensnummerResponse">
+
+      <wsdl:part name="controleerLevensnummerReturn" type="merk:controleerLevensnummerResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenMerktypenRequest">
+
+      <wsdl:part name="request" type="merk:merktypenRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenMerktypenResponse">
+
+      <wsdl:part name="raadplegenMerktypenReturn" type="merk:merktypenResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenMerkenRequest">
+
+      <wsdl:part name="request" type="merk:merkenRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenMerkenResponse">
+
+      <wsdl:part name="raadplegenMerkenReturn" type="merk:merkenResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MerkenService">
+
+      <wsdl:operation name="controleerLevensnummer" parameterOrder="request">
+
+         <wsdl:input name="controleerLevensnummerRequest" message="merkWS:controleerLevensnummerRequest"/>
+
+         <wsdl:output name="controleerLevensnummerResponse" message="merkWS:controleerLevensnummerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenMerktypen" parameterOrder="request">
+
+         <wsdl:input name="raadplegenMerktypenRequest" message="merkWS:raadplegenMerktypenRequest"/>
+
+         <wsdl:output name="raadplegenMerktypenResponse" message="merkWS:raadplegenMerktypenResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenMerken" parameterOrder="request">
+
+         <wsdl:input name="raadplegenMerkenRequest" message="merkWS:raadplegenMerkenRequest"/>
+
+         <wsdl:output name="raadplegenMerkenResponse" message="merkWS:raadplegenMerkenResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MerkenWSSoapBinding" type="merkWS:MerkenService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="controleerLevensnummer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="controleerLevensnummerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="controleerLevensnummerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenMerktypen">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenMerktypenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenMerktypenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenMerken">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenMerkenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenMerkenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MerkenServiceService">
+
+      <wsdl:port name="MerkenWS" binding="merkWS:MerkenWSSoapBinding">
+
+         <wsdlsoap:address location="https://dbrbms.agro.nl/bms_v2_0/services/MerkenWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

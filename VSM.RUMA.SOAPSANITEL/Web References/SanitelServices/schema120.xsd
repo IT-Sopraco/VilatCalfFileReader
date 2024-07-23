@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/AgreementOverviewExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AgreementOverviewExportSchema" id="schema120" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AgreementOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Agreement">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="AGRE_ID" type="xs:long" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AGRE_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AGTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AGSA_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BEG_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="END_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR_BEG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR_END" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR_BEG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR_END" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="APTP_CDE1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_NAM1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="APTP_CDE2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_CDE2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PATY_NAM2" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="UPD_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CTY" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

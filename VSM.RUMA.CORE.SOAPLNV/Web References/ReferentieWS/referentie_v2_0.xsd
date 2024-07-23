@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:alg="http://www.ienr.org/schemas/types/algemeen_v2_0" xmlns:referentie="http://www.ienr.org/schemas/types/referentie_v2_0" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ienr.org/schemas/types/referentie_v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="algemeen_v2_0.xsd" namespace="http://www.ienr.org/schemas/types/algemeen_v2_0" />
+  <xsd:element name="diersoortenRequest" type="referentie:diersoortenRequestType" />
+  <xsd:complexType name="diersoortenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diersoortenType">
+    <xsd:sequence>
+      <xsd:element name="code" nillable="true" type="alg:diersoortType" />
+      <xsd:element name="naam" nillable="true" type="alg:diersoortNaamType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="diersoortenResponse" type="referentie:diersoortenResponseType" />
+  <xsd:complexType name="diersoortenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:diersoortenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="diersoorten" type="referentie:diersoortenType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="landenRequest" type="referentie:landenRequestType" />
+  <xsd:complexType name="landenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="landenType">
+    <xsd:sequence>
+      <xsd:element name="code" nillable="true" type="alg:landcodeType" />
+      <xsd:element name="naam" nillable="true" type="alg:landcodeNaamType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="landenResponse" type="referentie:landenResponseType" />
+  <xsd:complexType name="landenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:landenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="land" type="referentie:landenType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EUlandenRequest" type="referentie:EUlandenRequestType" />
+  <xsd:complexType name="EUlandenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EUlandenType">
+    <xsd:sequence>
+      <xsd:element name="code" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="naam" nillable="true" type="alg:landcodeNaamType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="EUlandenResponse" type="referentie:EUlandenResponseType" />
+  <xsd:complexType name="EUlandenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:EUlandenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="euLand" type="referentie:EUlandenType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="destructorsRequest" type="referentie:destructorsRequestType" />
+  <xsd:complexType name="destructorsRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="destructorsType">
+    <xsd:sequence>
+      <xsd:element name="meldingeenheidDestructor" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="naam" nillable="true" type="alg:destructorNaamType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="destructorsResponse" type="referentie:destructorsResponseType" />
+  <xsd:complexType name="destructorsResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:destructorsRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="destructor" type="referentie:destructorsType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="haarkleurenRequest" type="referentie:haarkleurenRequestType" />
+  <xsd:complexType name="haarkleurenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="haarkleurenType">
+    <xsd:sequence>
+      <xsd:element name="code" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="omschrijving" nillable="true" type="alg:haarkleurOmsType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="haarkleurenResponse" type="referentie:haarkleurenResponseType" />
+  <xsd:complexType name="haarkleurenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:haarkleurenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="haarkleur" type="referentie:haarkleurenType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vlagsoortenRequest" type="referentie:vlagsoortenRequestType" />
+  <xsd:complexType name="vlagsoortMaatregelType">
+    <xsd:sequence>
+      <xsd:element name="maatregelCode" type="alg:maatregelCodeType" />
+      <xsd:element name="omschrijving" nillable="true" type="alg:maatregelOmschrijvingType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vlagsoortenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vlagsoortGegevensType">
+    <xsd:sequence>
+      <xsd:element name="dierSoort" nillable="true" type="alg:diersoortType" />
+      <xsd:element name="vlagsoortCodeReden" nillable="true" type="alg:vlagsoortCodeType" />
+      <xsd:element name="vlagsoort" nillable="true" type="alg:vlagsoortType" />
+      <xsd:element name="indDierME" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indMeldbaar" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indKennisgevingRegistratie" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indRaadpleegbaarVoorHouder" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="omschrijving" nillable="true" type="alg:vlagsoortOmschrijvingType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="vlagsoortMaatregels" type="referentie:vlagsoortMaatregelType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vlagsoortenResponse" type="referentie:vlagsoortenResponseType" />
+  <xsd:complexType name="vlagsoortenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:vlagsoortenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="vlagsoortGegevens" type="referentie:vlagsoortGegevensType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="domeinenRequest" type="referentie:domeinenRequestType" />
+  <xsd:complexType name="domeinenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="selDomeincode" type="alg:domeinType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="domeinType">
+    <xsd:sequence>
+      <xsd:element name="code" nillable="true" type="alg:domeinCodeType" />
+      <xsd:element name="omschrijving" nillable="true" type="alg:domeinOmschrijvingType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="domeinenResponse" type="referentie:domeinenResponseType" />
+  <xsd:complexType name="domeinenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="referentie:domeinenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="domein" type="referentie:domeinType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

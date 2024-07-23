@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices">
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema1" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportOrder/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema2" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/OrderImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema3" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportOrder/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema4" namespace="http://Sanitel.EAI/SanitelRepository/InteractionResult" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema5" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema6" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema7" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema8" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema9" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema10" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema11" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeMeatQuality/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema12" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeMeatQualityImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema13" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeMeatQuality/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema14" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeProductionQuality/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema15" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeProductionQualityImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema16" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeProductionQuality/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema17" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema18" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/InventoryNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema19" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema20" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMovementNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema21" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema22" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMovementNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema23" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportPopulationNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema24" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/PopulationNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema25" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportPopulationNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema26" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportProductionUnitNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema27" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema28" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportProductionUnitNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema29" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRiskNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema30" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RiskNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema31" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRiskNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema32" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportTreatmentNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema33" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/TreatmentNotificationImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema34" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/TreatmentNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema35" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportTreatmentNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema36" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema37" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RetaggingNotificationImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema38" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RetaggingNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema39" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema40" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalPassport/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema41" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalPassportImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema42" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/PassportImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema43" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalPassport/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema44" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportStatusUpdateNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema45" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/StatusUpdateNotificationImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema46" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/StatusUpdateNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema47" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportStatusUpdateNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema48" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMarkingSeries/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema49" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MarkingSeriesImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema50" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MarkingSeriesImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema51" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMarkingSeries/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema52" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterFile/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema53" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema54" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileToBeImported" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema55" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterFile/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema56" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterInfo/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema57" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterInfoImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema58" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterInfoToBeImported" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema59" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterInfo/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema60" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterDetailInfoForAnimalGroup/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema61" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema62" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema63" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterDetailInfoForAnimalGroup/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema64" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportFoodChainNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema65" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/FoodChainNotificationImportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema66" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportFoodChainNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema67" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalMovementNotificationOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema68" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalMovementNotificationOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema69" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalMovementNotificationOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema70" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalMovementNotificationOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema71" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema72" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema73" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema74" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema75" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema76" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema77" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema78" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema79" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalBasicData/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema80" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AnimalBasicDataExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema81" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportChangeNotificationOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema82" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeNotificationOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema83" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportChangeNotificationOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema84" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeNotificationOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema85" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportFacilityOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema86" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/FacilityOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema87" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportFacilityOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema88" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/FacilityOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema89" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotificationOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema90" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema91" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotificationOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema92" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema93" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotification/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema94" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema95" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotification/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema96" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema97" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportPartyOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema98" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/PartyOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema99" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportPartyOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema100" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/PartyOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema101" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnitOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema102" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema103" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnitOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema104" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema105" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnit/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema106" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema107" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnit/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema108" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema109" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnitOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema110" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SanitaryUnitOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema111" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnitOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema112" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SanitaryUnitOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema113" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnit/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema114" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SanitaryUnitExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema115" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnit/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema116" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SanitaryUnitExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema117" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAgreementOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema118" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AgreementOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema119" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAgreementOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema120" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/AgreementOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema121" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportLiablePartyOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema122" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/LiablePartyOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema123" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportLiablePartyOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema124" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/LiablePartyOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema125" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMarkingSeriesOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema126" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MarkingSeriesOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema127" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMarkingSeriesOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema128" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MarkingSeriesOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema129" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportRetaggingNotificationOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema130" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RetaggingNotificationOverviewExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema131" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportRetaggingNotificationOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema132" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RetaggingNotificationOverviewExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema133" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportWaterManureAllocation/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema134" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/WaterManureAllocationExportRequestSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema135" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportWaterManureAllocation/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema136" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/WaterManureAllocationExportSchema" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema137" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema138" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileExportRequest" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema139" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema140" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterFileExport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema141" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringFacilitiesOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema142" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughteringFacilitiesOverviewExportRequest" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema143" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringFacilitiesOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema144" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughteringFacilitiesOverviewExport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema145" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringStatisticsOverview/Request" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema146" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughteringStatisticsOverviewExportRequest" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema147" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringStatisticsOverview/Response" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema148" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughteringStatisticsOverviewExport" />
+      <s:import schemaLocation="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?schema=schema149" namespace="http://Sanitel.EAI/SanitelRepository/SanitelServicess/SlaughteringStatisticsOverviewExport" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportOrderSoapIn">
+    <wsdl:part xmlns:q1="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportOrder/Request" name="parameters" element="q1:ImportOrder" />
+  </wsdl:message>
+  <wsdl:message name="ImportOrderSoapOut">
+    <wsdl:part xmlns:q2="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportOrder/Response" name="parameters" element="q2:ImportOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportAnimalNotificationSoapIn">
+    <wsdl:part xmlns:q3="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalNotification/Request" name="parameters" element="q3:ImportAnimalNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportAnimalNotificationSoapOut">
+    <wsdl:part xmlns:q4="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalNotification/Response" name="parameters" element="q4:ImportAnimalNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportChangeNotificationSoapIn">
+    <wsdl:part xmlns:q5="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeNotification/Request" name="parameters" element="q5:ImportChangeNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportChangeNotificationSoapOut">
+    <wsdl:part xmlns:q6="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeNotification/Response" name="parameters" element="q6:ImportChangeNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportChangeAnimalMeatQualitySoapIn">
+    <wsdl:part xmlns:q7="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeMeatQuality/Request" name="parameters" element="q7:ImportChangeAnimalMeatQuality" />
+  </wsdl:message>
+  <wsdl:message name="ImportChangeAnimalMeatQualitySoapOut">
+    <wsdl:part xmlns:q8="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeMeatQuality/Response" name="parameters" element="q8:ImportChangeAnimalMeatQualityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportChangeProductionQualitySoapIn">
+    <wsdl:part xmlns:q9="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeProductionQuality/Request" name="parameters" element="q9:ImportChangeProductionQuality" />
+  </wsdl:message>
+  <wsdl:message name="ImportChangeProductionQualitySoapOut">
+    <wsdl:part xmlns:q10="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeProductionQuality/Response" name="parameters" element="q10:ImportChangeProductionQualityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportInventoryNotificationSoapIn">
+    <wsdl:part xmlns:q11="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification/Request" name="parameters" element="q11:ImportInventoryNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportInventoryNotificationSoapOut">
+    <wsdl:part xmlns:q12="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification/Response" name="parameters" element="q12:ImportInventoryNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportMovementNotificationSoapIn">
+    <wsdl:part xmlns:q13="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMovementNotification/Request" name="parameters" element="q13:ImportMovementNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportMovementNotificationSoapOut">
+    <wsdl:part xmlns:q14="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMovementNotification/Response" name="parameters" element="q14:ImportMovementNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportPopulationNotificationSoapIn">
+    <wsdl:part xmlns:q15="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportPopulationNotification/Request" name="parameters" element="q15:ImportPopulationNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportPopulationNotificationSoapOut">
+    <wsdl:part xmlns:q16="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportPopulationNotification/Response" name="parameters" element="q16:ImportPopulationNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportProductionUnitNotificationSoapIn">
+    <wsdl:part xmlns:q17="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportProductionUnitNotification/Request" name="parameters" element="q17:ImportProductionUnitNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportProductionUnitNotificationSoapOut">
+    <wsdl:part xmlns:q18="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportProductionUnitNotification/Response" name="parameters" element="q18:ImportProductionUnitNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportRiskNotificationSoapIn">
+    <wsdl:part xmlns:q19="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRiskNotification/Request" name="parameters" element="q19:ImportRiskNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportRiskNotificationSoapOut">
+    <wsdl:part xmlns:q20="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRiskNotification/Response" name="parameters" element="q20:ImportRiskNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportTreatmentNotificationSoapIn">
+    <wsdl:part xmlns:q21="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportTreatmentNotification/Request" name="parameters" element="q21:ImportTreatmentNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportTreatmentNotificationSoapOut">
+    <wsdl:part xmlns:q22="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportTreatmentNotification/Response" name="parameters" element="q22:ImportTreatmentNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportRetaggingNotificationSoapIn">
+    <wsdl:part xmlns:q23="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification/Request" name="parameters" element="q23:ImportRetaggingNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportRetaggingNotificationSoapOut">
+    <wsdl:part xmlns:q24="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification/Response" name="parameters" element="q24:ImportRetaggingNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportAnimalPassportSoapIn">
+    <wsdl:part xmlns:q25="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalPassport/Request" name="parameters" element="q25:ImportAnimalPassport" />
+  </wsdl:message>
+  <wsdl:message name="ImportAnimalPassportSoapOut">
+    <wsdl:part xmlns:q26="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalPassport/Response" name="parameters" element="q26:ImportAnimalPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportStatusUpdateNotificationSoapIn">
+    <wsdl:part xmlns:q27="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportStatusUpdateNotification/Request" name="parameters" element="q27:ImportStatusUpdateNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportStatusUpdateNotificationSoapOut">
+    <wsdl:part xmlns:q28="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportStatusUpdateNotification/Response" name="parameters" element="q28:ImportStatusUpdateNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportMarkingSeriesSoapIn">
+    <wsdl:part xmlns:q29="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMarkingSeries/Request" name="parameters" element="q29:ImportMarkingSeries" />
+  </wsdl:message>
+  <wsdl:message name="ImportMarkingSeriesSoapOut">
+    <wsdl:part xmlns:q30="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMarkingSeries/Response" name="parameters" element="q30:ImportMarkingSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportSlaughterFileSoapIn">
+    <wsdl:part xmlns:q31="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterFile/Request" name="parameters" element="q31:ImportSlaughterFile" />
+  </wsdl:message>
+  <wsdl:message name="ImportSlaughterFileSoapOut">
+    <wsdl:part xmlns:q32="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterFile/Response" name="parameters" element="q32:ImportSlaughterFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportSlaughterInfoSoapIn">
+    <wsdl:part xmlns:q33="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterInfo/Request" name="parameters" element="q33:ImportSlaughterInfo" />
+  </wsdl:message>
+  <wsdl:message name="ImportSlaughterInfoSoapOut">
+    <wsdl:part xmlns:q34="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterInfo/Response" name="parameters" element="q34:ImportSlaughterInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportSlaughterDetailInfoForAnimalGroupSoapIn">
+    <wsdl:part xmlns:q35="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterDetailInfoForAnimalGroup/Request" name="parameters" element="q35:ImportSlaughterDetailInfoForAnimalGroup" />
+  </wsdl:message>
+  <wsdl:message name="ImportSlaughterDetailInfoForAnimalGroupSoapOut">
+    <wsdl:part xmlns:q36="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterDetailInfoForAnimalGroup/Response" name="parameters" element="q36:ImportSlaughterDetailInfoForAnimalGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportFoodChainNotificationSoapIn">
+    <wsdl:part xmlns:q37="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportFoodChainNotification/Request" name="parameters" element="q37:ImportFoodChainNotification" />
+  </wsdl:message>
+  <wsdl:message name="ImportFoodChainNotificationSoapOut">
+    <wsdl:part xmlns:q38="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportFoodChainNotification/Response" name="parameters" element="q38:ImportFoodChainNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalMovementNotificationOverviewSoapIn">
+    <wsdl:part xmlns:q39="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalMovementNotificationOverview/Request" name="parameters" element="q39:ExportAnimalMovementNotificationOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalMovementNotificationOverviewSoapOut">
+    <wsdl:part xmlns:q40="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalMovementNotificationOverview/Response" name="parameters" element="q40:ExportAnimalMovementNotificationOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalOverviewSoapIn">
+    <wsdl:part xmlns:q41="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview/Request" name="parameters" element="q41:ExportAnimalOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalOverviewSoapOut">
+    <wsdl:part xmlns:q42="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview/Response" name="parameters" element="q42:ExportAnimalOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalSoapIn">
+    <wsdl:part xmlns:q43="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal/Request" name="parameters" element="q43:ExportAnimal" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalSoapOut">
+    <wsdl:part xmlns:q44="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal/Response" name="parameters" element="q44:ExportAnimalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalBasicDataSoapIn">
+    <wsdl:part xmlns:q45="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalBasicData/Request" name="parameters" element="q45:ExportAnimalBasicData" />
+  </wsdl:message>
+  <wsdl:message name="ExportAnimalBasicDataSoapOut">
+    <wsdl:part xmlns:q46="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal/Response" name="parameters" element="q46:ExportAnimalBasicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportChangeNotificationOverviewSoapIn">
+    <wsdl:part xmlns:q47="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportChangeNotificationOverview/Request" name="parameters" element="q47:ExportChangeNotificationOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportChangeNotificationOverviewSoapOut">
+    <wsdl:part xmlns:q48="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportChangeNotificationOverview/Response" name="parameters" element="q48:ExportChangeNotificationOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportFacilityOverviewSoapIn">
+    <wsdl:part xmlns:q49="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportFacilityOverview/Request" name="parameters" element="q49:ExportFacilityOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportFacilityOverviewSoapOut">
+    <wsdl:part xmlns:q50="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportFacilityOverview/Response" name="parameters" element="q50:ExportFacilityOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportMovementNotificationOverviewSoapIn">
+    <wsdl:part xmlns:q51="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotificationOverview/Request" name="parameters" element="q51:ExportMovementNotificationOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportMovementNotificationOverviewSoapOut">
+    <wsdl:part xmlns:q52="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotificationOverview/Response" name="parameters" element="q52:ExportMovementNotificationOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportMovementNotificationSoapIn">
+    <wsdl:part xmlns:q53="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotification/Request" name="parameters" element="q53:ExportMovementNotification" />
+  </wsdl:message>
+  <wsdl:message name="ExportMovementNotificationSoapOut">
+    <wsdl:part xmlns:q54="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotification/Response" name="parameters" element="q54:ExportMovementNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportPartyOverviewSoapIn">
+    <wsdl:part xmlns:q55="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportPartyOverview/Request" name="parameters" element="q55:ExportPartyOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportPartyOverviewSoapOut">
+    <wsdl:part xmlns:q56="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportPartyOverview/Response" name="parameters" element="q56:ExportPartyOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportProductionUnitOverviewSoapIn">
+    <wsdl:part xmlns:q57="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnitOverview/Request" name="parameters" element="q57:ExportProductionUnitOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportProductionUnitOverviewSoapOut">
+    <wsdl:part xmlns:q58="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnitOverview/Response" name="parameters" element="q58:ExportProductionUnitOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportProductionUnitSoapIn">
+    <wsdl:part xmlns:q59="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnit/Request" name="parameters" element="q59:ExportProductionUnit" />
+  </wsdl:message>
+  <wsdl:message name="ExportProductionUnitSoapOut">
+    <wsdl:part xmlns:q60="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnit/Response" name="parameters" element="q60:ExportProductionUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportSanitaryUnitOverviewSoapIn">
+    <wsdl:part xmlns:q61="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnitOverview/Request" name="parameters" element="q61:ExportSanitaryUnitOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportSanitaryUnitOverviewSoapOut">
+    <wsdl:part xmlns:q62="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnitOverview/Response" name="parameters" element="q62:ExportSanitaryUnitOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportSanitaryUnitSoapIn">
+    <wsdl:part xmlns:q63="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnit/Request" name="parameters" element="q63:ExportSanitaryUnit" />
+  </wsdl:message>
+  <wsdl:message name="ExportSanitaryUnitSoapOut">
+    <wsdl:part xmlns:q64="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnit/Response" name="parameters" element="q64:ExportSanitaryUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportAgreementOverviewSoapIn">
+    <wsdl:part xmlns:q65="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAgreementOverview/Request" name="parameters" element="q65:ExportAgreementOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportAgreementOverviewSoapOut">
+    <wsdl:part xmlns:q66="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAgreementOverview/Response" name="parameters" element="q66:ExportAgreementOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportLiablePartyOverviewSoapIn">
+    <wsdl:part xmlns:q67="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportLiablePartyOverview/Request" name="parameters" element="q67:ExportLiablePartyOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportLiablePartyOverviewSoapOut">
+    <wsdl:part xmlns:q68="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportLiablePartyOverview/Response" name="parameters" element="q68:ExportLiablePartyOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportMarkingSeriesOverviewSoapIn">
+    <wsdl:part xmlns:q69="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMarkingSeriesOverview/Request" name="parameters" element="q69:ExportMarkingSeriesOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportMarkingSeriesOverviewSoapOut">
+    <wsdl:part xmlns:q70="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMarkingSeriesOverview/Response" name="parameters" element="q70:ExportMarkingSeriesOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportRetaggingNotificationOverviewSoapIn">
+    <wsdl:part xmlns:q71="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportRetaggingNotificationOverview/Request" name="parameters" element="q71:ExportRetaggingNotificationOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportRetaggingNotificationOverviewSoapOut">
+    <wsdl:part xmlns:q72="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportRetaggingNotificationOverview/Response" name="parameters" element="q72:ExportRetaggingNotificationOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportWaterManureAllocationSoapIn">
+    <wsdl:part xmlns:q73="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportWaterManureAllocation/Request" name="parameters" element="q73:ExportWaterManureAllocation" />
+  </wsdl:message>
+  <wsdl:message name="ExportWaterManureAllocationSoapOut">
+    <wsdl:part xmlns:q74="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportWaterManureAllocation/Response" name="parameters" element="q74:ExportWaterManureAllocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportSlaughterFileSoapIn">
+    <wsdl:part xmlns:q75="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile/Request" name="parameters" element="q75:ExportSlaughterFile" />
+  </wsdl:message>
+  <wsdl:message name="ExportSlaughterFileSoapOut">
+    <wsdl:part xmlns:q76="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile/Response" name="parameters" element="q76:ExportSlaughterFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportSlaughteringFacilitiesOverviewSoapIn">
+    <wsdl:part xmlns:q77="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringFacilitiesOverview/Request" name="parameters" element="q77:ExportSlaughteringFacilitiesOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportSlaughteringFacilitiesOverviewSoapOut">
+    <wsdl:part xmlns:q78="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringFacilitiesOverview/Response" name="parameters" element="q78:ExportSlaughteringFacilitiesOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportSlaughteringStatisticsOverviewSoapIn">
+    <wsdl:part xmlns:q79="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringStatisticsOverview/Request" name="parameters" element="q79:ExportSlaughteringStatisticsOverview" />
+  </wsdl:message>
+  <wsdl:message name="ExportSlaughteringStatisticsOverviewSoapOut">
+    <wsdl:part xmlns:q80="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringStatisticsOverview/Response" name="parameters" element="q80:ExportSlaughteringStatisticsOverviewResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Sanitel_SanitelServices">
+    <wsdl:operation name="ImportOrder">
+      <wsdl:input message="tns:ImportOrderSoapIn" />
+      <wsdl:output message="tns:ImportOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAnimalNotification">
+      <wsdl:input message="tns:ImportAnimalNotificationSoapIn" />
+      <wsdl:output message="tns:ImportAnimalNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeNotification">
+      <wsdl:input message="tns:ImportChangeNotificationSoapIn" />
+      <wsdl:output message="tns:ImportChangeNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeAnimalMeatQuality">
+      <wsdl:input message="tns:ImportChangeAnimalMeatQualitySoapIn" />
+      <wsdl:output message="tns:ImportChangeAnimalMeatQualitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeProductionQuality">
+      <wsdl:input message="tns:ImportChangeProductionQualitySoapIn" />
+      <wsdl:output message="tns:ImportChangeProductionQualitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportInventoryNotification">
+      <wsdl:input message="tns:ImportInventoryNotificationSoapIn" />
+      <wsdl:output message="tns:ImportInventoryNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportMovementNotification">
+      <wsdl:input message="tns:ImportMovementNotificationSoapIn" />
+      <wsdl:output message="tns:ImportMovementNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportPopulationNotification">
+      <wsdl:input message="tns:ImportPopulationNotificationSoapIn" />
+      <wsdl:output message="tns:ImportPopulationNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportProductionUnitNotification">
+      <wsdl:input message="tns:ImportProductionUnitNotificationSoapIn" />
+      <wsdl:output message="tns:ImportProductionUnitNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportRiskNotification">
+      <wsdl:input message="tns:ImportRiskNotificationSoapIn" />
+      <wsdl:output message="tns:ImportRiskNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportTreatmentNotification">
+      <wsdl:input message="tns:ImportTreatmentNotificationSoapIn" />
+      <wsdl:output message="tns:ImportTreatmentNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportRetaggingNotification">
+      <wsdl:input message="tns:ImportRetaggingNotificationSoapIn" />
+      <wsdl:output message="tns:ImportRetaggingNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAnimalPassport">
+      <wsdl:input message="tns:ImportAnimalPassportSoapIn" />
+      <wsdl:output message="tns:ImportAnimalPassportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportStatusUpdateNotification">
+      <wsdl:input message="tns:ImportStatusUpdateNotificationSoapIn" />
+      <wsdl:output message="tns:ImportStatusUpdateNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportMarkingSeries">
+      <wsdl:input message="tns:ImportMarkingSeriesSoapIn" />
+      <wsdl:output message="tns:ImportMarkingSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterFile">
+      <wsdl:input message="tns:ImportSlaughterFileSoapIn" />
+      <wsdl:output message="tns:ImportSlaughterFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterInfo">
+      <wsdl:input message="tns:ImportSlaughterInfoSoapIn" />
+      <wsdl:output message="tns:ImportSlaughterInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterDetailInfoForAnimalGroup">
+      <wsdl:input message="tns:ImportSlaughterDetailInfoForAnimalGroupSoapIn" />
+      <wsdl:output message="tns:ImportSlaughterDetailInfoForAnimalGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportFoodChainNotification">
+      <wsdl:input message="tns:ImportFoodChainNotificationSoapIn" />
+      <wsdl:output message="tns:ImportFoodChainNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalMovementNotificationOverview">
+      <wsdl:input message="tns:ExportAnimalMovementNotificationOverviewSoapIn" />
+      <wsdl:output message="tns:ExportAnimalMovementNotificationOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalOverview">
+      <wsdl:input message="tns:ExportAnimalOverviewSoapIn" />
+      <wsdl:output message="tns:ExportAnimalOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimal">
+      <wsdl:input message="tns:ExportAnimalSoapIn" />
+      <wsdl:output message="tns:ExportAnimalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalBasicData">
+      <wsdl:input message="tns:ExportAnimalBasicDataSoapIn" />
+      <wsdl:output message="tns:ExportAnimalBasicDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportChangeNotificationOverview">
+      <wsdl:input message="tns:ExportChangeNotificationOverviewSoapIn" />
+      <wsdl:output message="tns:ExportChangeNotificationOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportFacilityOverview">
+      <wsdl:input message="tns:ExportFacilityOverviewSoapIn" />
+      <wsdl:output message="tns:ExportFacilityOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportMovementNotificationOverview">
+      <wsdl:input message="tns:ExportMovementNotificationOverviewSoapIn" />
+      <wsdl:output message="tns:ExportMovementNotificationOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportMovementNotification">
+      <wsdl:input message="tns:ExportMovementNotificationSoapIn" />
+      <wsdl:output message="tns:ExportMovementNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportPartyOverview">
+      <wsdl:input message="tns:ExportPartyOverviewSoapIn" />
+      <wsdl:output message="tns:ExportPartyOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportProductionUnitOverview">
+      <wsdl:input message="tns:ExportProductionUnitOverviewSoapIn" />
+      <wsdl:output message="tns:ExportProductionUnitOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportProductionUnit">
+      <wsdl:input message="tns:ExportProductionUnitSoapIn" />
+      <wsdl:output message="tns:ExportProductionUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSanitaryUnitOverview">
+      <wsdl:input message="tns:ExportSanitaryUnitOverviewSoapIn" />
+      <wsdl:output message="tns:ExportSanitaryUnitOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSanitaryUnit">
+      <wsdl:input message="tns:ExportSanitaryUnitSoapIn" />
+      <wsdl:output message="tns:ExportSanitaryUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportAgreementOverview">
+      <wsdl:input message="tns:ExportAgreementOverviewSoapIn" />
+      <wsdl:output message="tns:ExportAgreementOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportLiablePartyOverview">
+      <wsdl:input message="tns:ExportLiablePartyOverviewSoapIn" />
+      <wsdl:output message="tns:ExportLiablePartyOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportMarkingSeriesOverview">
+      <wsdl:input message="tns:ExportMarkingSeriesOverviewSoapIn" />
+      <wsdl:output message="tns:ExportMarkingSeriesOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportRetaggingNotificationOverview">
+      <wsdl:input message="tns:ExportRetaggingNotificationOverviewSoapIn" />
+      <wsdl:output message="tns:ExportRetaggingNotificationOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportWaterManureAllocation">
+      <wsdl:input message="tns:ExportWaterManureAllocationSoapIn" />
+      <wsdl:output message="tns:ExportWaterManureAllocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughterFile">
+      <wsdl:input message="tns:ExportSlaughterFileSoapIn" />
+      <wsdl:output message="tns:ExportSlaughterFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughteringFacilitiesOverview">
+      <wsdl:input message="tns:ExportSlaughteringFacilitiesOverviewSoapIn" />
+      <wsdl:output message="tns:ExportSlaughteringFacilitiesOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughteringStatisticsOverview">
+      <wsdl:input message="tns:ExportSlaughteringStatisticsOverviewSoapIn" />
+      <wsdl:output message="tns:ExportSlaughteringStatisticsOverviewSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Sanitel_SanitelServices" type="tns:Sanitel_SanitelServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportOrder">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAnimalNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeAnimalMeatQuality">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeMeatQuality" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeProductionQuality">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeProductionQuality" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInventoryNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportMovementNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMovementNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportPopulationNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportPopulationNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportProductionUnitNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportProductionUnitNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRiskNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRiskNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTreatmentNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportTreatmentNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRetaggingNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAnimalPassport">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalPassport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportStatusUpdateNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportStatusUpdateNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportMarkingSeries">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMarkingSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterFile">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterInfo">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterDetailInfoForAnimalGroup">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterDetailInfoForAnimalGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportFoodChainNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportFoodChainNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalMovementNotificationOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalMovementNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimal">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalBasicData">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalBasicData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportChangeNotificationOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportChangeNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportFacilityOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportFacilityOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMovementNotificationOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMovementNotification">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportPartyOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportPartyOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportProductionUnitOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnitOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportProductionUnit">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSanitaryUnitOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnitOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSanitaryUnit">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAgreementOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAgreementOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportLiablePartyOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportLiablePartyOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMarkingSeriesOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMarkingSeriesOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportRetaggingNotificationOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportRetaggingNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportWaterManureAllocation">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportWaterManureAllocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughterFile">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughteringFacilitiesOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringFacilitiesOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughteringStatisticsOverview">
+      <soap:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringStatisticsOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Sanitel_SanitelServices1" type="tns:Sanitel_SanitelServices">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportOrder">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAnimalNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeAnimalMeatQuality">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeMeatQuality" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportChangeProductionQuality">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportChangeProductionQuality" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInventoryNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportMovementNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMovementNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportPopulationNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportPopulationNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportProductionUnitNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportProductionUnitNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRiskNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRiskNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTreatmentNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportTreatmentNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRetaggingNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportRetaggingNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAnimalPassport">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportAnimalPassport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportStatusUpdateNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportStatusUpdateNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportMarkingSeries">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportMarkingSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterFile">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterInfo">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSlaughterDetailInfoForAnimalGroup">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportSlaughterDetailInfoForAnimalGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportFoodChainNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportFoodChainNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalMovementNotificationOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalMovementNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimal">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAnimalBasicData">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAnimalBasicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportChangeNotificationOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportChangeNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportFacilityOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportFacilityOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMovementNotificationOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMovementNotification">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMovementNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportPartyOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportPartyOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportProductionUnitOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnitOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportProductionUnit">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportProductionUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSanitaryUnitOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnitOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSanitaryUnit">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSanitaryUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAgreementOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportAgreementOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportLiablePartyOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportLiablePartyOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMarkingSeriesOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportMarkingSeriesOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportRetaggingNotificationOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportRetaggingNotificationOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportWaterManureAllocation">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportWaterManureAllocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughterFile">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughterFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughteringFacilitiesOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringFacilitiesOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSlaughteringStatisticsOverview">
+      <soap12:operation soapAction="http://Sanitel.EAI/SanitelRepository/SanitelServices/ExportSlaughteringStatisticsOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

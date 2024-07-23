@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/MovementNotificationImportSchema" id="schema21" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MovementNotificationImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="MovementNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NOKD_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UNL_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DOC_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TASB_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANM_CNT" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANCO_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CRF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIC_PLT" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE_FRM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE_TO" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ADPR_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VRV_IDN_CRD_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CMN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RETURN_ALL_ANOMALIES" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NPTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Facility">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NFTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="FALO_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Animal">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PPT_VRS_NBR" type="xs:int" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SLG_VGN_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRUN_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRUN_IDX" type="xs:long" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="ANDT_CDE" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

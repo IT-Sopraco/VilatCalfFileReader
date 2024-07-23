@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:machtigingenWS="http://www.ienr.org/schemas/services/machtigingenWS_v2_0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:machtiging="http://www.ienr.org/schemas/types/machtigingen_v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/machtigingenWS_v2_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/machtigingenWS_v2_0">
+      <xsd:import namespace="http://sql.java" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import schemaLocation="https://dbrbms.agro.nl/bms_v2_0/machtigingen_v2_0.xsd" namespace="http://www.ienr.org/schemas/types/machtigingen_v2_0" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="vastleggenMachtigingenRequest">
+    <wsdl:part name="request" type="machtiging:vastleggenMachtigingenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="vastleggenMachtigingenResponse">
+    <wsdl:part name="vastleggenMachtigingenReturn" type="machtiging:vastleggenMachtigingenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="beeindigenMachtigingenRequest">
+    <wsdl:part name="request" type="machtiging:beeindigenMachtigingenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="beeindigenMachtigingenResponse">
+    <wsdl:part name="beeindigenMachtigingenReturn" type="machtiging:beeindigenMachtigingenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="rdplnMachtigingenRequest">
+    <wsdl:part name="request" type="machtiging:rdplnMachtigingenRequestType" />
+  </wsdl:message>
+  <wsdl:message name="rdplnMachtigingenResponse">
+    <wsdl:part name="rdplnMachtigingenReturn" type="machtiging:rdplnMachtigingenResponseType" />
+  </wsdl:message>
+  <wsdl:message name="rdplnHoudersWaarvoorGemachtigdRequest">
+    <wsdl:part name="request" type="machtiging:rdplnHoudersWaarvoorGemachtigdRequestType" />
+  </wsdl:message>
+  <wsdl:message name="rdplnHoudersWaarvoorGemachtigdResponse">
+    <wsdl:part name="rdplnHoudersWaarvoorGemachtigdReturn" type="machtiging:rdplnHoudersWaarvoorGemachtigdResponseType" />
+  </wsdl:message>
+  <wsdl:message name="rdplgnMEUBNWaarvoorGemachtigdRequest">
+    <wsdl:part name="request" type="machtiging:rdplnMEUBNWaarvoorGemachtigdRequestType" />
+  </wsdl:message>
+  <wsdl:message name="rdplgnMEUBNWaarvoorGemachtigdResponse">
+    <wsdl:part name="rdplgnMEUBNWaarvoorGemachtigdReturn" type="machtiging:rdplnMEUBNWaarvoorGemachtigdResponseType" />
+  </wsdl:message>
+  <wsdl:portType name="MachtigingenService">
+    <wsdl:operation name="vastleggenMachtigingen" parameterOrder="request">
+      <wsdl:input name="vastleggenMachtigingenRequest" message="machtigingenWS:vastleggenMachtigingenRequest" />
+      <wsdl:output name="vastleggenMachtigingenResponse" message="machtigingenWS:vastleggenMachtigingenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="beeindigenMachtigingen" parameterOrder="request">
+      <wsdl:input name="beeindigenMachtigingenRequest" message="machtigingenWS:beeindigenMachtigingenRequest" />
+      <wsdl:output name="beeindigenMachtigingenResponse" message="machtigingenWS:beeindigenMachtigingenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="rdplnMachtigingen" parameterOrder="request">
+      <wsdl:input name="rdplnMachtigingenRequest" message="machtigingenWS:rdplnMachtigingenRequest" />
+      <wsdl:output name="rdplnMachtigingenResponse" message="machtigingenWS:rdplnMachtigingenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="rdplnHoudersWaarvoorGemachtigd" parameterOrder="request">
+      <wsdl:input name="rdplnHoudersWaarvoorGemachtigdRequest" message="machtigingenWS:rdplnHoudersWaarvoorGemachtigdRequest" />
+      <wsdl:output name="rdplnHoudersWaarvoorGemachtigdResponse" message="machtigingenWS:rdplnHoudersWaarvoorGemachtigdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="rdplgnMEUBNWaarvoorGemachtigd" parameterOrder="request">
+      <wsdl:input name="rdplgnMEUBNWaarvoorGemachtigdRequest" message="machtigingenWS:rdplgnMEUBNWaarvoorGemachtigdRequest" />
+      <wsdl:output name="rdplgnMEUBNWaarvoorGemachtigdResponse" message="machtigingenWS:rdplgnMEUBNWaarvoorGemachtigdResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MachtigingenWSSoapBinding" type="machtigingenWS:MachtigingenService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="vastleggenMachtigingen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="vastleggenMachtigingenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="vastleggenMachtigingenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="beeindigenMachtigingen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="beeindigenMachtigingenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="beeindigenMachtigingenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rdplnMachtigingen">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="rdplnMachtigingenRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="rdplnMachtigingenResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rdplnHoudersWaarvoorGemachtigd">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="rdplnHoudersWaarvoorGemachtigdRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="rdplnHoudersWaarvoorGemachtigdResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rdplgnMEUBNWaarvoorGemachtigd">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="rdplgnMEUBNWaarvoorGemachtigdRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="rdplgnMEUBNWaarvoorGemachtigdResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MachtigingenServiceService">
+    <wsdl:port name="MachtigingenWS" binding="machtigingenWS:MachtigingenWSSoapBinding">
+      <wsdlsoap:address location="https://dbrbms.agro.nl/bms_v2_0/services/MachtigingenWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

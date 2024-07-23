@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitOverviewExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ProductionUnitOverviewExportSchema" id="schema104" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProductionUnitOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductionUnit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRC_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRC_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRC_STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRC_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRC_ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRC_CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SUTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FLTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FALO_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RSP_TPH" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRUN_IDX" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

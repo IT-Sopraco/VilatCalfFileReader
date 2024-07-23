@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/FacilityOverviewExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/FacilityOverviewExportSchema" id="schema88" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FacilityOverviewExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Facility">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="FATP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LIA_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GEO_LAT" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GEO_LON" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GEO_X" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GEO_Y" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GXYS_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GEO_STR_LTH" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GEO_PLG_DEF" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="GIS_REF" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BEG_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="END_DTE" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

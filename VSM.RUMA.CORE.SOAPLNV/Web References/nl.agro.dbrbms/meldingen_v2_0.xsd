@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:alg="http://www.ienr.org/schemas/types/algemeen_v2_0" xmlns:melding="http://www.ienr.org/schemas/types/meldingen_v2_0" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ienr.org/schemas/types/meldingen_v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="algemeen_v2_0.xsd" namespace="http://www.ienr.org/schemas/types/algemeen_v2_0" />
+  <xsd:complexType name="berichttypegegevensType">
+    <xsd:sequence>
+      <xsd:element name="selBerichttype" nillable="true" type="alg:berichttypeType" />
+      <xsd:element name="indOntbrekendeGeboortemelding" nillable="true" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="statusgegevensType">
+    <xsd:sequence>
+      <xsd:element name="selMeldingStatus" nillable="true" type="alg:meldingStatusCodeType" />
+      <xsd:element name="selCodeOpmerking" nillable="true" type="alg:codeOpmerkingType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="meldingeenheidTweedePartijType">
+    <xsd:sequence>
+      <xsd:element name="selMeldingeenheidTweedePartij" nillable="true" type="alg:meldingeenheidCharType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="meldinggegevensType">
+    <xsd:sequence>
+      <xsd:element name="berichttype" nillable="true" type="alg:berichttypeType" />
+      <xsd:element minOccurs="0" name="vlagsoortCodeReden" type="alg:vlagsoortCodeType" />
+      <xsd:element name="meldingeenheidTweedePartij" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="transKenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element name="naamMeTweedePartij" nillable="true" type="alg:relatienaamType" />
+      <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="diersoort" nillable="true" type="alg:diersoortType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="gebeurtenisdatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="herstelIndicator" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element minOccurs="0" name="meldingnummerMatch" type="alg:meldingnummerType" />
+      <xsd:element name="meldingStatus" nillable="true" type="alg:meldingStatusCodeType" />
+      <xsd:element minOccurs="0" name="codeOpmerking" type="alg:codeOpmerkingType" />
+      <xsd:element minOccurs="0" name="tekstOpmerking" type="alg:tekstOpmerkingType" />
+      <xsd:element minOccurs="0" name="opmerkingId" type="alg:idOpmerkingType" />
+      <xsd:element name="indOntbrekendeGeboortemelding" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indHerstelMogelijkheden" nillable="true" type="alg:herstelMogelijkhedenIndicatorType" />
+      <xsd:element name="indIntrekbaar" nillable="true" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="verwerkingsresultaatType">
+    <xsd:sequence>
+      <xsd:element name="foutcode" nillable="true" type="alg:foutcodeType" />
+      <xsd:element name="foutmelding" nillable="true" type="alg:foutmeldingType" />
+      <xsd:element name="soortFoutIndicator" nillable="true" type="alg:soortFoutIndicatorType" />
+      <xsd:element name="succesIndicator" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenMeldingAlgRequest" type="melding:raadplegenMeldingAlgRequestType" />
+  <xsd:complexType name="raadplegenMeldingAlgRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="periodeBegindatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="periodeEinddatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="gebeurtenisBegindatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="gebeurtenisEinddatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="selMeldingnummerLaag" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="selMeldingnummerHoog" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="selDiersoort" nillable="true" type="alg:diersoortOptioneelType" />
+      <xsd:element name="selDiercategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selMeldingeenheidTweedePartij" nillable="true" type="alg:meldingeenheidCharType" />
+      <xsd:element name="selTransKenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element name="selTransportnummer" nillable="true" type="alg:transportnummerCharType" />
+      <xsd:element name="aantal" nillable="true" type="alg:aantalMeldingenType" />
+      <xsd:element name="indEigenMeldingen" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indAndereMeldingen" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indAlleenHerstelbaar" nillable="true" type="alg:alleenHerstelbaarIndicatorType" />
+      <xsd:element name="indHerstelInformatieLeveren" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="statusgegevens" type="melding:statusgegevensType" />
+      <xsd:element name="berichttypegegevens" type="melding:berichttypegegevensType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenMeldingAlgResponse" type="melding:raadplegenMeldingAlgResponseType" />
+  <xsd:complexType name="raadplegenMeldingAlgResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:raadplegenMeldingAlgRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="meldinggegevens" type="melding:meldinggegevensType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="raadplegenMeldingDetailRequest" type="melding:raadplegenMeldingDetailRequestType" />
+  <xsd:complexType name="raadplegenMeldingDetailRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="meldingnummer" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenMeldingDetailResponse" type="melding:raadplegenMeldingDetailResponseType" />
+  <xsd:complexType name="raadplegenMeldingDetailResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:raadplegenMeldingDetailRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="berichttype" nillable="true" type="alg:berichttypeType" />
+          <xsd:element name="berichtdatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="berichttijd" nillable="true" type="alg:tijdType" />
+          <xsd:element name="communicatiekanaal" nillable="true" type="alg:communicatieKanaalType" />
+          <xsd:element name="relatienummerMelder" nillable="true" type="alg:relatienummerType" />
+          <xsd:element name="diersoort" nillable="true" type="alg:diersoortType" />
+          <xsd:element name="meldingStatusCode" nillable="true" type="alg:meldingStatusCodeType" />
+          <xsd:element name="meldingStatusOms" nillable="true" type="alg:meldingStatusOmsType" />
+          <xsd:element name="gebeurtenisdatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="verwerkingsdatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="verwerkingstijd" nillable="true" type="alg:tijdType" />
+          <xsd:element name="intrekdatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="intrektijd" nillable="true" type="alg:tijdType" />
+          <xsd:element name="herstelIndicator" nillable="true" type="alg:jaNeeIndicatorType" />
+          <xsd:element name="hersteldatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="hersteltijd" nillable="true" type="alg:tijdType" />
+          <xsd:element minOccurs="0" name="herstelMeldingnummerVorig" type="alg:meldingnummerType" />
+          <xsd:element minOccurs="0" name="herstelMeldingnummerVolgend" type="alg:meldingnummerType" />
+          <xsd:element name="transKenteken" nillable="true" type="alg:kentekenType" />
+          <xsd:element name="transRelatienummerVervoerder" nillable="true" type="alg:relatienummerVervoerderType" />
+          <xsd:element name="transNaamVervoerder" nillable="true" type="alg:naamVervoerderType" />
+          <xsd:element name="transTijdstipVertrek" nillable="true" type="alg:HHMITijd" />
+          <xsd:element name="transVerwachteTransportduur" nillable="true" type="alg:hoeveelheidType" />
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="geboortedatum" nillable="true" type="alg:datumType" />
+          <xsd:element minOccurs="0" name="dierKalfdatum" type="alg:datumType" />
+          <xsd:element name="importdatumCIS" nillable="true" type="alg:datumType" />
+          <xsd:element name="meldingeenheidHerkomst" nillable="true" type="alg:meldingeenheidType" />
+          <xsd:element name="meldingeenheidBestemming" nillable="true" type="alg:meldingeenheidType" />
+          <xsd:element name="naamMeTweedePartij" nillable="true" type="alg:relatienaamType" />
+          <xsd:element minOccurs="0" name="meldingnummerMatch" type="alg:meldingnummerType" />
+          <xsd:element name="dierBestemmingLandcode" nillable="true" type="alg:landcodeType" />
+          <xsd:element name="relatienummerOverdrager" nillable="true" type="alg:relatienummerType" />
+          <xsd:element name="relatienummerAcceptant" nillable="true" type="alg:relatienummerType" />
+          <xsd:element name="meldingeenheidDestructor" nillable="true" type="alg:meldingeenheidType" />
+          <xsd:element name="meldingeenheidNoodslacht" nillable="true" type="alg:meldingeenheidType" />
+          <xsd:element name="moederLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="moederLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="moederWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="moederGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="moederHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="moederGeboortedatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierHerkomstLandcode" nillable="true" type="alg:landcodeType" />
+          <xsd:element name="dierOorsprongLandcode" nillable="true" type="alg:landcodeType" />
+          <xsd:element name="dierPremiestatus" nillable="true" type="alg:premieStatusCodeType" />
+          <xsd:element name="dierOorspronkelijkeIdentificatie" nillable="true" type="alg:dierIdType" />
+          <xsd:element name="redenBlokkade" nillable="true" type="alg:redenBlokkadeType" />
+          <xsd:element name="redenRuiming" nillable="true" type="alg:redenRuimingType" />
+          <xsd:element name="dierAliasLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierAliasLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierAliasWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="dierTijdelijkLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierTijdelijkLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierTijdelijkWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="dierVervangendLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierVervangendLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierVervangendWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="vlagsoortCodeReden" nillable="true" type="alg:vlagsoortCodeType" />
+          <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+          <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+          <xsd:element name="AantalDierenOpBedrijf" nillable="true" type="alg:numZevenType" />
+          <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+          <xsd:element name="groepsgegevens" nillable="true" type="alg:groepsgegevensType" />
+          <xsd:element name="nummerGezondheidscertificaat" nillable="true" type="alg:nummerGezondheidscertificaatType" />
+          <xsd:element minOccurs="0" name="codeSoortMerkEU" type="alg:codeSoortMerkEUType" />
+          <xsd:element minOccurs="0" name="typeElektronischSignaalEU" type="alg:typeElektronischSignaalEUType" />
+          <xsd:element minOccurs="0" name="buitenlandsRasHaarkleur" type="alg:buitenlandsRasHaarkleurType" />
+          <xsd:element minOccurs="0" name="rasHaarkleurOorsprong" type="alg:typeElektronischSignaalEUType" />
+          <xsd:element minOccurs="0" name="idOorsprongMoeder" type="alg:dierOorspronkelijkIdType" />
+          <xsd:element minOccurs="0" name="paspoortnummer" type="alg:paspoortnummerType" />
+          <xsd:element minOccurs="0" name="datumUitwisselingPaspoort" type="alg:datumTijdType" />
+          <xsd:element name="indHerstelMogelijkheden" nillable="true" type="alg:herstelMogelijkhedenIndicatorType" />
+          <xsd:element name="indIntrekbaar" nillable="true" type="alg:jaNeeIndicatorType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="aanvullendeMatches" type="melding:aanvullendeMatchesType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="opmerkingenMelding" type="melding:opmerkingenMeldingType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="aanvullendeMatchesType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="meldingnummerEigen" type="alg:meldingnummerType" />
+      <xsd:element minOccurs="0" name="meldingnummerTweedePartij" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="opmerkingenMeldingType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="meldingStatusOpmerking" type="alg:meldingStatusCodeType" />
+      <xsd:element minOccurs="0" name="statusDatumTijdOpmerking" type="alg:datumTijdType" />
+      <xsd:element minOccurs="0" name="soortOpmerking" type="alg:soortOpmerkingType" />
+      <xsd:element minOccurs="0" name="codeOpmerking" type="alg:codeOpmerkingType" />
+      <xsd:element minOccurs="0" name="tekstOpmerking" type="alg:tekstOpmerkingType" />
+      <xsd:element minOccurs="0" name="opmerkingId" type="alg:idOpmerkingType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vlagsoortMaatregelType">
+    <xsd:sequence>
+      <xsd:element name="maatregelCode" type="alg:maatregelCodeType" />
+      <xsd:element name="omschrijving" nillable="true" type="alg:maatregelOmschrijvingType" />
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vlagsoortGegevensType">
+    <xsd:sequence>
+      <xsd:element name="datumIngang" nillable="true" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierSoort" nillable="true" type="alg:diersoortType" />
+      <xsd:element name="vlagsoortCodeReden" nillable="true" type="alg:vlagsoortCodeType" />
+      <xsd:element name="vlagsoort" nillable="true" type="alg:vlagsoortType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="vlagsoortMaatregel" type="melding:vlagsoortMaatregelType" />
+      <xsd:element name="indOvergeerfd" nillable="true" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenVlaggenRequest" type="melding:raadplegenVlaggenRequestType" />
+  <xsd:complexType name="raadplegenVlaggenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="selDiersoort" nillable="true" type="alg:diersoortOptioneelType" />
+      <xsd:element name="peildatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="indActueleVlaggen" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indBeeindigdeVlaggen" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="indDierME" nillable="true" type="alg:indDierMeType" />
+      <xsd:element name="indKennisgevingRegistratie" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="selVlagsoortCodeReden" nillable="true" type="alg:vlagsoortCodeType" />
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="aantal" nillable="true" type="alg:aantalVlaggenType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenVlaggenResponse" type="melding:raadplegenVlaggenResponseType" />
+  <xsd:complexType name="raadplegenVlaggenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:raadplegenVlaggenRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="vlaggegevens" type="melding:vlagsoortGegevensType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="raadplegenOntbrekendeMeldingenRequest" type="melding:raadplegenOntbrekendeMeldingenRequestType" />
+  <xsd:complexType name="raadplegenOntbrekendeMeldingenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="selSignaleringTypeAanleiding" nillable="true" type="alg:aanleidingType" />
+      <xsd:element name="selBerichttype" nillable="true" type="alg:berichttypeType" />
+      <xsd:element name="indOntbrekendeGeboortemelding" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="selDiersoort" nillable="true" type="alg:diersoortOptioneelType" />
+      <xsd:element name="selMeldingeenheidTweedePartij" nillable="true" type="alg:meldingeenheidCharType" />
+      <xsd:element name="selTransportnummer" nillable="true" type="alg:transportnummerCharType" />
+      <xsd:element minOccurs="0" name="selNrGezondheidscertificaat" type="alg:nummerGezondheidscertificaatType" />
+      <xsd:element name="periodeBegindatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="periodeEinddatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="aantal" nillable="true" type="alg:numVijfType" />
+      <xsd:element minOccurs="0" name="indDiergegevens" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenOntbrekendeMeldingenResponse" type="melding:raadplegenOntbrekendeMeldingenResponseType" />
+  <xsd:complexType name="raadplegenOntbrekendeMeldingenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:raadplegenOntbrekendeMeldingenRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="transportgegevens" type="melding:ontbrTransportGegevensType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dierLandcode" type="alg:EUlandcodeType" />
+      <xsd:element minOccurs="0" name="dierLevensnummer" type="alg:levensnummerType" />
+      <xsd:element minOccurs="0" name="dierWerknummer" type="alg:werknummerType" />
+      <xsd:element minOccurs="0" name="dierLandcodeAlias" type="alg:EUlandcodeType" />
+      <xsd:element minOccurs="0" name="dierLevensnummerAlias" type="alg:levensnummerType" />
+      <xsd:element minOccurs="0" name="dierWerknummerAlias" type="alg:werknummerType" />
+      <xsd:element minOccurs="0" name="moederLandcode" type="alg:EUlandcodeType" />
+      <xsd:element minOccurs="0" name="moederLevensnummer" type="alg:levensnummerType" />
+      <xsd:element minOccurs="0" name="moederWerknummer" type="alg:werknummerType" />
+      <xsd:element minOccurs="0" name="geboortedatum" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="importdatum" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="dierHaarkleur" type="alg:haarkleurCodeType" />
+      <xsd:element minOccurs="0" name="dierGeslacht" type="alg:geslachtCodeType" />
+      <xsd:element minOccurs="0" name="dierKalfdatum" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="dierOorsprongLandcode" type="alg:landcodeType" />
+      <xsd:element minOccurs="0" name="dierOorspronkelijkeIdentificatie" type="alg:dierOorspronkelijkIdType" />
+      <xsd:element minOccurs="0" name="dierHerkomstLandcode" type="alg:landcodeType" />
+      <xsd:element minOccurs="0" name="dierBestemmingLandcode" type="alg:landcodeType" />
+      <xsd:element minOccurs="0" name="dierEinddatum" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="dierRedenEinde" type="alg:redenEinde" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ontbrTransportGegevensType">
+    <xsd:sequence>
+      <xsd:element name="signaleringCodeReden" nillable="true" type="alg:signaleringCodeType" />
+      <xsd:element name="indOntbrekendeGeboortemelding" nillable="true" type="alg:jaNeeIndicatorType" />
+      <xsd:element name="signaleringTypeAanleiding" nillable="true" type="alg:aanleidingType" />
+      <xsd:element name="berichttype" nillable="true" type="alg:berichttypeType" />
+      <xsd:element name="meldingeenheidTweedePartij" nillable="true" type="alg:meldingeenheidCharType" />
+      <xsd:element name="telefoonME" nillable="true" type="alg:telefoonType" />
+      <xsd:element name="gebeurtenisdatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierSoort" nillable="true" type="alg:diersoortOptioneelType" />
+      <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+      <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+      <xsd:element minOccurs="0" name="nrGezondheidscertificaat" type="alg:nummerGezondheidscertificaatType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="groepsgegevens" nillable="true" type="alg:groepsgegevensType" />
+      <xsd:element name="kenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="diergegevens" type="melding:diergegevensType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vastleggenMeldingType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="actie" type="alg:actieType" />
+      <xsd:element name="herstelIndicator" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vastleggenMeldingZonderHerstelType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="actie" type="alg:actieType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vastleggenMeldingOptioneelHerstelType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="actie" type="alg:actieType" />
+      <xsd:element name="herstelIndicator" nillable="true" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensRequestType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergroepsgegevensRequestType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensRequestZonderHerstelType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dierLandcode" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" type="alg:levensnummer15Type" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensSelRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="transportAanvoerGegevensType">
+    <xsd:sequence>
+      <xsd:element name="aanvoerdatum" type="alg:datumType" />
+      <xsd:element name="meldingeenheidHerkomst" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="transKenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element minOccurs="0" name="transNaamVervoerder" type="alg:naamVervoerderType" />
+      <xsd:element name="transTijdstipVertrek" nillable="true" type="alg:HHMITijd" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+      <xsd:element name="aantalDierenOpBedrijf" nillable="true" type="alg:numZevenType" />
+      <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+      <xsd:element name="groepsgegevens" nillable="true" type="alg:groepsgegevensType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenAanvoerMeldingRequest" type="melding:vastleggenAanvoerMeldingRequestType" />
+  <xsd:complexType name="vastleggenAanvoerMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportAanvoerGegevens" type="melding:transportAanvoerGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensRequest" type="melding:diergroepsgegevensRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergroepsgegevensResponseType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+      <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensSelResponseType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+      <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenAanvoerMeldingResponse" type="melding:vastleggenAanvoerMeldingResponseType" />
+  <xsd:complexType name="vastleggenAanvoerMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportAanvoerGegevens" type="melding:transportAanvoerGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensResponse" type="melding:diergroepsgegevensResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="transportAfvoerGegevensType">
+    <xsd:sequence>
+      <xsd:element name="afvoerdatum" type="alg:datumType" />
+      <xsd:element name="meldingeenheidBestemming" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="transKenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element name="transRelatienummerVervoerder" nillable="true" type="alg:relatienummerVervoerderType" />
+      <xsd:element name="transNaamVervoerder" nillable="true" type="alg:naamVervoerderType" />
+      <xsd:element name="transTijdstipVertrek" nillable="true" type="alg:HHMITijd" />
+      <xsd:element name="transVerwachteTransportduur" nillable="true" type="alg:hoeveelheidType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+      <xsd:element name="aantalDierenOpBedrijf" nillable="true" type="alg:numZevenType" />
+      <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+      <xsd:element name="groepsgegevens" nillable="true" type="alg:groepsgegevensType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenAfvoerMeldingRequest" type="melding:vastleggenAfvoerMeldingRequestType" />
+  <xsd:complexType name="vastleggenAfvoerMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportAfvoerGegevens" type="melding:transportAfvoerGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensSelRequest" type="melding:diergegevensSelRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenAfvoerMeldingResponse" type="melding:vastleggenAfvoerMeldingResponseType" />
+  <xsd:complexType name="vastleggenAfvoerMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportAfvoerGegevens" type="melding:transportAfvoerGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensSelResponse" type="melding:diergegevensSelResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensImportRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergroepsgegevensRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierGeboortedatum" nillable="true" type="alg:datumType" />
+          <xsd:element minOccurs="0" name="dierKalfdatum" type="alg:datumType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierHerkomstLandcode" type="alg:landcodeType" />
+          <xsd:element name="dierOorsprongLandcode" nillable="true" type="alg:landcodeType" />
+          <xsd:element name="dierOorspronkelijkeId" nillable="true" type="alg:dierIdType" />
+          <xsd:element name="dierPremiestatus" nillable="true" type="alg:premieStatusCodeType" />
+          <xsd:element name="moederLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="moederLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+          <xsd:element name="dierAliasLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierAliasLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="transportImportGegevensType">
+    <xsd:sequence>
+      <xsd:element name="importdatum" type="alg:datumType" />
+      <xsd:element name="transKenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+      <xsd:element name="aantalDierenOpBedrijf" nillable="true" type="alg:numZevenType" />
+      <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+      <xsd:element name="groepsgegevens" nillable="true" type="alg:groepsgegevensType" />
+      <xsd:element name="nummerGezondheidscertificaat" nillable="true" type="alg:nummerGezondheidscertificaatType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenImportMeldingRequest" type="melding:vastleggenImportMeldingRequestType" />
+  <xsd:complexType name="vastleggenImportMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportImportGegevens" type="melding:transportImportGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensImportRequest" type="melding:diergegevensImportRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensImportResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergroepsgegevensRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierGeboortedatum" nillable="true" type="alg:datumType" />
+          <xsd:element minOccurs="0" name="dierKalfdatum" type="alg:datumType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierHerkomstLandcode" type="alg:landcodeType" />
+          <xsd:element name="dierOorsprongLandcode" nillable="true" type="alg:landcodeType" />
+          <xsd:element name="dierOorspronkelijkeId" nillable="true" type="alg:dierIdType" />
+          <xsd:element name="dierPremiestatus" nillable="true" type="alg:premieStatusCodeType" />
+          <xsd:element name="moederLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="moederLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierAliasLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierAliasLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierAliasWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="moederGeboortedatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="moederGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="moederHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="moederWerknummer" nillable="true" type="alg:werknummerType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenImportMeldingResponse" type="melding:vastleggenImportMeldingResponseType" />
+  <xsd:complexType name="vastleggenImportMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportImportGegevens" type="melding:transportImportGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensImportResponse" type="melding:diergegevensImportResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensGeboorteRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierGeslacht" type="alg:geslachtCodeType" />
+      <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="geboortedatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="selMoederLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selMoederLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selMoederWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierAliasLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierAliasLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierAliasWerknummer" nillable="true" type="alg:werknummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenGeboorteMeldingRequest" type="melding:vastleggenGeboorteMeldingRequestType" />
+  <xsd:complexType name="vastleggenGeboorteMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensGeboorteRequest" type="melding:diergegevensGeboorteRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensGeboorteResponseType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierGeslacht" type="alg:geslachtCodeType" />
+      <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="geboortedatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="selMoederLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selMoederLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selMoederWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierAliasLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierAliasLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierAliasWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="moederGeboortedatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="moederGeslacht" nillable="true" type="alg:geslachtCodeType" />
+      <xsd:element name="moederHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="moederLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="moederLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="moederWerknummer" nillable="true" type="alg:werknummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenGeboorteMeldingResponse" type="melding:vastleggenGeboorteMeldingResponseType" />
+  <xsd:complexType name="vastleggenGeboorteMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensGeboorteResponse" type="melding:diergegevensGeboorteResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="transportDoodGegevensType">
+    <xsd:sequence>
+      <xsd:element name="transTijdstipVertrek" nillable="true" type="alg:HHMITijd" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element minOccurs="0" name="groepsgegevens" type="alg:groepsgegevensType" />
+      <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensDoodRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="doodDatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="meldingeenheidDestructor" nillable="true" type="alg:meldingeenheidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenDoodMeldingRequest" type="melding:vastleggenDoodMeldingRequestType" />
+  <xsd:complexType name="vastleggenDoodMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="transportDoodGegevens" type="melding:transportDoodGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensDoodRequest" type="melding:diergegevensDoodRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensDoodResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensDoodRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenDoodMeldingResponse" type="melding:vastleggenDoodMeldingResponseType" />
+  <xsd:complexType name="vastleggenDoodMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="transportDoodGegevens" type="melding:transportDoodGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensDoodResponse" type="melding:diergegevensDoodResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensDoodGeborenDierRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element minOccurs="0" name="meldingnummerOorsprong" type="alg:meldingnummerType" />
+      <xsd:element name="doodDatum" type="alg:datumType" />
+      <xsd:element name="meldingeenheidDestructor" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenDoodGeborenDierMeldingRequest" type="melding:vastleggenDoodGeborenDierMeldingRequestType" />
+  <xsd:complexType name="vastleggenDoodGeborenDierMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="herstelIndicator" type="alg:jaNeeIndicatorType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensDoodGeborenDierRequest" type="melding:diergegevensDoodGeborenDierRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensDoodGeborenDierResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensDoodGeborenDierRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenDoodGeborenDierMeldingResponse" type="melding:vastleggenDoodGeborenDierMeldingResponseType" />
+  <xsd:complexType name="vastleggenDoodGeborenDierMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="herstelIndicator" type="alg:jaNeeIndicatorType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensDoodGeborenDierResponse" type="melding:diergegevensDoodGeborenDierResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensExportRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="transportExportGegevensType">
+    <xsd:sequence>
+      <xsd:element name="afvoerdatum" type="alg:datumType" />
+      <xsd:element name="transKenteken" nillable="true" type="alg:kentekenType" />
+      <xsd:element name="transRelatienummerVervoerder" nillable="true" type="alg:relatienummerVervoerderType" />
+      <xsd:element name="transNaamVervoerder" nillable="true" type="alg:naamVervoerderType" />
+      <xsd:element name="transTijdstipVertrek" nillable="true" type="alg:HHMITijd" />
+      <xsd:element name="transVerwachteTransportduur" nillable="true" type="alg:hoeveelheidType" />
+      <xsd:element name="dierCategorie" nillable="true" type="alg:dierCategorieType" />
+      <xsd:element name="aantalDieren" nillable="true" type="alg:numZesType" />
+      <xsd:element name="aantalDierenOpBedrijf" nillable="true" type="alg:numZevenType" />
+      <xsd:element name="transportnummer" nillable="true" type="alg:transportnummerType" />
+      <xsd:element name="groepsgegevens" nillable="true" type="alg:groepsgegevensType" />
+      <xsd:element name="dierBestemmingLandcode" nillable="true" type="alg:landcodeType" />
+      <xsd:element name="nummerGezondheidscertificaat" nillable="true" type="alg:nummerGezondheidscertificaatType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenExportMeldingRequest" type="melding:vastleggenExportMeldingRequestType" />
+  <xsd:complexType name="vastleggenExportMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportExportGegevens" type="melding:transportExportGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensExportRequest" type="melding:diergegevensExportRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensExportResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensExportRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenExportMeldingResponse" type="melding:vastleggenExportMeldingResponseType" />
+  <xsd:complexType name="vastleggenExportMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportExportGegevens" type="melding:transportExportGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensExportResponse" type="melding:diergegevensExportResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensMerkblokkadeRequestType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="redenBlokkade" type="alg:redenBlokkadeType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenMerkblokkadeMeldingRequest" type="melding:vastleggenMerkblokkadeMeldingRequestType" />
+  <xsd:complexType name="vastleggenMerkblokkadeMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMerkenMeldingType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensMerkblokkadeRequest" type="melding:diergegevensMerkblokkadeRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensMerkblokkadeResponseType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="redenBlokkade" type="alg:redenBlokkadeType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenMerkblokkadeMeldingResponse" type="melding:vastleggenMerkblokkadeMeldingResponseType" />
+  <xsd:complexType name="vastleggenMerkblokkadeMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMerkenMeldingType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensMerkblokkadeResponse" type="melding:diergegevensMerkblokkadeResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensNoodslachtRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="slachtdatum" type="alg:datumType" />
+      <xsd:element name="meldingeenheidNoodslacht" type="alg:meldingeenheidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenNoodslachtMeldingRequest" type="melding:vastleggenNoodslachtMeldingRequestType" />
+  <xsd:complexType name="vastleggenNoodslachtMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="diergegevensNoodslachtRequest" type="melding:diergegevensNoodslachtRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensNoodslachtResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensNoodslachtRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenNoodslachtMeldingResponse" type="melding:vastleggenNoodslachtMeldingResponseType" />
+  <xsd:complexType name="vastleggenNoodslachtMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="diergegevensNoodslachtResponse" type="melding:diergegevensNoodslachtResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensSlachtRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensRequestType">
+        <xsd:sequence>
+          <xsd:element name="slachtdatum" nillable="true" type="alg:datumType" />
+          <xsd:element minOccurs="0" name="meldingeenheidDestructor" type="alg:meldingeenheidType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenSlachtMeldingRequest" type="melding:vastleggenSlachtMeldingRequestType" />
+  <xsd:complexType name="vastleggenSlachtMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensSlachtRequest" type="melding:diergegevensSlachtRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensSlachtResponseType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="slachtdatum" nillable="true" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="meldingeenheidDestructor" type="alg:meldingeenheidType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenSlachtMeldingResponse" type="melding:vastleggenSlachtMeldingResponseType" />
+  <xsd:complexType name="vastleggenSlachtMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensSlachtResponse" type="melding:diergegevensSlachtResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensCombiImportSlachtRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensRequestZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element name="slachtdatum" nillable="true" type="alg:datumType" />
+          <xsd:element name="dierHerkomstLandcode" type="alg:landcodeType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="transportCombiImportSlachtGegevensType">
+    <xsd:sequence>
+      <xsd:element name="importdatum" type="alg:datumType" />
+      <xsd:element name="nummerGezondheidscertificaat" nillable="true" type="alg:nummerGezondheidscertificaatType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenCombiImportSlachtMeldingRequest" type="melding:vastleggenCombiImportSlachtMeldingRequestType" />
+  <xsd:complexType name="vastleggenCombiImportSlachtMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element name="transportCombiImportSlachtGegevens" type="melding:transportCombiImportSlachtGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensCombiImportSlachtRequest" type="melding:diergegevensCombiImportSlachtRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensCombiImportSlachtResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dierLandcode" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" type="alg:levensnummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="slachtdatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierHerkomstLandcode" type="alg:landcodeType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+      <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenCombiImportSlachtMeldingResponse" type="melding:vastleggenCombiImportSlachtMeldingResponseType" />
+  <xsd:complexType name="vastleggenCombiImportSlachtMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportCombiImportSlachtGegevens" type="melding:transportCombiImportSlachtGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensCombiImportSlachtResponse" type="melding:diergegevensCombiImportSlachtResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensCombiImportExportRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensRequestZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="exportdatum" type="alg:datumType" />
+          <xsd:element name="dierHerkomstLandcode" type="alg:landcodeType" />
+          <xsd:element name="dierBestemmingLandcode" type="alg:landcodeType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="transportCombiImportExportGegevensType">
+    <xsd:sequence>
+      <xsd:element name="importdatum" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="nummerGezondheidscertificaat" type="alg:nummerGezondheidscertificaatType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenCombiImportExportMeldingRequest" type="melding:vastleggenCombiImportExportMeldingRequestType" />
+  <xsd:complexType name="vastleggenCombiImportExportMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element name="transportCombiImportExportGegevens" type="melding:transportCombiImportExportGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensCombiImportExportRequest" type="melding:diergegevensCombiImportExportRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensCombiImportExportResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dierLandcode" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" type="alg:levensnummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element minOccurs="0" name="exportdatum" type="alg:datumType" />
+      <xsd:element name="dierHerkomstLandcode" type="alg:landcodeType" />
+      <xsd:element name="dierBestemmingLandcode" type="alg:landcodeType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element minOccurs="0" name="meldingnummer" type="alg:meldingnummerType" />
+      <xsd:element minOccurs="0" name="geboorteDatum" type="alg:datumType" />
+      <xsd:element minOccurs="0" name="dierHaarkleur" type="alg:haarkleurCodeType" />
+      <xsd:element minOccurs="0" name="dierGeslacht" type="alg:geslachtCodeType" />
+      <xsd:element minOccurs="0" name="dierWerknummer" type="alg:werknummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenCombiImportExportMeldingResponse" type="melding:vastleggenCombiImportExportMeldingResponseType" />
+  <xsd:complexType name="vastleggenCombiImportExportMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportCombiImportExportGegevens" type="melding:transportCombiImportExportGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensCombiImportExportResponse" type="melding:diergegevensCombiImportExportResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensMerkRequestType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="transportOverdrachtGegevensType">
+    <xsd:sequence>
+      <xsd:element name="relatienummerAcceptant" type="alg:relatienummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vastleggenMerkenMeldingType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="actie" type="alg:actieType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenOverdrachtMerkenRequest" type="melding:vastleggenOverdrachtMerkenRequestType" />
+  <xsd:complexType name="vastleggenOverdrachtMerkenRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMerkenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportOverdrachtGegevens" type="melding:transportOverdrachtGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensMerkRequest" type="melding:diergegevensMerkRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensMerkResponseType">
+    <xsd:sequence>
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenOverdrachtMerkenResponse" type="melding:vastleggenOverdrachtMerkenResponseType" />
+  <xsd:complexType name="vastleggenOverdrachtMerkenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMerkenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportOverdrachtGegevens" type="melding:transportOverdrachtGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensMerkResponse" type="melding:diergegevensMerkResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="transportOvernameGegevensType">
+    <xsd:sequence>
+      <xsd:element name="relatienummerOverdrager" type="alg:relatienummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vastleggenOvernameMerkenRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMerkenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportOvernameGegevens" type="melding:transportOvernameGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensMerkRequest" type="melding:diergegevensMerkRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="vastleggenOvernameMerkenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMerkenMeldingType">
+        <xsd:sequence>
+          <xsd:element name="transportOvernameGegevens" type="melding:transportOvernameGegevensType" />
+          <xsd:element maxOccurs="unbounded" name="diergegevensMerkResponse" type="melding:diergegevensMerkResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensTijdelijkMerkRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="dierTijdelijkLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierTijdelijkLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierTijdelijkWerknummer" nillable="true" type="alg:werknummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenTijdelijkMerkRequest" type="melding:vastleggenTijdelijkMerkRequestType" />
+  <xsd:complexType name="vastleggenTijdelijkMerkRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensTijdelijkMerkRequest" type="melding:diergegevensTijdelijkMerkRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensTijdelijkMerkResponseType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="dierTijdelijkLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierTijdelijkLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierTijdelijkWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenTijdelijkMerkResponse" type="melding:vastleggenTijdelijkMerkResponseType" />
+  <xsd:complexType name="vastleggenTijdelijkMerkResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensTijdelijkMerkResponse" type="melding:diergegevensTijdelijkMerkResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensVervangendMerkRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="dierVervangendLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierVervangendLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="dierVervangendWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="vervangingsdatum" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenVervangendMerkRequest" type="melding:vastleggenVervangendMerkRequestType" />
+  <xsd:complexType name="vastleggenVervangendMerkRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingOptioneelHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensVervangendMerkRequest" type="melding:diergegevensVervangendMerkRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensVervangendMerkResponseType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="dierVervangendLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierVervangendLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierVervangendWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="vervangingsdatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+      <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenVervangendMerkResponse" type="melding:vastleggenVervangendMerkResponseType" />
+  <xsd:complexType name="vastleggenVervangendMerkResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingOptioneelHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensVervangendMerkResponse" type="melding:diergegevensVervangendMerkResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensDiervlagMeldingRequestType">
+    <xsd:sequence>
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="meldingnummerOorsprong" nillable="true" type="alg:meldingnummerType" />
+      <xsd:element name="vlagsoortCodeReden" type="alg:vlagsoortCodeType" />
+      <xsd:element name="datumIngang" type="alg:datumType" />
+      <xsd:element name="datumEinde" nillable="true" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenDiervlagMeldingRequest" type="melding:vastleggenDiervlagMeldingRequestType" />
+  <xsd:complexType name="vastleggenDiervlagMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingOptioneelHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensDiervlagMeldingRequest" type="melding:diergegevensDiervlagMeldingRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensDiervlagMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensDiervlagMeldingRequestType">
+        <xsd:sequence>
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="meldingnummer" nillable="true" type="alg:meldingnummerType" />
+          <xsd:element name="dierGeslacht" nillable="true" type="alg:geslachtCodeType" />
+          <xsd:element name="dierHaarkleur" nillable="true" type="alg:haarkleurCodeType" />
+          <xsd:element name="geboorteDatum" nillable="true" type="alg:datumType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenDiervlagMeldingResponse" type="melding:vastleggenDiervlagMeldingResponseType" />
+  <xsd:complexType name="vastleggenDiervlagMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingOptioneelHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensDiervlagMeldingResponse" type="melding:diergegevensDiervlagMeldingResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="intrekkenMeldingRequest" type="melding:intrekkenMeldingRequestType" />
+  <xsd:complexType name="intrekkenMeldingRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" type="alg:meldingeenheidType" />
+      <xsd:element name="meldingnummer" type="alg:meldingnummerType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="intrekkenMeldingResponse" type="melding:intrekkenMeldingResponseType" />
+  <xsd:complexType name="intrekkenMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:intrekkenMeldingRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="raadplegenMeldingstypenRequest" type="melding:raadplegenMeldingstypenRequestType" />
+  <xsd:complexType name="raadplegenMeldingstypenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="relatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="meldingeenheid" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="selDiersoorten" type="melding:selDiersoortenType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="selDiersoortenType">
+    <xsd:sequence>
+      <xsd:element name="selDiersoort" type="alg:diersoortOptioneelType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="raadplegenMeldingstypenResponse" type="melding:raadplegenMeldingstypenResponseType" />
+  <xsd:complexType name="raadplegenMeldingstypenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:raadplegenMeldingstypenRequestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="meldingsTypen" type="melding:meldingsTypenType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="meldingsTypenType">
+    <xsd:sequence>
+      <xsd:element name="berichttype" nillable="true" type="alg:berichttypeType" />
+      <xsd:element name="omschrijving" nillable="true" type="alg:domeinOmschrijvingType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="dierSoorten" type="melding:dierSoortenType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="dierSoortenType">
+    <xsd:sequence>
+      <xsd:element name="diersoort" nillable="true" type="alg:diersoortType" />
+      <xsd:element name="typeBedrijfsvestiging" nillable="true" type="alg:bedrijfsvestigingType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensGevondenMeldingRequestType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dierLandcode" type="alg:EUlandcodeType" />
+      <xsd:element minOccurs="0" name="dierLevensnummer" type="alg:levensnummer15Type" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="gevondendatum" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenGevondenMeldingRequest" type="melding:vastleggenGevondenMeldingRequestType" />
+  <xsd:complexType name="vastleggenGevondenMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensGevondenMeldingRequest" type="melding:diergegevensGevondenMeldingRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensGevondenMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensGevondenMeldingRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" name="meldingnummer" type="alg:meldingnummerType" />
+          <xsd:element minOccurs="0" name="dierGeslacht" type="alg:geslachtCodeType" />
+          <xsd:element minOccurs="0" name="dierHaarkleur" type="alg:haarkleurCodeType" />
+          <xsd:element minOccurs="0" name="dierWerknummer" type="alg:werknummerType" />
+          <xsd:element minOccurs="0" name="dierGeboortedatum" type="alg:datumType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenGevondenMeldingResponse" type="melding:vastleggenGevondenMeldingResponseType" />
+  <xsd:complexType name="vastleggenGevondenMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensGevondenMeldingResponse" type="melding:diergegevensGevondenMeldingResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensVermissingsMeldingRequestType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="selDierLandcode" type="alg:EUlandcodeType" />
+      <xsd:element minOccurs="0" name="selDierLevensnummer" type="alg:levensnummer15Type" />
+      <xsd:element minOccurs="0" name="selDierWerknummer" type="alg:werknummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+      <xsd:element name="vermissingsdatum" type="alg:datumType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="vastleggenVermissingsMeldingRequest" type="melding:vastleggenVermissingsMeldingRequestType" />
+  <xsd:complexType name="vastleggenVermissingsMeldingRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensVermissingsMeldingRequest" type="melding:diergegevensVermissingsMeldingRequestType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="diergegevensVermissingsMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:diergegevensVermissingsMeldingRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" name="meldingnummer" type="alg:meldingnummerType" />
+          <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+          <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummer15Type" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+          <xsd:element minOccurs="0" name="dierGeslacht" type="alg:geslachtCodeType" />
+          <xsd:element minOccurs="0" name="dierHaarkleur" type="alg:haarkleurCodeType" />
+          <xsd:element minOccurs="0" name="dierGeboortedatum" type="alg:datumType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="vastleggenVermissingsMeldingResponse" type="melding:vastleggenVermissingsMeldingResponseType" />
+  <xsd:complexType name="vastleggenVermissingsMeldingResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="melding:vastleggenMeldingZonderHerstelType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="diergegevensVermissingsMeldingResponse" type="melding:diergegevensVermissingsMeldingResponseType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

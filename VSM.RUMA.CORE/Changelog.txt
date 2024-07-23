@@ -1,0 +1,23 @@
+﻿== 1.2208.0.1 ==
+* Aanpassingen tbhv de Reproductie/RVO controle
+
+== 1.2104.0.1 ==
+* Bij verzenden tocht meldingen, meldingen met INHEAT.ReportDate gevuld niet melden
+
+== 1.2010.0.1 ==
+* Aanpassingen voor rsReproductie/Verblijfplaatsen correctie waar het fout kon gaan bij bedrijven die in/uitscharen.
+
+== 1.2006.0.6 ==
+* Verbeteren FTP logging tbhv MSOptimaBoxV2
+
+== 1.2006.0.5 ==
+* MaxReceivedMessageSize verhoogt voor RVO url.ext/LnvIrMutaties.aspx
+
+== 1.2006.0.4 ==
+* Aanpassingen tbv logging TaskSend_IR_Meldingen
+* Bij RVOControle, indien ANIMAL.AniLifenumber.Length < 8, dan overschrijven met levensummer vanuit RVO (mits 8 karakters of langer).
+
+== 1.2006.0.3 ==
+
+== 1.2006.0.2 ==
+* Aanpassingen voor TaskSend_Crv_Meldingen_Dhz 1.2006.0.1

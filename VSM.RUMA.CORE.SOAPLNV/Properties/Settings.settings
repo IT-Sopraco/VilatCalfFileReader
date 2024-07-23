@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VSM.RUMA.CORE.SOAPLNV.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="VSM_RUMA_CORE_SOAPLNV_LNVReferentie_ReferentieServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://dbrbms.agro.nl/bms_v2_0/services/ReferentieWS</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_SOAPLNV_DierenWS_DierenServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://dbrbms.agro.nl/bms_v2_0/services/DierenWS</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_SOAPLNV_MachtigingenWS_MachtigingenServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://dbrbms.agro.nl/bms_v2_0/services/MachtigingenWS</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_SOAPLNV_MerkenWS_MerkenServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://dbrbms.agro.nl/bms_v2_0/services/MerkenWS</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_SOAPLNV_nl_agro_dbrbms_MeldingenServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://HOST/bms_v2_0/services/MeldingenWS</Value>
+    </Setting>
+    <Setting Name="VSM_RUMA_CORE_SOAPLNV_MeldingewnWS_MeldingenWSSoapBindingImplService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://dbrbms.agro.nl/osbbms_v2_0/services/MeldingenWS</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification/Request" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ImportInventoryNotification/Request" id="schema17" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/InventoryNotificationImportSchema" />
+  <xs:element name="ImportInventoryNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://Sanitel.EAI/SanitelRepository/SanitelServices/InventoryNotificationImportSchema" minOccurs="0" maxOccurs="1" ref="q1:InventoryNotificationImport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

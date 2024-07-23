@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WIJZIGINGSHISTORIE
+VERSIE	WIJZIGINGEN
+1_0     Creatie
+1_1     Verwijzing naar vernieuwde xsd
+2_0     ProGReS schapen&geiten Release 1
+-->
+<wsdl:definitions 
+   targetNamespace="http://www.ienr.org/schemas/services/dierenWS_v2_0"
+   xmlns:dierenWS="http://www.ienr.org/schemas/services/dierenWS_v2_0"
+   xmlns:dier="http://www.ienr.org/schemas/types/dieren_v2_0"
+   xmlns:apachesoap="http://xml.apache.org/xml-soap"
+   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+
+ <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ienr.org/schemas/services/dierenWS_v2_0">
+   <import namespace="http://sql.java"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <import namespace="http://www.ienr.org/schemas/types/dieren_v2_0" schemaLocation="https://dbrbms.agro.nl/bms_v2_0/dieren_v2_0.xsd"/>
+ </schema>
+ </wsdl:types>
+
+   <wsdl:message name="raadplegenDierenRequest">
+
+      <wsdl:part name="request" type="dier:dierenRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierenResponse">
+
+      <wsdl:part name="raadplegenDierenReturn" type="dier:dierenResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierDetailsRequest">
+
+      <wsdl:part name="request" type="dier:dierDetailsRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierDetailsResponse">
+
+      <wsdl:part name="raadplegenDierDetailsReturn" type="dier:dierDetailsResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierStatusRequest">
+
+      <wsdl:part name="request" type="dier:dierStatusRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierStatusResponse">
+
+      <wsdl:part name="raadplegenDierStatusReturn" type="dier:dierStatusResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierNakomelingenRequest">
+
+      <wsdl:part name="request" type="dier:dierNakomelingenRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierNakomelingenResponse">
+
+      <wsdl:part name="raadplegenDierNakomelingenReturn" type="dier:dierNakomelingenResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierVerblijfplaatsenRequest">
+
+      <wsdl:part name="request" type="dier:dierVerblijfplaatsenRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierVerblijfplaatsenResponse">
+
+      <wsdl:part name="raadplegenDierVerblijfplaatsenReturn" type="dier:dierVerblijfplaatsenResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierVlaggenRequest">
+
+      <wsdl:part name="request" type="dier:dierVlaggenRequestType"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="raadplegenDierVlaggenResponse">
+
+      <wsdl:part name="raadplegenDierVlaggenReturn" type="dier:dierVlaggenResponseType"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DierenService">
+
+      <wsdl:operation name="raadplegenDieren" parameterOrder="request">
+
+         <wsdl:input name="raadplegenDierenRequest" message="dierenWS:raadplegenDierenRequest"/>
+
+         <wsdl:output name="raadplegenDierenResponse" message="dierenWS:raadplegenDierenResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierDetails" parameterOrder="request">
+
+         <wsdl:input name="raadplegenDierDetailsRequest" message="dierenWS:raadplegenDierDetailsRequest"/>
+
+         <wsdl:output name="raadplegenDierDetailsResponse" message="dierenWS:raadplegenDierDetailsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierStatus" parameterOrder="request">
+
+         <wsdl:input name="raadplegenDierStatusRequest" message="dierenWS:raadplegenDierStatusRequest"/>
+
+         <wsdl:output name="raadplegenDierStatusResponse" message="dierenWS:raadplegenDierStatusResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierNakomelingen" parameterOrder="request">
+
+         <wsdl:input name="raadplegenDierNakomelingenRequest" message="dierenWS:raadplegenDierNakomelingenRequest"/>
+
+         <wsdl:output name="raadplegenDierNakomelingenResponse" message="dierenWS:raadplegenDierNakomelingenResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierVerblijfplaatsen" parameterOrder="request">
+
+         <wsdl:input name="raadplegenDierVerblijfplaatsenRequest" message="dierenWS:raadplegenDierVerblijfplaatsenRequest"/>
+
+         <wsdl:output name="raadplegenDierVerblijfplaatsenResponse" message="dierenWS:raadplegenDierVerblijfplaatsenResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierVlaggen" parameterOrder="request">
+
+         <wsdl:input name="raadplegenDierVlaggenRequest" message="dierenWS:raadplegenDierVlaggenRequest"/>
+
+         <wsdl:output name="raadplegenDierVlaggenResponse" message="dierenWS:raadplegenDierVlaggenResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DierenWSSoapBinding" type="dierenWS:DierenService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="raadplegenDieren">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenDierenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenDierenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenDierDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenDierDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenDierStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenDierStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierNakomelingen">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenDierNakomelingenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenDierNakomelingenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierVerblijfplaatsen">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenDierVerblijfplaatsenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenDierVerblijfplaatsenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="raadplegenDierVlaggen">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="raadplegenDierVlaggenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="raadplegenDierVlaggenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DierenServiceService">
+
+      <wsdl:port name="DierenWS" binding="dierenWS:DierenWSSoapBinding">
+
+         <wsdlsoap:address location="https://dbrbms.agro.nl/bms_v2_0/services/DierenWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

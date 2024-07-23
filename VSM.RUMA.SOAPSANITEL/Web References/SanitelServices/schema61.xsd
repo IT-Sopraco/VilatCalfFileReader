@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImport" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImport" id="schema61" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImportSchema" />
+  <xs:element xmlns:q1="http://Sanitel.EAI/SanitelRepository/SanitelServices/SlaughterDetailInfoImportSchema" name="SlaughterDetailInfoImport" type="q1:SlaughterDetailInfoImport" />
+</xs:schema>

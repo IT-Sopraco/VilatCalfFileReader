@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VSM.RUMA.SOAPSANITEL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SoapSanitel_SanitelServices_Sanitel_SanitelServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx</Value>
+    </Setting>
+    <Setting Name="SoapSanitel_SanitelServices_Sanitel_SanitelServices_Test" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://qas.sanitel.be/int/QAS_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/SanitaryUnitExportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/SanitaryUnitExportSchema" id="schema116" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SanitaryUnitExport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="SanitaryUnit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="SUTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PBST_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PBRS_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SUKD_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRQU_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRWA_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SUHS_CDE_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="POP_CNT" type="xs:decimal" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_FRM" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UPD_DTE_TO" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FLTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FALO_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="BOX" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="IDP_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SPTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NAM" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="EXT_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AL1" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AL2" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="STR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="BOX" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ZIP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CTY" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="MCP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CTRY_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TPH" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductionUnit">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_NAM" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_STR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_ZIP" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRC_CTY" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Marking">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="MACT_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="NBR" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDG" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Capacity">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRWA_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SUHS_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRQU_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CAP_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="POP_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CNT_DTE" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CAG_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="STB_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SUC_BRO" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SUCP_CCY" type="xs:decimal" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="History">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="RSP_DES" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="VTY_DES" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TUST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIQU_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIQR_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RSK_QAL_CMN" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="BLST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PBRS_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PBST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="PPT_BLO_STA_CMN" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TUBR_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="BLO_STA_CMN" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DTE_FRM" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DTE_TO" type="xs:dateTime" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="PopulationCount">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PRUN_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ANSB_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="AGEC_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="MAL_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="FEM_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="TOT_CNT" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CNT_DTE" type="xs:date" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Risk">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="DES" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RSST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DTE_FRM" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DTE_TO" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIOG_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="ReturnCode" type="xs:string" />
+      <xs:attribute name="ReturnMessage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

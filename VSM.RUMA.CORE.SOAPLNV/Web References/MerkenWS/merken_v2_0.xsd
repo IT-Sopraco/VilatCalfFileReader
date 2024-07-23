@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:alg="http://www.ienr.org/schemas/types/algemeen_v2_0" xmlns:merk="http://www.ienr.org/schemas/types/merken_v2_0" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.ienr.org/schemas/types/merken_v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="algemeen_v2_0.xsd" namespace="http://www.ienr.org/schemas/types/algemeen_v2_0" />
+  <xsd:complexType name="verwerkingsresultaatType">
+    <xsd:sequence>
+      <xsd:element name="foutcode" nillable="true" type="alg:foutcodeType" />
+      <xsd:element name="foutmelding" nillable="true" type="alg:foutmeldingType" />
+      <xsd:element name="soortFoutIndicator" nillable="true" type="alg:soortFoutIndicatorType" />
+      <xsd:element name="succesIndicator" nillable="true" type="alg:jaNeeIndicatorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="controleerLevensnummerRequest" type="merk:controleerLevensnummerRequestType" />
+  <xsd:complexType name="controleerLevensnummerRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="dierLandcode1" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLandcode2" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer1" type="alg:levensnummerType" />
+      <xsd:element name="dierLevensnummer2" type="alg:levensnummerType" />
+      <xsd:element name="dierSoort" type="alg:diersoortType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="controleerLevensnummerResponse" type="merk:controleerLevensnummerResponseType" />
+  <xsd:complexType name="controleerLevensnummerResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="merk:controleerLevensnummerRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="merktypenRequest" type="merk:merktypenRequestType" />
+  <xsd:complexType name="merktypenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="selTypeBestelling" type="alg:typeBestellingType" />
+      <xsd:element name="selDierSoort" nillable="true" type="alg:diersoortCharOptioneelType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="merkentypeType">
+    <xsd:sequence>
+      <xsd:element name="aantalLos" nillable="true" type="alg:merkAantalLosType" />
+      <xsd:element name="aantalPerCollo" nillable="true" type="alg:merkAantalPerColloType" />
+      <xsd:element name="code" nillable="true" type="alg:codeMerktypeType" />
+      <xsd:element name="dierSoort" nillable="true" type="alg:diersoortType" />
+      <xsd:element name="codeFabrikant" nillable="true" type="alg:codeFabrikantType" />
+      <xsd:element name="codeLeverancier" nillable="true" type="alg:codeLeverancierType" />
+      <xsd:element name="naamLeverancier" nillable="true" type="alg:naamLeverancierType" />
+      <xsd:element name="codeSoortMerk" nillable="true" type="alg:codeSoortMerkType" />
+      <xsd:element name="codeVormOormerk" nillable="true" type="alg:codeVormOormerkType" />
+      <xsd:element name="omschrijvingMerktype" nillable="true" type="alg:omschrijvingMerktypeType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="merktypenResponse" type="merk:merktypenResponseType" />
+  <xsd:complexType name="merktypenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="merk:merktypenRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="merkentype" type="merk:merkentypeType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="merkenRequest" type="merk:merkenRequestType" />
+  <xsd:complexType name="merkenRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="alg:requestIdType" />
+      <xsd:element name="selRelatienummerHouder" type="alg:relatienummerType" />
+      <xsd:element name="selDierSoort" type="alg:diersoortType" />
+      <xsd:element name="selIndVrijBesteld" type="alg:indVrijBesteldType" />
+      <xsd:element name="selDierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="selDierLevensnummerHoog" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="selDierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="selDierWerknummerHoog" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="selDierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="selCodeMerktype" nillable="true" type="alg:codeMerktypeType" />
+      <xsd:element name="selCodeSoortMerk" nillable="true" type="alg:codeSoortMerkType" />
+      <xsd:element name="aantal" nillable="true" type="alg:aantalMerkenType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="merkType">
+    <xsd:sequence>
+      <xsd:element name="codeFabrikant" nillable="true" type="alg:codeFabrikantType" />
+      <xsd:element name="codeSoortMerk" nillable="true" type="alg:codeSoortMerkType" />
+      <xsd:element name="codeLeverancier" nillable="true" type="alg:codeLeverancierType" />
+      <xsd:element name="naamLeverancier" nillable="true" type="alg:naamLeverancierType" />
+      <xsd:element name="codeMerktype" nillable="true" type="alg:codeMerktypeType" />
+      <xsd:element name="codeVormOormerk" nillable="true" type="alg:codeVormOormerkType" />
+      <xsd:element name="omschrijvingMerktype" nillable="true" type="alg:omschrijvingMerktypeType" />
+      <xsd:element name="datumBestelling" nillable="true" type="alg:datumType" />
+      <xsd:element name="dierLandcode" nillable="true" type="alg:EUlandcodeType" />
+      <xsd:element name="dierLevensnummer" nillable="true" type="alg:levensnummerType" />
+      <xsd:element name="dierWerknummer" nillable="true" type="alg:werknummerType" />
+      <xsd:element name="merkVersienummer" nillable="true" type="alg:merkVersienummerType" />
+      <xsd:element name="ubnOpMerk" nillable="true" type="alg:meldingeenheidType" />
+      <xsd:element name="groepsmerkAantal" nillable="true" type="alg:aantalMerkenType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="merkenResponse" type="merk:merkenResponseType" />
+  <xsd:complexType name="merkenResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="merk:merkenRequestType">
+        <xsd:sequence>
+          <xsd:element name="verwerkingsresultaat" type="alg:verwerkingsresultaatType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="merk" type="merk:merkType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

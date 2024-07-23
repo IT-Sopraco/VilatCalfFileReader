@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeProductionQualityImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/ChangeProductionQualityImportSchema" id="schema15" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ChangeProductionQualityImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="ChangeProductionQuality">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PRQU_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="SanitaryUnit">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="FUNC_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

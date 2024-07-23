@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServicess/SlaughteringStatisticsOverviewExport" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServicess/SlaughteringStatisticsOverviewExport" id="schema149" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SlaughteringStatisticsOverviewExport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughteringDay">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="FCLT_REF_NBR" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughteringStatistic">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="SLCH_CDE" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="BEG_TME" type="xs:time" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="END_TME" type="xs:time" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="BRK_MNU" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ANM_CNT" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ANM_WGH" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="UID_CNT" type="xs:decimal" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughteringStatisticDetail">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="SSD1_CDE" type="xs:string" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="SSD2_CDE" type="xs:string" />
+                        <xs:element minOccurs="1" maxOccurs="1" name="ANM_CNT" type="xs:decimal" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="ANM_WGH" type="xs:decimal" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SlaughteringTotal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SSTT_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FCLT_REF_NBR" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANM_CNT" type="xs:decimal" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ANM_WGH" type="xs:decimal" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="StatusCode" type="xs:string" />
+    <xs:attribute name="StatusMessage" type="xs:string" />
+    <xs:attribute name="User" type="xs:string" />
+    <xs:attribute name="SecurityToken" type="xs:string" />
+    <xs:attribute name="ReturnCode" type="xs:string" />
+    <xs:attribute name="ReturnMessage" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

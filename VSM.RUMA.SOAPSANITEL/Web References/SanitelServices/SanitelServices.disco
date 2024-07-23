@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx?wsdl" docRef="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx" xmlns:q1="http://Sanitel.EAI/SanitelRepository/SanitelServices" binding="q1:Sanitel_SanitelServices" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://prd.sanitel.be/int/PRD_Sanitel_ExtInterfacingSvcs_v2/SanitelServices.asmx" xmlns:q2="http://Sanitel.EAI/SanitelRepository/SanitelServices" binding="q2:Sanitel_SanitelServices1" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

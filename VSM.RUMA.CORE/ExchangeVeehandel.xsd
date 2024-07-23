@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ExchangeVeehandel">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="BerichtVersie" type="xs:decimal"  minOccurs="1" maxOccurs="1"/>
+        <xs:element name="HouderUBN" />
+        <xs:element name="HouderNaam" />
+        <xs:element name="Ritten">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+              <xs:element name="Rit">
+                <xs:complexType>
+                  <xs:sequence minOccurs="1">
+                    <xs:element name="TransporteurErkenningsnummer" />
+                    <xs:element name="TransporteurNaam" />
+                    <xs:element name="AutoKenteken" />
+                    <xs:element name="AutoAanhangerKenteken" />
+                    <xs:element name="Afleverdatum" />
+                    <xs:element name="Aflevertijd" />
+                    <xs:element name="Dieren">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="1" maxOccurs="1">
+                          <xs:element name="Dier">
+                            <xs:complexType>
+                              <xs:sequence minOccurs="1">
+                                <xs:element name="Diersoort" minOccurs="1" />
+                                <xs:element name="Landcode"  minOccurs="1"/>
+                                <xs:element name="Levensnummer"  minOccurs="1"/>
+                                <xs:element name="Geboortedatum" />
+                                <xs:element name="Geslacht" />
+                                <xs:element name="Haarkleur" />
+                                <xs:element name="Ras" />
+                                <xs:element name="MoederLandcode" />
+                                <xs:element name="MoederLevensnummer" />
+                                <xs:element name="VaderLandcode" />
+                                <xs:element name="VaderLevensnummer" />
+                                <xs:element name="HerkomstUBN" />
+                                <xs:element name="BestemmingUBN" />
+                                <xs:element name="HerkomstLandcode" />
+                                <xs:element name="BestemmingLandcode" />
+                                <xs:element name="Laaddatum" />
+                                <xs:element name="Laadtijd" />
+                                <xs:element name="Losdatum" />
+                                <xs:element name="Lostijd" />
+                                <xs:element name="HandelaarErkenningsnummer" />
+                                <xs:element name="HanderlaarNaam" />
+                                <xs:element name="VKI_JN" />
+                                <xs:element name="Geneesmiddelen">
+                                  <xs:complexType>
+                                    <xs:sequence minOccurs="0" maxOccurs="1">
+                                      <xs:element name="Geneesmiddel">
+                                        <xs:complexType>
+                                          <xs:sequence minOccurs="0">
+                                            <xs:element name="DatumEersteBehandeling" />
+                                            <xs:element name="DatumLaatsteBehandeling" />
+                                            <xs:element name="AantalBehandelingen" />
+                                            <xs:element name="DiagnoseBehandeling" />
+                                            <xs:element name="GeneesmiddelNaam" />
+                                            <xs:element name="RegNLmiddel" />
+                                            <xs:element name="DatumEindeWachttermijn" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

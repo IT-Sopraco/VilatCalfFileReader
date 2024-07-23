@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/OrderImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/OrderImportSchema" id="schema2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="OrderImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Order">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="OrderParty">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="OrderFacility">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SNUN_CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderLines">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ORLI_QTY" type="xs:long" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORLI_LNGE_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORLI_ANM_REF_NBR" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="ORLI_ANM_DOU_MRK_FLG" type="xs:boolean" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORLI_MRK_PFR_RNG" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="ORLI_FRM_STK_FLG" type="xs:boolean" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORLI_MRK_NBR_FRT" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORLI_MRK_NBR_LST" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORIM_OITP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORIM_OILB_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ORLI_ORI_RGT" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="ORLI_ORI_RGT_USD_FLG" type="xs:boolean" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="ACCEPT_ANOM" type="xs:boolean" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="ORDR_RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="ORDR_PST_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_DLV_DIF_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_DLV_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_DLV_AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_DLV_ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_DLV_CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_DLV_CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_IVC_DIF_FLG" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_IVC_NAM" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_IVC_AL1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_IVC_ZIP" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_IVC_CTY" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_IVC_CTRY_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_ARC_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_ARC_BOX_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_ARC_ENL_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ORDR_ARC_LNE_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RETURN_ALL_ANOMALIES" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

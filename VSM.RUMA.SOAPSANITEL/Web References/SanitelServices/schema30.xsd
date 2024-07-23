@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Sanitel.EAI/SanitelRepository/SanitelServices/RiskNotificationImportSchema" elementFormDefault="qualified" targetNamespace="http://Sanitel.EAI/SanitelRepository/SanitelServices/RiskNotificationImportSchema" id="schema30" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RiskNotificationImport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="RiskNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="NOTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="OCR_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="1" maxOccurs="1" name="RCV_DTE" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DOC_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANTP_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="FCLT_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SNUN_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ANML_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="RIOG_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="NRCR_CDE" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="DES" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="VIST_ID" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LBO_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LMS_REF_NBR" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="SMP_REF_NBR_BAG" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CMN" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Party">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="NPTP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="CDE" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="RiskItem">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="RITP_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIIT_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIIM_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RSST_CDE" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RSST_CDE_APT" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="RIST_CDE_APT" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="DTE_FRM" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="DTE_TO" nillable="true" type="xs:date" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="SecurityToken" type="xs:string" />
+      <xs:attribute name="OnBehalfRole" type="xs:string" />
+      <xs:attribute name="OnBehalfEntity" type="xs:string" />
+      <xs:attribute name="UserLanguage" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

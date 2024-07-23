@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36E86EFB-32DD-4A9D-A7FD-E76B03AE61C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSM.RUMA.CORE.SOAPLNV</RootNamespace>
+    <AssemblyName>VSM.RUMA.CORE.SOAPLNV</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSM.RUMA.CORE.CRVSOAP">
+      <HintPath>..\VSM.RUMA.CORE\lib\VSM.RUMA.CORE.CRVSOAP.dll</HintPath>
+    </Reference>
+    <Reference Include="VSM.RUMA.CRVSOAP">
+      <HintPath>..\VSM.RUMA.CORE\lib\VSM.RUMA.CRVSOAP.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IRUtils.cs" />
+    <Compile Include="MeldingenWS.cs" />
+    <Compile Include="OpvragenLNVDierDetailsV2.cs" />
+    <Compile Include="OpvragenLNVDierstatusV2.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\srMeldingenWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SOAPLNVALG1.cs" />
+    <Compile Include="SOAPLNVDieren.cs" />
+    <Compile Include="Web References\DierenWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MachtigingenWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MerkenWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\nl.agro.dbrbms\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ReferentieWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srMeldingenWS\algemeen_v2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srMeldingenWS\meldingenWS_v2_0.wsdl" />
+    <None Include="Service References\srMeldingenWS\meldingen_v2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.intrekkenMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.intrekkenMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenMeldingAlgResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenMeldingDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenMeldingDetailResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenMeldingenAlgResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenMeldingstypenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenMeldingstypenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenOntbrekendeMeldingenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenOntbrekendeMeldingenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenVlaggenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.raadplegenVlaggenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenAanvoerMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenAanvoerMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenAfvoerMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenAfvoerMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenCombiImportExportMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenCombiImportExportMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenCombiImportSlachtMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenCombiImportSlachtMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenDiervlagMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenDiervlagMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenDoodGeborenDierMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenDoodGeborenDierMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenDoodMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenDoodMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenExportMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenExportMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenGeboorteMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenGeboorteMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenGevondenMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenGevondenMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenImportMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenImportMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenMerkblokkadeMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenMerkblokkadeMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenNoodslachtMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenNoodslachtMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenOverdrachtMerkenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenOverdrachtMerkenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenSlachtMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenSlachtMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenTijdelijkMerkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenTijdelijkMerkResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenVermissingsMeldingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenVermissingsMeldingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenVervangendMerkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\srMeldingenWS\VSM.RUMA.CORE.SOAPLNV.srMeldingenWS.vastleggenVervangendMerkResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\algemeen_v2_0.xsd" />
+    <None Include="Web References\DierenWS\dierDetailsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\dierenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\dierenWS_v2_0.wsdl" />
+    <None Include="Web References\DierenWS\dieren_v2_0.xsd" />
+    <None Include="Web References\DierenWS\dierNakomelingenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\dierStatusResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\dierVerblijfplaatsenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\dierVlaggenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DierenWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MachtigingenWS\algemeen_v2_0.xsd" />
+    <None Include="Web References\MachtigingenWS\beeindigenMachtigingenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MachtigingenWS\machtigingenWS_v2_0.wsdl" />
+    <None Include="Web References\MachtigingenWS\machtigingen_v2_0.xsd" />
+    <None Include="Web References\MachtigingenWS\rdplnHoudersWaarvoorGemachtigdResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MachtigingenWS\rdplnMachtigingenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MachtigingenWS\rdplnMEUBNWaarvoorGemachtigdResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MachtigingenWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MachtigingenWS\vastleggenMachtigingenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MerkenWS\algemeen_v2_0.xsd" />
+    <None Include="Web References\MerkenWS\controleerLevensnummerResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MerkenWS\merkenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MerkenWS\merkenWS_v2_0.wsdl" />
+    <None Include="Web References\MerkenWS\merken_v2_0.xsd" />
+    <None Include="Web References\MerkenWS\merktypenResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MerkenWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\nl.agro.dbrbms\algemeen_v2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\nl.agro.dbrbms\meldingenWS_v2_0.wsdl" />
+    <None Include="Web References\nl.agro.dbrbms\meldingen_v2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\nl.agro.dbrbms\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ReferentieWS\algemeen_v2_0.xsd" />
+    <None Include="Web References\ReferentieWS\destructorsResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReferentieWS\diersoortenResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReferentieWS\domeinenResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReferentieWS\EUlandenResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReferentieWS\haarkleurenResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReferentieWS\landenResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReferentieWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ReferentieWS\referentieWS_v2_0.wsdl" />
+    <None Include="Web References\ReferentieWS\referentie_v2_0.xsd" />
+    <None Include="Web References\ReferentieWS\vlagsoortenResponseType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="WSDL\dierenWS_v2_0.wsdl" />
+    <None Include="WSDL\machtigingenWS_v2_0.wsdl" />
+    <None Include="WSDL\merkenWS_v2_0.wsdl" />
+    <None Include="WSDL\referentieWS_v2_0.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://dbrbms.agro.nl/osbbms_v2_0/meldingenWS_v2_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\nl.agro.dbrbms\</RelPath>
+      <UpdateFromURL>https://dbrbms.agro.nl/osbbms_v2_0/meldingenWS_v2_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VSM_RUMA_CORE_SOAPLNV_nl_agro_dbrbms_MeldingenServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\dierenWS_v2_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DierenWS\</RelPath>
+      <UpdateFromURL>Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\dierenWS_v2_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VSM_RUMA_CORE_SOAPLNV_DierenWS_DierenServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\machtigingenWS_v2_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MachtigingenWS\</RelPath>
+      <UpdateFromURL>Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\machtigingenWS_v2_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VSM_RUMA_CORE_SOAPLNV_MachtigingenWS_MachtigingenServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\merkenWS_v2_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MerkenWS\</RelPath>
+      <UpdateFromURL>Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\merkenWS_v2_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VSM_RUMA_CORE_SOAPLNV_MerkenWS_MerkenServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\referentieWS_v2_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ReferentieWS\</RelPath>
+      <UpdateFromURL>Z:\Prog\Visual Studio 2008\Projects\VSM.RUMA\VSM.RUMA.CORE.SOAPLNV\WSDL\referentieWS_v2_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VSM_RUMA_CORE_SOAPLNV_LNVReferentie_ReferentieServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\srMeldingenWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\srMeldingenWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\srMeldingenWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\srMeldingenWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSM.RUMA.CORE.COMMONS\VSM.RUMA.CORE.COMMONS.csproj">
+      <Project>{a9cb2c97-4502-41e2-8a15-39872f2525e9}</Project>
+      <Name>VSM.RUMA.CORE.COMMONS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSM.RUMA.CORE.DB\VSM.RUMA.CORE.DB.csproj">
+      <Project>{9b640554-c7a9-49d6-ba41-746f749fd81e}</Project>
+      <Name>VSM.RUMA.CORE.DB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
