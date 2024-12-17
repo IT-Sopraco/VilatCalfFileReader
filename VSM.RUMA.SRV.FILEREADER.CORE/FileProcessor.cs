@@ -217,7 +217,7 @@ namespace VSM.RUMA.SRV.FILEREADER.CORE
         {
             try
             {
-                return Convert.ToByte(AppDomain.CurrentDomain.GetData("MaxWorkers"));
+                return 5;
             }
             catch
             {
@@ -550,7 +550,7 @@ namespace VSM.RUMA.SRV.FILEREADER.CORE
                 string newDir;
                 if (ext == ".old")
                 {
-                    newDir = BasePath + "_history";
+                    newDir = Win32.GetBaseDir() + "Files_history";
                     newDir += Path.DirectorySeparatorChar;
                     newDir += DateTime.Now.Year.ToString();
                     newDir += Path.DirectorySeparatorChar;
@@ -634,7 +634,6 @@ namespace VSM.RUMA.SRV.FILEREADER.CORE
                     }
                 }
                 WakeWorkers();
-
             }
         }
 

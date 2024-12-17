@@ -159,7 +159,7 @@ namespace SopracoFileReader
                 unLogger.WriteError(msg);
                 unLogger.WriteDebug(msg, ex);
             }
-        }
+         }
 
         void XmlWatcher_Renamed(object sender, RenamedEventArgs e)
         {
@@ -180,6 +180,7 @@ namespace SopracoFileReader
                     String[] PathList = e.Name.Split(new char[] { System.IO.Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
 
                     if ((!lFileWatcher.IncludeSubdirectories) || PathList.Length >= 2)
+ //                   if ((lFileWatcher.IncludeSubdirectories) || PathList.Length >= 1) // Filereader_voer
                     {
                         lock (uniqueLock)
                         {
@@ -265,7 +266,7 @@ namespace SopracoFileReader
         {
             try
             {
-                return 5;
+                return 20;
               //  return Convert.ToByte(AppDomain.CurrentDomain.GetData("MaxWorkers"));
             }
             catch
@@ -403,11 +404,11 @@ namespace SopracoFileReader
                         int fileLogId = FileLogger.AddFileLog(DB, Plugin.GetType().FullName, 0, "", FileReaderItem.File, "", 0);
                         unLogger.WriteDebug($"{lPrefix} FileLogId: {fileLogId} Module: {Plugin.GetType().FullName}");
 
-#if DEBUG
+
                         int exitcode = Plugin.LeesFile(-99, agroFactuurToken, FileReaderItem.ProgramId, agroFactuurToken.MasterUser, agroFactuurToken.MasterPass, fileLogId, FileReaderItem.File);
-#else
-                            int exitcode = new ChildStarter().LeesFile(Plugin, FileReaderItem.ProgramId, FileReaderItem.File, mAgrofactuurToken, fileLogId);
-#endif
+
+//                            int exitcode = new ChildStarter().LeesFile(Plugin, FileReaderItem.ProgramId, FileReaderItem.File, mAgrofactuurToken, fileLogId);
+
                         unLogger.WriteDebug($@"{lPrefix} exitcode:{exitcode}");
                         FileLogger.FileLogAddReturnCode(DB, fileLogId, exitcode); //logResult code
 
@@ -536,7 +537,7 @@ namespace SopracoFileReader
                 string newDir;
                 if (ext == ".old")
                 {
-                    newDir = basePath + "_history";
+                    newDir = Win32.GetBaseDir() + "Files_history";
                     newDir += Path.DirectorySeparatorChar;
                     newDir += DateTime.Now.Year.ToString();
                     newDir += Path.DirectorySeparatorChar;
@@ -544,11 +545,17 @@ namespace SopracoFileReader
                     newDir += Path.DirectorySeparatorChar;
                     newDir += DateTime.Now.Day.ToString();
                     newDir += Path.DirectorySeparatorChar;
-                    newDir = curDir.Replace(basePath, newDir);
+
+ //                   unLogger.WriteDebug($"Before Replace newdir: {newDir}");
+                    //newDir = curDir.Replace(basePath, newDir);
+ //                   unLogger.WriteDebug($"After Replace newdir: {newDir}");
                     if (!Directory.Exists(newDir))
                     {
-                        Directory.CreateDirectory(newDir);
+                       DirectoryInfo di = Directory.CreateDirectory(newDir);
+ //                      unLogger.WriteDebug($"After CreateDir newdir: {di.FullName}");
+
                     }
+ //                   unLogger.WriteDebug($"{lPrefix} new dir: {newDir}");
                 }
                 else
                     newDir = curDir;

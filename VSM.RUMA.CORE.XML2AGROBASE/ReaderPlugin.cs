@@ -10,6 +10,7 @@ using System.Xml;
 using System.IO;
 using System.Data;
 using System.Threading;
+using static VSM.RUMA.CORE.DB.LABELSConst;
 
 namespace VSM.RUMA.CORE.XML2AGROBASE
 {
@@ -32,11 +33,13 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             Excludes.Add(".TMP");
             Excludes.Add(".FXML");
             Excludes.Add(".FAIL");
-            Excludes.Add("\\IN");
+            Excludes.Add(".TXT");
+//            Excludes.Add("\\IN");
             string excludedirs = ConfigurationManager.AppSettings["ExcludeDirs"];
             foreach (string dir in excludedirs.Split(';'))
             {
                 Excludes.Add($"\\{dir}");
+                //unLogger.WriteDebug($"Excluded directories: {Excludes.Last<string>()}");
             };
 
             return Excludes;
@@ -71,14 +74,14 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 }
                 else
                 {
-                    Result = ImportXML2MySQL(programId,
-                            agrobaseUser,
-                            agrobasePassword,
-                            LogFile, unRechten.getDBHost(), Bestandsnaam, fileLogId);
-                    //Result = PDA2Agrobase.importXMLMySQLxml(programId,
+                    //Result = ImportXML2MySQL(programId,
                     //        agrobaseUser,
                     //        agrobasePassword,
                     //        LogFile, unRechten.getDBHost(), Bestandsnaam, fileLogId);
+                    Result = importXMLMySQLxml(programId,
+                            agrobaseUser,
+                            agrobasePassword,
+                            LogFile, unRechten.getDBHost(), Bestandsnaam, fileLogId, thrId);
                 }
 
                 unLogger.WriteDebug("XML2AGROBASE.Reader           : " + Bestandsnaam + "result: " + Result.ToString());
@@ -116,7 +119,7 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             DB = value;
         }
 
-        private int ImportXML2MySQL(int programId, String agrobaseUser, String agrobasePassword, String LogFile, String dbHost, String Bestandsnaam, int fileLogId)
+        private int ImportXML2MySQL(int programId, String agrobaseUser, String agrobasePassword, String LogFile, String dbHost, String Bestandsnaam, int fileLogId, int thrId)
         {
             List<THIRD> relations = new List<THIRD>();
             List<ANIMAL> animals = new List<ANIMAL>();
@@ -124,52 +127,78 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             List<MOVEMENT> movements = new List<MOVEMENT>();
             THIRD bedrijf = null;
             UBN ubn = null;
+            List<string> imports = new List<string>();
 
             int resultCode = 0; 
-//            System.Threading.Monitor.Enter(padlck);
+            System.Threading.Monitor.Enter(padlck);
             var dierXml = XmlReader.Create(Bestandsnaam);
             while (dierXml.Read())
             {
                 if (dierXml.IsStartElement())
                 {
-                    switch (dierXml.Name.ToString())
-                    {
-                        case "BEDRIJF":
-                            String bedrijfXml = dierXml.ReadOuterXml();
-                            bedrijf = ReadBedrijf(bedrijfXml);
-                            break;
-                        case "UBN": String ubnXml = dierXml.ReadOuterXml();
-                            ubn = ReadUbn(ubnXml);
-                            break;
-                        case "THIRD": String relationXml = dierXml.ReadOuterXml();
-                            THIRD relation = ReadRelation(relationXml);
-                            relations.Add(relation);
-                            break;
-                        case "ANIMAL": String animalXml = dierXml.ReadOuterXml();
-                            ANIMAL ani = ReadAnimal(animalXml);
-                            animals.Add(ani);
-                            break;
-                        case "MOVEMENT": string movementXml = dierXml.ReadOuterXml();
-                            MOVEMENT mov = ReadMovement(movementXml);
-                            movements.Add(mov);
-                            break;
-                        case "BUYING": string buyXml = dierXml.ReadOuterXml();
-                            BUYING buy = ReadBuying(buyXml);
-                            buys.Add(buy);
-                            break;
-                    }
+                    //                   unLogger.WriteDebug($"Current Element Name: {dierXml.Name}");
+
+                 //   try
+                   // {
+                        switch (dierXml.Name)
+                        {
+                            case "BEDRIJF":
+                                String bedrijfXml = dierXml.ReadOuterXml();
+                                bedrijf = ReadBedrijf(bedrijfXml);
+                                break;
+                            case "UBN":
+                                String ubnXml = dierXml.ReadOuterXml();
+                                ubn = ReadUbn(ubnXml);
+                                break;
+                            case "THIRD":
+                                String relationXml = dierXml.ReadOuterXml();
+                                THIRD relation = ReadRelation(relationXml);
+                                relations.Add(relation);
+                                break;
+                            case "ANIMAL":
+                                String animalXml = dierXml.ReadOuterXml();
+                                ANIMAL ani = ReadAnimal(animalXml);
+                                animals.Add(ani);
+                                break;
+                            case "MOVEMENT":
+                                string movementXml = dierXml.ReadOuterXml();
+                                MOVEMENT mov = ReadMovement(movementXml);
+                                movements.Add(mov);
+                                break;
+                            case "BUYING":
+                                string buyXml = dierXml.ReadOuterXml();
+                                BUYING buy = ReadBuying(buyXml);
+                                buys.Add(buy);
+                                break;
+                        }
+                    //} catch { unLogger.WriteError("Error in node:" + dierXml.ReadOuterXml() + " :" + dierXml.Name); }
                 }
             }
 
             int bedrijfThrId = bedrijf.ThrId;
             int ubnId = DB.getUBNidAndProgIdByUBNNr(ubn.Bedrijfsnummer, out programId);
-            Dictionary<int, int> ThrIDs = ConnectABThirdIds(relations, bedrijfThrId);
+            Dictionary<int, int> ThrIDs = ConnectABThirdIds(relations);
             ReplaceThrIds(ThrIDs, animals, relations, buys);
+
             try
             {
-                SaveAnimals(animals, movements, ubnId);
-                SaveMovements(movements, buys, ubnId);
-                SaveBuys(buys);
+                //SaveAnimals(animals, movements, ubnId);
+                //SaveMovements(movements, buys, ubnId);
+                //SaveBuys(buys);
+                for (int i = 0; i <= animals.Count - 1; i++)
+                {
+                    MOVEMENT animov = movements.Find(m => m.AniId == animals[i].AniId);
+                    BUYING anibuy = buys.Find(b => b.MovId == animov.MovId);
+
+                    string line = MakeCSVLine(ubn, bedrijf, animals[i], animov, anibuy);
+                    imports.Add(line);
+                }
+
+                foreach (string l in imports)
+                {
+                    SaveFileImport(l, ubnId, bedrijfThrId, thrId, Bestandsnaam);
+                }
+
                 resultCode = 1;
             } 
             catch (Exception ex)
@@ -179,8 +208,8 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             } 
             finally
             {
-                dierXml.Close();  
-//                System.Threading.Monitor.Exit(padlck);
+               dierXml.Close();  
+               System.Threading.Monitor.Exit(padlck);
             }
             return resultCode;
         }
@@ -253,8 +282,8 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                         switch (animalReader.Name.ToString()) 
                         {
                             case "AniId": ani.AniId = animalReader.ReadElementContentAsInt(); break;
-                            case "AniCountryCode": ani.AniLifeNumber = animalReader.ReadElementContentAsString(); break;
-                            case "AniLifeNumber": ani.AniLifeNumber = ani.AniLifeNumber + " " + animalReader.ReadElementContentAsString(); break;
+                            case "AniCountryCode": ani.AniCountryCodeBirth = animalReader.ReadElementContentAsString(); break;
+                            case "AniLifeNumber": ani.AniLifeNumber = animalReader.ReadElementContentAsString(); break;
                             case "AniWorkNumber": ani.AniWorkNumber = animalReader.ReadElementContentAsString(); break;
                             case "AniBirthDate": ani.AniBirthDate = animalReader.ReadElementContentAsDateTime(); break;
                             case "AniSex": ani.AniSex = animalReader.ReadElementContentAsInt(); break;
@@ -264,7 +293,16 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                         }
                     }
                 }
-                return ani;
+                existingAnimal = DB.GetAnimalByLifenr(ani.AniLifeNumber);
+
+                if (existingAnimal.AniId > 0)
+                {
+                    return existingAnimal;
+                }
+                else
+                {
+                    return ani;
+                }
             }
             return null;
         }
@@ -281,16 +319,20 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 {
                     if (relationReader.IsStartElement()) 
                     {
-                        switch (relationReader.Name.ToString())
-                        {
-                            case "ThrId": relation.ThrId = relationReader.ReadElementContentAsInt(); break;
-                            case "ThrSecondName": relation.ThrSecondName = relationReader.ReadElementContentAsString(); break;
-                            case "ThrStreet1": relation.ThrStreet1 = relationReader.ReadElementContentAsString(); break;
-                            case "ThrZipCode": relation.ThrZipCode = relationReader.ReadElementContentAsString(); break;
-                            case "ThrCity": relation.ThrCity = relationReader.ReadElementContentAsString(); break;
-                            case "ThrJuridischNr": relation.ThrVATNumber = relationReader.ReadElementContentAsString(); break;
-                        }
-                    }
+                     //   try
+                      //  {
+                            switch (relationReader.Name.ToString())
+                            {
+                                case "ThrId": relation.ThrId = relationReader.ReadElementContentAsInt(); break;
+                                case "ThrSecondName": relation.ThrSecondName = relationReader.ReadElementContentAsString(); break;
+                                case "ThrStreet1": relation.ThrStreet1 = relationReader.ReadElementContentAsString(); break;
+                                case "ThrZipCode": relation.ThrZipCode = relationReader.ReadElementContentAsString(); break;
+                                case "ThrCity": relation.ThrCity = relationReader.ReadElementContentAsString(); break;
+                                case "ThrJuridischNr": relation.ThrBeslagnr = relationReader.ReadElementContentAsString(); break;
+                            }
+                     //   }
+                     //   catch { unLogger.WriteError("Third: " + relationNode); }
+                    } 
                 }
                 return relation;
             }
@@ -332,8 +374,10 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 while (bedrijfsReader.Read())
                 {
                     if (bedrijfsReader.IsStartElement())
-                    { 
-                        switch (bedrijfsReader.Name.ToString())
+                    {
+//                        unLogger.WriteDebug($" --- Current Element Name: {bedrijfsReader.Name}");
+
+                        switch (bedrijfsReader.Name)
                         {
                             case "ThrStamboeknr": bedrijf.ThrStamboeknr = bedrijfsReader.ReadElementContentAsString(); break;
                             case "ThrSecondName": bedrijf.ThrSecondName = bedrijfsReader.ReadElementContentAsString(); break;
@@ -356,7 +400,7 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             return null;
         }
 
-        private Dictionary<int, int> ConnectABThirdIds(List<THIRD> relations, int ownThirdId)
+        private Dictionary<int, int> ConnectABThirdIds(List<THIRD> relations)
         {
             Dictionary<int, int> thirdIdsPairs = new Dictionary<int, int>();
             foreach (THIRD r in relations)
@@ -364,13 +408,13 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 if (!thirdIdsPairs.ContainsKey(r.ThrId))
                 {
                     THIRD temp = FindThird(r);
-                    if (temp != null)
+                    if (temp != null && temp.ThrId > 0)
                     {
                         thirdIdsPairs.Add(r.ThrId, temp.ThrId);
                     }
                     else
                     {
-                        thirdIdsPairs.Add(r.ThrId, ownThirdId);
+                        thirdIdsPairs.Add(r.ThrId, 0);
                     }
                 }
             }
@@ -379,6 +423,7 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
 
         private void ReplaceThrIds(Dictionary<int, int> idPairs, List<ANIMAL> animals, List<THIRD> relations, List<BUYING> buys)
         {
+
             foreach (int k in idPairs.Keys)
             {
                 foreach (THIRD r in relations)
@@ -398,6 +443,23 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             }
         }
 
+        private void SaveFileImport(string importLine, int destUbnId, int destThrId, int userThrId, string fileName)
+        {
+            FILE_IMPORT fi = new FILE_IMPORT();
+
+            fi.File_Import_Type_ID = 6; // DierAanvoer;
+            fi.Changed_By = 1515; // ChangedBy;
+            fi.SourceID = userThrId;
+            fi.FI_Data_Row = importLine;
+            fi.FI_Filename = fileName;
+            fi.FI_State = 1; // (int)FILE_IMPORT_STATUS.NogNietBeoordeeld;
+            fi.ProgID_Origin = 82; // pAgrolinkProgram;
+            fi.ThrID_Destination = destThrId;
+            fi.ThrID_Origin = 0;
+            fi.UbnID_Destination = destUbnId;
+            DB.saveFile_Import(fi);
+        }
+
         private void SaveAnimals(List<ANIMAL> animals, List<MOVEMENT> movements, int ubnId)
         {
             foreach (ANIMAL a in animals)
@@ -406,6 +468,7 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 
                 int oldAniId = a.AniId;
                 a.AniId = 0;
+                a.AniLifeNumber = a.AniCountryCodeBirth + " " + a.AniLifeNumber; 
                 a.AniAlternateNumber = a.AniLifeNumber;
                 int newAniId = DB.SaveAnimal(a, 0, 0);
 
@@ -414,7 +477,7 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 {
                     aniCategory.AniId = newAniId;
                     aniCategory.UbnId = ubnId;
-                    aniCategory.Anicategory = 1;
+                    aniCategory.Anicategory = 3;
                     aniCategory.AniWorknumber = a.AniWorkNumber;
                     DB.SaveAnimalCategory(aniCategory);
 
@@ -461,17 +524,114 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             }
         }
 
+        private string MakeCSVLine(UBN destubn, THIRD destthird, ANIMAL ani, MOVEMENT mov, BUYING buy)
+        {
+            string purHandelaarThrId = "";
+            string aniThirdId = "";
+            if (buy.PurHandelaar != 0) { purHandelaarThrId = buy.PurHandelaar.ToString(); }
+            if (ani.ThrId != 0) { aniThirdId = ani.ThrId.ToString(); }
+
+            return $"{destubn.Bedrijfsnummer};{destthird.ThrBeslagnr};{destthird.ThrStamboeknr};{ani.AniCountryCodeBirth};{ani.AniLifeNumber};{ani.AniWorkNumber};{ani.AniBirthDate};{ani.AniSex};{ani.AniQuality};" +
+                $"{aniThirdId};{ani.Anihaircolor};{ani.RacId};{mov.MovDate};{mov.MovKind};{buy.PurPrice};{buy.PurWeight};{buy.PurVersienrPaspoort};{purHandelaarThrId}";
+        }
         private THIRD FindThird(THIRD tempThird)
         {
             THIRD temp = null;
-            temp = DB.GetThirdByAddressZIPCity(tempThird.ThrStreet1, tempThird.ThrZipCode, tempThird.ThrCity);
-            if (temp == null || temp.ThrId == 0 ) 
+            temp = DB.GetThirdByVatNo(tempThird.ThrVATNumber); 
+            if (temp == null || temp.ThrId == 0)
             {
-                temp = DB.GetThirdByVatNo(tempThird.ThrVATNumber);
+                temp = DB.GetThirdByJuridischNummer(tempThird.ThrBeslagnr); 
+            }
+            if (temp == null || temp.ThrId == 0)
+            {
+                temp = DB.GetThirdByAddressZIPCity(tempThird.ThrStreet1, tempThird.ThrZipCode, tempThird.ThrCity);
             }
             if (temp != null) { return temp; }
             else { return tempThird; }
         }
 
+        public int importXMLMySQLxml(int pProgramid, String pUserName, String pPassword, String pLogFile,
+                                               String pHostname, String pFilename, int pFilelogID, int thrId)
+        {
+            int Result;
+            String FormatProcess = "xml.exe";
+            String OutputFilename = pFilename;
+            if (System.IO.File.Exists(FormatProcess))
+            {
+
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                try
+                {
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.FileName = "cmd.exe";//FormatProcess;
+                    unLogger.WriteDebug("CurrentDirectory : " + System.IO.Directory.GetCurrentDirectory());
+                    unLogger.WriteDebug("BaseDirectory    : " + AppDomain.CurrentDomain.BaseDirectory);
+                    unLogger.WriteDebug("ProgramId        : " + pProgramid.ToString());
+                    p.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    StringBuilder SBArgs = new StringBuilder();
+                    SBArgs.AppendFormat("/C xml.exe fo -e utf-8 \"{0}\"", pFilename);
+
+                    if (Path.GetExtension(pFilename).ToUpperInvariant().Equals(".XML"))
+                        OutputFilename = Path.ChangeExtension(pFilename, ".FXML");
+                    else
+                        OutputFilename = pFilename + ".FXML";
+
+                    SBArgs.AppendFormat(" > \"{0}\"", OutputFilename);
+                    //p.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(p_ErrorDataReceived);
+                    //p.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(p_OutputDataReceived);
+                    p.StartInfo.Arguments = SBArgs.ToString();
+                    //p.StartInfo.RedirectStandardError = true;                    
+                    //p.StartInfo.RedirectStandardOutput = true;
+                    p.Start();
+                    p.WaitForExit();
+                    //unLogger.WriteInfo(p.StandardOutput.ReadToEnd());
+                    //unLogger.WriteInfo(p.StandardError.ReadToEnd());                   
+                    if (p.ExitCode != 0) return -1;
+                }
+                catch (Exception ex)
+                {
+                    unLogger.WriteDebug(ex.Message, ex);
+                }
+                finally
+                {
+                    if (!p.HasExited)
+                        p.Kill();
+                }
+            }
+            Result = //importXMLMySQLexec(pProgramid, pUserName, pPassword, pLogFile, pHostname, OutputFilename);
+           //     importXMLMySQL(pProgramid, pUserName, pPassword, pLogFile, pHostname, OutputFilename, pFilelogID);
+           ImportXML2MySQL(pProgramid, pUserName, pPassword, pLogFile, pHostname, OutputFilename, pFilelogID, thrId);
+
+
+            if (Result > 0)
+                DeleteTempFiles(OutputFilename);
+            return Result;
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        private static void DeleteTempFiles(String OutputFilename)
+        {
+            try
+            {
+                File.Delete(OutputFilename);
+            }
+            catch (Exception ex)
+            {
+                unLogger.WriteDebug(ex.Message, ex);
+            }
+        }
+
+        void p_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        {
+            unLogger.WriteInfo("Output From FileChild : " + e.Data);
+        }
+
+        void p_ErrorDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        {
+            unLogger.WriteError("Error in FileChild : " + e.Data);
+        }
     }
+
 }
+

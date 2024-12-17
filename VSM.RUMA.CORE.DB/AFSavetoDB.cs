@@ -654,6 +654,7 @@ namespace VSM.RUMA.CORE
         THIRD GetThirdByHouseNrAndZipCode(string pHouseNr, string pZipCode);
         THIRD GetThirdByAddressZIPCity(String address, String zip, String city);
         THIRD GetThirdByVatNo(String vatNumber);
+        THIRD GetThirdByJuridischNummer(string pThrBeslagNummer);
         List<THIRD> GetThirdsByHouseNrAndZipCode(string pHouseNr, string pZipCode);
         THIRD GetThirdByThirId(string pTHirdId);
         THIRD GetThirdByThirId(int pTHirdId);

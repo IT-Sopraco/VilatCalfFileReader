@@ -30,7 +30,7 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
         {
             int resultcode = -1;
 
-            //LockObject padlock;
+            //LockObject padlck;
             //importPDAXMLMySQL handle = (importPDAXMLMySQL)ExecuteProcedureDLLStack(typeof(importPDAXMLMySQL), "importPDAXMLMySQL", GetLockList(), out padlock);
             String DLL = "PDA2RUMA.DLL";
             importPDAXMLMySQL handle = (importPDAXMLMySQL)ExecuteProcedureDLL(typeof(importPDAXMLMySQL), DLL, "importPDAXMLMySQL");
@@ -104,7 +104,8 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                 }
             }
             Result = //importXMLMySQLexec(pProgramid, pUserName, pPassword, pLogFile, pHostname, OutputFilename);
-                importXMLMySQL(pProgramid, pUserName, pPassword, pLogFile, pHostname, OutputFilename,pFilelogID);
+                importXMLMySQL(pProgramid, pUserName, pPassword, pLogFile, pHostname, OutputFilename, pFilelogID);
+            
 
             if (Result > 0)
                 DeleteTempFiles(OutputFilename);

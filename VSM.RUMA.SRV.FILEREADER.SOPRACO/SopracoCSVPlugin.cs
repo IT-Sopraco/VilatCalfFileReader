@@ -35,10 +35,6 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
 
         public int LeesFile(int pThrId, DBConnectionToken pAgroFactuurToken, int pProgramID, string pAgrobaseUser, string pAgrobasePassword, int FileLogId, string Bestandsnaam)
         {
-            //Het gebruik van de ageobase.api versie word nog niet geaccepteerd op de inleesserver. 
-            //ivm de System.Web.Mvc versie (e.a.) conflicten.
-            //daarom is het inlezen in deze  Module zelf gezet. via de klasse FilebufferSync
-            //TODO indien versies later wel overeenkomen, de code van FilebufferSync naar de agrobase.api overzetten.
             unLogger.WriteInfo($"{nameof(SopracoCSVPlugin)}.{nameof(LeesFile)} Start.");
           
             char[] bloodkommasplitter = { ',' };
@@ -183,39 +179,6 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
             return 1;
         }
  
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        //private bool Login(out SessionToken token)
-        //{
-        //    token = null;
-        //    try
-        //    {
-        //        if (auth == null)
-        //        {
-        //            unLogger.WriteError($"{nameof(SopracoCSVPlugin)}.{nameof(Login)} Auth not set!");
-        //            return false;
-        //        }
-        //        token = auth.Login("sopraco_api", "gf8a08UK");
-
-        //        return token.AuthenticationResult;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        unLogger.WriteError($"{nameof(SopracoCSVPlugin)}.{nameof(Login)} Ex: {ex.Message}", ex);
-        //        return false;
-        //    }
-        //}
-
         #region IReaderPlugin
 
         public void setSaveToDB(CORE.AFSavetoDB value)
@@ -231,6 +194,7 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
             foreach (string dir in excludedirs.Split(';'))
             {
                 excludeList.Add($"\\{dir}");
+                unLogger.WriteDebug($"Excluded directories: {excludeList.Last<string>()}");
             };
  
             return excludeList;

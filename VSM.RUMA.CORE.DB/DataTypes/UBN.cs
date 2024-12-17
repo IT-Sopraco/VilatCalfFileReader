@@ -173,7 +173,7 @@ namespace VSM.RUMA.CORE.DB.DataTypes
 			}
 			set 
 			{ 
-				base.SetDateTime(ColumnNamesUBN.ins, value);
+			//	base.SetDateTime(ColumnNamesUBN.ins, value);
 			}
 		}
         

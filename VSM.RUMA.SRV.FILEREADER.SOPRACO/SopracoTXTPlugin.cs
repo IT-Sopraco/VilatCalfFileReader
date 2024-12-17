@@ -204,11 +204,14 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
         public List<string> getExcludeList()
         {
             List<string> excludeList = new List<string>();
+            excludeList.Add(".FAIL");
+            excludeList.Add("{%");
 
             string excludedirs = ConfigurationManager.AppSettings["ExcludeDirs"];
             foreach (string dir in excludedirs.Split(';'))
             {
                 excludeList.Add($"\\{dir}");
+               // unLogger.WriteDebug($"Excluded directories: {excludeList.Last<string>()}");
             };
 
             return excludeList;

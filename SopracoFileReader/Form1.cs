@@ -28,6 +28,8 @@ namespace SopracoFileReader
         {
             FileProcessor fp = new FileProcessor();
             fp.OnStart();
+
+            button1.Text = "Running";
             
         }
 

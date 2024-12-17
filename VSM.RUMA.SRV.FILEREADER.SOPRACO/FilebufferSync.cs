@@ -12,6 +12,7 @@ using System.Threading;
 using System.Data;
 using System.IO;
 using System.Security.Cryptography;
+using System.Configuration;
 
 namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
 {
@@ -190,10 +191,7 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
 
                     int UbnIdDestination = 0;
                     int ThrIdDestination = 0;
-
-
                     int Fileimporttype = 0;
-
 
                     string[] importline = pCsvLine.Split(splitters);
                     unLogger.WriteInfo("importline.Length:" + importline.Length.ToString());
@@ -2217,6 +2215,26 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
                                         s.SalKeuringKalf = (int)LABELSConst.SalKeuringKalf.doodaangevoerd;
                                     }
 
+                                    //BEDRIJF b = new BEDRIJF
+                                    //{
+                                    //    ProgId = 1,
+                                    //    Programid = 1,
+                                    //    UBNid = fi.UbnID_Destination
+                                    //};
+                                    //List<BEDRIJF> bedr = DB.getBedrijvenByUBNId(fi.UbnID_Destination);
+                                    //if (bedr.Count() > 0)
+                                    //{
+                                    //    b = bedr.FirstOrDefault(x => x.ProgId != 3 && x.ProgId != 5);
+                                    //    if (b == null)
+                                    //    {
+                                    //        b = new BEDRIJF
+                                    //        {
+                                    //            ProgId = 1,
+                                    //            Programid = 1,
+                                    //            UBNid = fi.UbnID_Destination
+                                    //        };
+                                    //    }
+                                    //}
 
 
                                     if (m.MovId > 0)
@@ -2229,7 +2247,7 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
                                     }
                                     else
                                     {
-                                    
+
                                         //TODO: check AddSales failed
                                         m.Changed_By = _ChangedBy;
                                         s.Changed_By = _ChangedBy;
@@ -2239,7 +2257,7 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
                                         if (DB.SaveMovement(m))
                                         {
                                             s.MovId = m.MovId;
-                                
+
                                             unLogger.WriteInfo($@"Insert: saveSlachtdata Geel Animal:{a.AniAlternateNumber} FILE_IMPORT_ID:{fi.FILE_IMPORT_ID}  Sale Movid={m.MovId}");
 
                                             if (DB.SaveSale(s))
@@ -2290,28 +2308,40 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
                                             }
                                             fi.FI_State = (int)FILE_IMPORT_STATUS.Bevestigd;
                                             DB.saveFile_Import(fi);
-                                            
                                         }
                                         else
                                         {
                                             sl.Status = "F";
                                             sl.Omschrijving = "Kan geen Afvoer opslaan";
                                         }
-                                        Addbericht(ref berichten, t, fi.UbnID_Destination ,t.ThrStamboeknr + Environment.NewLine + "Er staan nieuwe afvoermeldingen voor u klaar. ", "Slachtdata en afvoermeldingen:" + t.ThrStamboeknr);
+                                        Addbericht(ref berichten, t, fi.UbnID_Destination, t.ThrStamboeknr + Environment.NewLine + "Er staan nieuwe afvoermeldingen voor u klaar. ", "Slachtdata en afvoermeldingen:" + t.ThrStamboeknr);
 
                                     }
-                               
+
+
+                                    //                               MovFunc.saveAfvoerMutation(_token, b, a, m, s);
+
                                     if (ac.Anicategory < 4)
                                     {
-                                        unLogger.WriteInfo($@"{a.AniLifeNumber} Update Anicategory from {ac.Anicategory} to 4 UBNid:{m.UbnId} ");
+                                        //  unLogger.WriteInfo($@"{a.AniLifeNumber} Update Anicategory from {ac.Anicategory} to 4 UBNid:{m.UbnId} ");
+                                        string cat = ac.Anicategory.ToString();
                                         ac.Anicategory = 4;
                                         ac.AniId = m.AniId;
                                         ac.UbnId = m.UbnId;
-                                        ac.FarmId = Getfarmid(m.UbnId);
+                                        //                                        ac.FarmId = Getfarmid(m.UbnId);
+                                        ac.FarmId = 0;
                                         ac.Changed_By = _ChangedBy;
                                         ac.SourceID = m.ThrId;
-                                        DB.SaveAnimalCategory(ac);
+                                        if (DB.SaveAnimalCategory(ac))
+                                        {
+                                            unLogger.WriteInfo($@"{a.AniLifeNumber} Update Anicategory from {cat} to 4 UBNid:{m.UbnId} ");
+                                        }
+                                        else
+                                        {
+                                            unLogger.WriteError($@"Anicategory for {a.AniLifeNumber} not Updated from {cat} to 4 UBNid:{m.UbnId} ");
+                                        }
                                     }
+
                                     unLogger.WriteInfo("Slachtdata: ingelezen van FILE_IMPORT_ID:" + fi.FILE_IMPORT_ID.ToString() + " dier:" + file[2]);
                                     retbericht = "Slachtdata ingelezen dier:" + file[2];
                                     
@@ -2701,8 +2731,8 @@ namespace VSM.RUMA.SRV.FILEREADER.SOPRACO
 	                (
 		                SELECT
 		                datediff(date(e.EveDate)+interval (am.ArtMed_DaysWaitingMeat + 1) day,current_date())
-		                FROM agrobase_calf.`EVENT` e
-		                JOIN agrobase_calf.TREATMEN t ON t.EventId = e.EventId
+		                FROM agrobase_calf.TREATMEN t
+		                JOIN agrobase_calf.`EVENT` e use index(AniId) ON t.EventId = e.EventId
 		                JOIN agrofactuur.ARTIKEL_MEDIC am ON am.artId = t.ArtID
 		                WHERE e.AniId = q.AniId AND e.UBNId = q.AcUbnId AND e.EventId > 0 AND e.EveKind = 6 AND Date(e.EveDate) <= CURRENT_DATE() AND (datediff(date(e.EveDate)+interval (am.ArtMed_DaysWaitingMeat + 1) day,current_date())) > 0
 		                ORDER BY e.EveDate DESC LIMIT 1

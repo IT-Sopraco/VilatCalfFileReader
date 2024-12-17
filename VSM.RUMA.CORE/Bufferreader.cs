@@ -27,7 +27,8 @@ namespace VSM.RUMA.CORE
         {
             Voer = 1,
             Medicijnen = 2,
-            Bloedonderzoek = 3
+            Bloedonderzoek = 3,
+            Dier = 6
         }
 
         /*

@@ -10538,10 +10538,13 @@ WHERE   tr.TreFirstApplicationId = {TreFirstApplicationId}
         public THIRD GetThirdByVatNo(String vatNumber)
         {
             THIRD lThird = new THIRD();
-            StringBuilder lQuery = new StringBuilder();
-            lQuery.Append(" SELECT * FROM THIRD");
-            lQuery.AppendFormat(" WHERE ThrVATNumber= '{0}' ", vatNumber);
-            mDatabase.FillObject(mToken, lThird, lQuery);
+            if (vatNumber.Length > 0)
+            {
+                StringBuilder lQuery = new StringBuilder();
+                lQuery.Append(" SELECT * FROM THIRD");
+                lQuery.AppendFormat(" WHERE ThrVATNumber= '{0}' ", vatNumber);
+                mDatabase.FillObject(mToken, lThird, lQuery);
+            }
 
             return lThird;
         }
@@ -10579,13 +10582,14 @@ WHERE   tr.TreFirstApplicationId = {TreFirstApplicationId}
         public THIRD GetThirdByAddressZIPCity(String address, String zip, String city)
         {
             THIRD lThird = new THIRD();
-            StringBuilder lQuery = new StringBuilder();
-            lQuery.Append(" SELECT * FROM THIRD");
-            lQuery.AppendFormat(" WHERE ThrStreet1  = '{0}'  AND ThrId>0  ", address.Replace("'","''"));
-            lQuery.AppendFormat(" AND ThrZipCode = '{0}' ", zip);
-            lQuery.AppendFormat(" AND ThrCity = '{0}' ", city.Replace("'", "''"));
-            mDatabase.FillObject(mToken, lThird, lQuery);
-
+            if ( !((address == String.Empty) && (zip == String.Empty) && (city == String.Empty))) { 
+                StringBuilder lQuery = new StringBuilder();
+                lQuery.Append(" SELECT * FROM THIRD");
+                lQuery.AppendFormat(" WHERE ThrStreet1  = '{0}'  AND ThrId>0  ", address.Replace("'", "''"));
+                lQuery.AppendFormat(" AND ThrZipCode = '{0}' ", zip);
+                lQuery.AppendFormat(" AND ThrCity = '{0}' ", city.Replace("'", "''"));
+                mDatabase.FillObject(mToken, lThird, lQuery);
+            }
             return lThird;
         }
 
@@ -10635,6 +10639,22 @@ WHERE   tr.TreFirstApplicationId = {TreFirstApplicationId}
             lQuery.AppendFormat("SELECT ThrId FROM THIRDKIN WHERE ThkDescriptionId = {0} AND ThrRegistrationNr = '{1}'", descriptionId, registrationNr);
             bool hasresults = mDatabase.FillObject(mToken, tk, lQuery);
             return hasresults ? tk.ThrId : 0;
+        }
+
+        public THIRD GetThirdByJuridischNummer(string pThrBeslagNummer) {
+            THIRD lThird = new THIRD();
+            if (pThrBeslagNummer != String.Empty) {
+                string beslagNr = pThrBeslagNummer.Substring(2);
+                StringBuilder lQuery = new StringBuilder();
+                lQuery.Append("SELECT * FROM agrofactuur.third t ");
+                lQuery.AppendFormat("WHERE t.thrBeslagnr = '{0}' AND t.thrId > 0", beslagNr);
+                mDatabase.FillObject(mToken, lThird, lQuery);
+                if (lThird.ThrCountry.Trim() == "")
+                {
+                    lThird.ThrCountry = "151";
+                }
+            }
+            return lThird;
         }
 
         public THIRD GetThirdByUBN(string pThrFarmNumber)
