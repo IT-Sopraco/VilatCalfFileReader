@@ -17,11 +17,10 @@ namespace SopracoFileReader
         {
             InitializeComponent();
 
-            //filesystemwatcher textwatcher = new filesystemwatcher();
-            //textwatcher.filter = "*.txt";
-            //textwatcher.path = "c:\\temp\\testwatch";
-            //textwatcher.created += textwatcher_created;
-            //addwatcher(textwatcher);
+            string[] args = Environment.GetCommandLineArgs();
+            if (args != null && args.Length > 1) {
+                if (args[1] == "autostart") { button1_Click(button1, null); }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,8 +28,7 @@ namespace SopracoFileReader
             FileProcessor fp = new FileProcessor();
             fp.OnStart();
 
-            button1.Text = "Running";
-            
+            button1.Text = "Running"; 
         }
 
     }

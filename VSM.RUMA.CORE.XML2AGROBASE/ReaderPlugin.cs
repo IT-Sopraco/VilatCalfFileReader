@@ -229,8 +229,10 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
                         switch (buyReader.Name.ToString())
                         {
                             case "MovId": buy.MovId = buyReader.ReadElementContentAsInt(); break;
-                            case "PurPrice": buy.PurPrice = buyReader.ReadElementContentAsDouble(); break;
+                            case "PurPrice": buy.PurPrice = buyReader.ReadElementContentAsDouble(); break; 
                             case "PurWeight": buy.PurWeight = buyReader.ReadElementContentAsDouble(); break;
+                            //case "PurPrice": try { buy.PurPrice = buyReader.ReadElementContentAsDouble(); } catch { buy.PurPrice = 0.00; } break;
+                            //case "PurWeight": try { buy.PurWeight = buyReader.ReadElementContentAsDouble(); } catch { buy.PurWeight = 0.0; } break;
                             case "PurVersienrPaspoort": buy.PurVersienrPaspoort = buyReader.ReadElementContentAsInt(); break;
                             case "PurHandelaar": buy.PurHandelaar = buyReader.ReadElementContentAsInt(); break;
                         }
