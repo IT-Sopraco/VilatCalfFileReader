@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "FileReader";
+            this.Text = "FileReader_Voer";
             this.ResumeLayout(false);
 
         }

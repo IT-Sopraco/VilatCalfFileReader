@@ -14,6 +14,7 @@ using VSM.RUMA.CORE.DB;
 using System.Configuration;
 using VSM.RUMA.CORE.DB.DataTypes;
 using static VSM.RUMA.CORE.DB.LABELSConst;
+using System.Reflection;
 
 namespace SopracoFileReader
 {
@@ -122,7 +123,9 @@ namespace SopracoFileReader
                 FileWatchData lFWD = new FileWatchData(lFileWatcher.Filter, lFileWatcher.Path);
                 String[] PathList = e.Name.Split(new char[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
 
-                if ((!lFileWatcher.IncludeSubdirectories) || PathList.Length >= 2)
+
+                //               if ((lFileWatcher.IncludeSubdirectories) || PathList.Length >= 1) // Filereader_voer
+                if ((lFileWatcher.IncludeSubdirectories) || PathList.Length >= 2)
                 {
                     lock (uniqueLock)
                     {
@@ -179,8 +182,8 @@ namespace SopracoFileReader
                 {
                     String[] PathList = e.Name.Split(new char[] { System.IO.Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
 
-                    if ((!lFileWatcher.IncludeSubdirectories) || PathList.Length >= 2)
- //                   if ((lFileWatcher.IncludeSubdirectories) || PathList.Length >= 1) // Filereader_voer
+                    //                    if ((lFileWatcher.IncludeSubdirectories) || PathList.Length >= 1) // Filereader_voer
+                    if ((lFileWatcher.IncludeSubdirectories) || PathList.Length >= 2)
                     {
                         lock (uniqueLock)
                         {
@@ -267,6 +270,7 @@ namespace SopracoFileReader
             try
             {
                 return 20;
+               // return 2; // Filereader_Voer
               //  return Convert.ToByte(AppDomain.CurrentDomain.GetData("MaxWorkers"));
             }
             catch

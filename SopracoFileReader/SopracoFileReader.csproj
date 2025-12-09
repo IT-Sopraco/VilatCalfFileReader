@@ -7,7 +7,7 @@
     <ProjectGuid>{15DBCE91-6EFD-4F2B-800D-2B019ABEE071}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SopracoFileReader</RootNamespace>
-    <AssemblyName>SopracoFileReader</AssemblyName>
+    <AssemblyName>SopracoFileReader_Voer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
