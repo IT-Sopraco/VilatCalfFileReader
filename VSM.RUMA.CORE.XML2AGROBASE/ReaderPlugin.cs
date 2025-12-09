@@ -176,14 +176,15 @@ namespace VSM.RUMA.CORE.XML2AGROBASE
             }
 
             int bedrijfThrId = bedrijf.ThrId;
-            int ubnId = DB.getUBNidAndProgIdByUBNNr(ubn.Bedrijfsnummer, out programId);
+//            int ubnId = DB.getUBNidAndProgIdByUBNNr(ubn.Bedrijfsnummer, out programId);
+            int ubnId = DB.getUBNByThirdID(bedrijfThrId).UBNid;
             Dictionary<int, int> ThrIDs = ConnectABThirdIds(relations);
             ReplaceThrIds(ThrIDs, animals, relations, buys);
 
             try
             {
                 //SaveAnimals(animals, movements, ubnId);
-                //SaveMovements(movements, buys, ubnId);
+                //SaveMovements(movements, buys, ubnId); getbuyingbymovid() , GetMovementByDateAniIdKind()
                 //SaveBuys(buys);
                 for (int i = 0; i <= animals.Count - 1; i++)
                 {
